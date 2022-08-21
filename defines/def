@@ -10,7 +10,8 @@ enum{
 };
 enum{
 	floor,
-	rock
+	rock,
+	door
 };
 enum{
 	unable,

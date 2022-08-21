@@ -64,6 +64,9 @@ void Map::print(int x,int y){
 						break;
 					case rock:
 						putchar('-');
+						break;
+					case door:
+						putchar('@');
 				}
 			}
 			putchar('\n');
