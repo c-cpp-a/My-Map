@@ -1,0 +1,20 @@
+#ifndef DEF
+#define DEF
+const int COLS=100,LINES=50;
+enum{
+	defaults,
+	ups,
+	downs,
+	lefts,
+	rights
+};
+enum{
+	floor,
+	rock
+};
+enum{
+	unable,
+	Chinese,
+	English
+};
+#endif 
