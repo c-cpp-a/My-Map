@@ -1,106 +1,15 @@
+//include STL
+//导入标准库 
 #include<iostream>
 #include<windows.h>
 #include<conio.h>
-#include<map>
+//include custom library
+//导入自定义库 
+#include "defines/def"
+#include "defines/Map.h"
+
 using namespace std;
-const int COLS=100,LINES=50;
-enum{
-	defaults,
-	ups,
-	downs,
-	lefts,
-	rights
-};
-enum{
-	floor,
-	rock
-};
-int move_f=defaults,x=1,y=1;
-class Map{
-	private:
-		map<int,map<int,int>> a;
-	public:
-		
-	public:
-		void print(int x,int y){
-			system("CLS");
-			if(x>=COLS/2 && y>=LINES/2){
-				for(int i=x-LINES/2+1;i<=x+LINES/2;i++){
-					for(int j=y-COLS/2+1;j<=y+COLS/2;j++){
-						if(i==x && j==y){
-							putchar('#');
-							continue;
-						}
-						switch(a[i][j]){
-							case floor:
-								putchar(' ');
-								break;
-							case rock:
-								putchar('-');
-						}
-					}
-					putchar('\n');
-				}
-			} else if(x>=COLS/2){
-				for(int i=x-LINES/2+1;i<=x+LINES/2;i++){
-					for(int j=1;j<=COLS;j++){
-						if(i==x && j==y){
-							putchar('#');
-							continue;
-						}
-						switch(a[i][j]){
-							case floor:
-								putchar(' ');
-								break;
-							case rock:
-								putchar('-');
-						}
-					}
-					putchar('\n');
-				}
-			} else if(y>=COLS/2){
-				for(int i=1;i<=LINES;i++){
-					for(int j=y-COLS/2+1;j<=y+COLS/2;j++){
-						if(i==x && j==y){
-							putchar('#');
-							continue;
-						}
-						switch(a[i][j]){
-							case floor:
-								putchar('.');
-								break;
-							case rock:
-								putchar('-');
-						}
-					}
-					putchar('\n');
-				}
-			} else{
-				for(int i=1;i<=LINES;i++){
-					for(int j=1;j<=COLS;j++){
-						if(i==x && j==y){
-							putchar('#');
-							continue;
-						}
-						switch(a[i][j]){
-							case floor:
-								putchar('.');
-								break;
-							case rock:
-								putchar('-');
-						}
-					}
-					putchar('\n');
-				}
-			}
-		}
-		void change(int x,int y,int c){
-			a[x][y]=c;
-		}
-		bool issave(int x,int y){
-			return a[x][y]!=rock;
-		}
-};
+int move_f=defaults,x=1,y=1,lang=unable;
 void set_f(Map &h){
 	int a=getch();
 	switch(a){
@@ -158,23 +67,48 @@ void set_f(Map &h){
 					h.change(x,y+1,rock);
 			}
 			break;
+		case 'C':case 'c':
+			lang=Chinese;
+			break;
+		case 'E':case 'e':
+			lang=English;
+			break;
 	}
 }
 int main(){
 	system("title 我的地图");
 	system(("mode "+to_string(COLS)+","+to_string(LINES+10)).c_str());
+	ask:cout << "Please Choose language.\n请设置语言。\n"
+			"Press'e'to set the language to English, and press'c' to set the language to Chinese.\n"
+			"按'e'键设置语言为英文，按'c'键设置语言为中文。\n";
+	int lang=getch();
+	if(lang=='c')	lang=Chinese;
+	else if(lang=='e')	lang=English;
+	else{
+		cout << "Error:cannot set this language.\n"
+				"错误：不能设置为此语言。\n";
+				goto ask;
+	}
+	system("CLS");
 	Map G;
 	while(1){
 		G.print(x,y);
-		cout << "\n.:空地，可走动\n-:岩石，不可走动\n#:你自己\n"; 
-		cout << "WASD移动，按1键将在前进方向上清除岩石，按2键将在前进方向上创建岩石。\n";
-		cout << "更多功能拓展中。。。" << endl;
+		if(lang==Chinese){
+			//language:Chinese
+			//语言：中文 
+			cout << "\n.:空地，可走动\n-:岩石，不可走动\n#:你自己\n"
+					"WASD移动，按1键将在前进方向上清除岩石，按2键将在前进方向上创建岩石。\n"
+					"更多功能拓展中。。。" << endl;
+		} else if(lang==English){
+			//language:English
+			//语言：英文
+			cout <<  "\n:open space, movable\n-:rock, not movable\n#:yourself\n"
+					"WASD moves, press 1 to clear the rock in the forward direction, and press 2 to create the rock in the forward direction.\n"
+					"More function expansion..." << endl;
+		}
 		set_f(G);
 		Sleep(10);
 	}
 	
 	return 0;
 }
-
-//language:Chinese
-//语言：中文
