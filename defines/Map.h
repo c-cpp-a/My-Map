@@ -7,9 +7,9 @@ class Map{
 	private:
 		map<int,map<int,int>> a;
 	public:
-		void print(int x,int y);
-		void change(int x,int y,int c);
-		bool issave(int x,int y);
+		void print(int,int);
+		void change(int,int,int);
+		bool issave(int,int);
 };
 #include "Map.cpp"
 #endif

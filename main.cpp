@@ -1,114 +1,51 @@
 //include STL
-//å¯¼å…¥æ ‡å‡†åº“ 
+//µ¼Èë±ê×¼¿â 
 #include<iostream>
 #include<windows.h>
 #include<conio.h>
 //include custom library
-//å¯¼å…¥è‡ªå®šä¹‰åº“ 
+//µ¼Èë×Ô¶¨Òå¿â 
 #include "defines/def"
 #include "defines/Map.h"
-
+#include "defines/People.h"
 using namespace std;
-int move_f=defaults,x=1,y=1,lang=unable;
-void set_f(Map &h){
-	int a=getch();
-	switch(a){
-		case 'W':case 'w':
-			if(!h.issave(x-1,y))	break;
-			if(x>1){
-				x--;
-				move_f=ups;
-			}
-			break;
-		case 'A':case 'a':
-			if(!h.issave(x,y-1))	break;
-			if(y>1){
-				y--;
-				move_f=lefts;
-			}
-			break;
-		case 'S':case 's':
-			if(!h.issave(x+1,y))	break;
-			x++;
-			move_f=downs;
-			break;
-		case 'D':case 'd':
-			if(!h.issave(x,y+1))	break;
-			y++;
-			move_f=rights;
-			break;
-		case '1':
-			switch(move_f){
-				case ups:
-					h.change(x-1,y,floor);
-					break;
-				case downs:
-					h.change(x+1,y,floor);
-					break;
-				case lefts:
-					h.change(x,y-1,floor);
-					break;
-				case rights:
-					h.change(x,y+1,floor);
-			}
-			break;
-		case '2':
-			switch(move_f){
-				case ups:
-					h.change(x-1,y,rock);
-					break;
-				case downs:
-					h.change(x+1,y,rock);
-					break;
-				case lefts:
-					h.change(x,y-1,rock);
-					break;
-				case rights:
-					h.change(x,y+1,rock);
-			}
-			break;
-		case 'C':case 'c':
-			lang=Chinese;
-			break;
-		case 'E':case 'e':
-			lang=English;
-			break;
-	}
-}
 int main(){
-	system("title æˆ‘çš„åœ°å›¾");
+	system("title ÎÒµÄµØÍ¼");
 	system(("mode "+to_string(COLS)+","+to_string(LINES+10)).c_str());
-	ask:cout << "Please Choose language.\nè¯·è®¾ç½®è¯­è¨€ã€‚\n"
+	ask:cout << "Please Choose language.\nÇëÉèÖÃÓïÑÔ¡£\n"
 			"Press'e'to set the language to English, and press'c' to set the language to Chinese.\n"
-			"æŒ‰'e'é”®è®¾ç½®è¯­è¨€ä¸ºè‹±æ–‡ï¼ŒæŒ‰'c'é”®è®¾ç½®è¯­è¨€ä¸ºä¸­æ–‡ã€‚\n";
+			"°´'e'¼üÉèÖÃÓïÑÔÎªÓ¢ÎÄ£¬°´'c'¼üÉèÖÃÓïÑÔÎªÖÐÎÄ¡£\n";
 	int lang=getch();
 	if(lang=='c')	lang=Chinese;
 	else if(lang=='e')	lang=English;
 	else{
 		cout << "Error:cannot set this language.\n"
-				"é”™è¯¯ï¼šä¸èƒ½è®¾ç½®ä¸ºæ­¤è¯­è¨€ã€‚\n";
+				"´íÎó£º²»ÄÜÉèÖÃÎª´ËÓïÑÔ¡£\n";
 				goto ask;
 	}
 	system("CLS");
 	Map G;
+	People p;
 	while(1){
-		G.print(x,y);
+		p.put_xy(G);
 		if(lang==Chinese){
 			//language:Chinese
-			//è¯­è¨€ï¼šä¸­æ–‡ 
-			cout << "\n.:ç©ºåœ°ï¼Œå¯èµ°åŠ¨\n-:å²©çŸ³ï¼Œä¸å¯èµ°åŠ¨\n#:ä½ è‡ªå·±\n"
-					"WASDç§»åŠ¨ï¼ŒæŒ‰1é”®å°†åœ¨å‰è¿›æ–¹å‘ä¸Šæ¸…é™¤å²©çŸ³ï¼ŒæŒ‰2é”®å°†åœ¨å‰è¿›æ–¹å‘ä¸Šåˆ›å»ºå²©çŸ³ã€‚\n"
-					"æ›´å¤šåŠŸèƒ½æ‹“å±•ä¸­ã€‚ã€‚ã€‚" << endl;
+			//ÓïÑÔ£ºÖÐÎÄ 
+			cout << "\n.:¿ÕµØ£¬¿É×ß¶¯\n-:ÑÒÊ¯£¬²»¿É×ß¶¯\n#:Äã×Ô¼º\n"
+					"WASDÒÆ¶¯£¬°´1¼ü½«ÔÚÇ°½ø·½ÏòÉÏÇå³ýÑÒÊ¯£¬°´2¼ü½«ÔÚÇ°½ø·½ÏòÉÏ´´½¨ÑÒÊ¯¡£\n"
+					"¸ü¶à¹¦ÄÜÍØÕ¹ÖÐ¡£¡£¡£" << endl;
 		} else if(lang==English){
 			//language:English
-			//è¯­è¨€ï¼šè‹±æ–‡
+			//ÓïÑÔ£ºÓ¢ÎÄ
 			cout <<  "\n:open space, movable\n-:rock, not movable\n#:yourself\n"
 					"WASD moves, press 1 to clear the rock in the forward direction, and press 2 to create the rock in the forward direction.\n"
 					"More function expansion..." << endl;
 		}
-		set_f(G);
+		p.set_f(G);
 		Sleep(10);
 	}
 	
 	return 0;
 }
+
+
