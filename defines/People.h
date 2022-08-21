@@ -1,5 +1,10 @@
 #ifndef PEOPLE_H_
 #define PEOPLE_H_
+//include STL
+//导入标准库 
+#include<conio.h>
+//include custom library
+//导入自定义库
 #include "def"
 #include "Map.h"
 class People{
