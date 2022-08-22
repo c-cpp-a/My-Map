@@ -1,8 +1,16 @@
 # My-Map
+## V1.0 introduction
+## V1.0介绍
 This is a new Sandbox game. You can create or destroy rocks here, and you can walk freely. More functions are under development.
 
 这是一个新的沙盒游戏。你在这里可以创建或销毁岩石，也可以自由行走。更多功能开发中。
-
+## 注意事项
 This version is only available for windows.
 
 此版本只适用于Windows。
+
+## V1.1 introduction
+## V1.1介绍
+The new portal function can easily reach remote places.
+
+新增传送门功能，可以方便地到达遥远之地。
