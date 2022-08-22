@@ -20,6 +20,26 @@ void set_lang(){
 	}
 	system("CLS");
 }
+void set_import(People &p,Map &h){
+	int ifimport=0;
+	if(lang==Chinese){
+		//language:Chinese
+		//语言：中文 
+		cout << "请问您是否要导入存档？如果不导入，存档可能丢失。（本功能测试中）\n";
+		cout << "按'y'键导入存档。";
+		ifimport=getch();
+		if(ifimport=='y'){
+			p.imports(h);
+		}
+	} else{
+		cout << "Do you want to import the archive? If you do not import, the archive may be lost.(in this function test)\n";
+		cout << "Press the 'y' key to import the archive.";
+		if(ifimport=='y'){
+			p.imports(h);
+		}
+	}
+	system("CLS");
+}
 void print_helper(){
 	if(lang==Chinese){
 		//language:Chinese

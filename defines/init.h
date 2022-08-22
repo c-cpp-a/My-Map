@@ -9,13 +9,17 @@
 //include custom library
 //导入自定义库
 #include "def"
+void create_door_helper();
+#include "People.h"
 void set_parameters();
 void set_lang();
+void set_import(People &,Map &);
 void print_helper();
-inline void init(){
+inline void init(People &p,Map &h){
 	set_parameters();
 	set_lang();
+	set_import(p,h);
 }
-void create_door_helper();
+
 #include "init.cpp"
 #endif

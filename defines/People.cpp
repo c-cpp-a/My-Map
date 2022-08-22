@@ -117,3 +117,18 @@ void People::set_f(Map &h){
 void People::put_xy(Map &h){
 	h.print(x,y);
 }
+void People::save(Map &h){
+	ofstream fout;
+	fout.open(SAVE_NAME);
+	h.save();
+	fout << x << ' ' << y << endl;
+	fout.close();
+	
+}
+void People::imports(Map &h){
+	ifstream fin;
+	fin.open(SAVE_NAME);
+	h.imports();
+	fin >> x >> y;
+	fin.close();
+}

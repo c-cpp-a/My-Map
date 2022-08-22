@@ -23,6 +23,8 @@ class People{
 		People():move_f(defaults),x(1),y(1),lang(unable){}
 		void set_f(Map &);
 		void put_xy(Map &);
+		void save(Map &);
+		void imports(Map &);
 };
 #include "People.cpp"
 #endif

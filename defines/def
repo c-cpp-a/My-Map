@@ -1,6 +1,10 @@
 #ifndef DEF
 #define DEF
+//include STL
+//导入标准库 
+#include<map>
 const int COLS=100,LINES=50;
+const char SAVE_NAME[]="data.mymap";
 enum{
 	defaults,
 	ups,
@@ -17,5 +21,10 @@ enum{
 	unable,
 	Chinese,
 	English
+};
+std::map<int,char> print_c={
+	{floor,' '},
+	{rock,'-'},
+	{door,'@'}
 };
 #endif 

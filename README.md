@@ -14,3 +14,9 @@ This version is only available for windows.
 The new portal function can easily reach remote places.
 
 新增传送门功能，可以方便地到达遥远之地。
+
+## V1.2 introduction
+## V1.2介绍
+Added the function of importing and exporting documents.
+
+新增导入导出文档功能。

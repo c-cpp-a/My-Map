@@ -7,13 +7,7 @@ void Map::print(int x,int y){
 					putchar('#');
 					continue;
 				}
-				switch(a[i][j]){
-					case floor:
-						putchar(' ');
-						break;
-					case rock:
-						putchar('-');
-				}
+				putchar(print_c[a[i][j]]);
 			}
 			putchar('\n');
 		}
@@ -24,13 +18,7 @@ void Map::print(int x,int y){
 					putchar('#');
 					continue;
 				}
-				switch(a[i][j]){
-					case floor:
-						putchar(' ');
-						break;
-					case rock:
-						putchar('-');
-				}
+				putchar(print_c[a[i][j]]);
 			}
 			putchar('\n');
 		}
@@ -41,13 +29,7 @@ void Map::print(int x,int y){
 					putchar('#');
 					continue;
 				}
-				switch(a[i][j]){
-					case floor:
-						putchar('.');
-						break;
-					case rock:
-						putchar('-');
-				}
+				putchar(print_c[a[i][j]]);
 			}
 			putchar('\n');
 		}
@@ -58,16 +40,7 @@ void Map::print(int x,int y){
 					putchar('#');
 					continue;
 				}
-				switch(a[i][j]){
-					case floor:
-						putchar('.');
-						break;
-					case rock:
-						putchar('-');
-						break;
-					case door:
-						putchar('@');
-				}
+				putchar(print_c[a[i][j]]);
 			}
 			putchar('\n');
 		}
@@ -75,7 +48,34 @@ void Map::print(int x,int y){
 }
 void Map::change(int x,int y,int c){
 	a[x][y]=c;
+	downx=max(downx,x);
+	righty=max(righty,y);
 }
 bool Map::issave(int x,int y){
 	return a[x][y]!=rock;
+}
+void Map::imports(){
+	ifstream fin;
+	fin.open(SAVE_NAME);
+	fin >> downx >> righty;
+	for(int i=1;i<=downx;i++){
+		for(int j=1;j<=righty;j++){
+			char ch;
+			fin >> ch;
+			a[i][j]=ch;
+		}
+	}
+	fin.close();
+}
+void Map::save(){
+	ofstream fout;
+	fout.open(SAVE_NAME);
+	fout << downx << ' ' << righty;
+	for(int i=1;i<=downx;i++){
+		for(int j=1;j<=righty;j++){
+			fout << a[i][j] << ' ';
+		}
+		fout << '\n';
+	}
+	fout.close();
 }
