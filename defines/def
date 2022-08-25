@@ -15,7 +15,8 @@ enum{
 enum{
 	floor,
 	rock,
-	door
+	door,
+	ball
 };
 enum{
 	unable,
@@ -25,6 +26,7 @@ enum{
 std::map<int,char> print_c={
 	{floor,' '},
 	{rock,'-'},
-	{door,'@'}
+	{door,'@'},
+	{ball,'o'}
 };
 #endif 

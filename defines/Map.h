@@ -18,6 +18,7 @@ class Map{
 		bool issave(int,int);
 		void imports();
 		void save();
+		map<int,int> operator[](int i);
 };
 #include "Map.cpp"
 #endif

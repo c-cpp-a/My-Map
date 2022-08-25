@@ -32,30 +32,38 @@ void People::set_f(Map &h){
 			switch(move_f){
 				case ups:
 					h.change(x-1,y,floor);
+					doors[x-1][y]=default_door;
 					break;
 				case downs:
 					h.change(x+1,y,floor);
+					doors[x+1][y]=default_door;
 					break;
 				case lefts:
 					h.change(x,y-1,floor);
+					doors[x][y-1]=default_door;
 					break;
 				case rights:
 					h.change(x,y+1,floor);
+					doors[x][y+1]=default_door;
 			}
 			break;
 		case '2':
 			switch(move_f){
 				case ups:
 					h.change(x-1,y,rock);
+					doors[x-1][y]=default_door;
 					break;
 				case downs:
 					h.change(x+1,y,rock);
+					doors[x+1][y]=default_door;
 					break;
 				case lefts:
 					h.change(x,y-1,rock);
+					doors[x][y-1]=default_door;
 					break;
 				case rights:
 					h.change(x,y+1,rock);
+					doors[x][y+1]=default_door;
 			}
 			break;
 		case '3':
@@ -101,6 +109,26 @@ void People::set_f(Map &h){
 				doors[xx][yy]=node({nx,ny});
 			}
 			break; 
+		case '4':
+			switch(move_f){
+				case ups:
+					h.change(x-1,y,ball);
+					doors[x-1][y]=default_door;
+					break;
+				case downs:
+					h.change(x+1,y,ball);
+					doors[x+1][y]=default_door;
+					break;
+				case lefts:
+					h.change(x,y-1,ball);
+					doors[x][y-1]=default_door;
+					break;
+				case rights:
+					h.change(x,y+1,ball);
+					doors[x][y+1]=default_door;
+					break;
+			}
+			break;
 		case 'C':case 'c':
 			lang=Chinese;
 			break;
@@ -112,23 +140,80 @@ void People::set_f(Map &h){
 		int xx=x,yy=y;
 		x=doors[xx][yy].x;
 		y=doors[xx][yy].y;
+	} else if(h[x][y]==ball){
+		int xx=x,yy=y;
+		bool f=true;
+		switch(move_f){
+			case ups:
+				while(xx>=1 && h[xx][yy]!=floor){
+					if(h[xx][yy]==rock || h[xx][yy]==door){
+						f=false;
+						break;
+					}
+					xx--;
+				} 
+				if(f && xx>=1){
+					h[xx][yy]=ball;
+					h[x][y]=floor;
+				}
+				break;
+			case downs:
+				while(h[xx][yy]!=floor){
+					if(h[xx][yy]==rock || h[xx][yy]==door){
+						f=false;
+						break;
+					}
+					xx++;
+				} 
+				if(f){
+					h[xx][yy]=ball;
+					h[x][y]=floor;
+				}
+				break;
+			case lefts:
+				while(yy>=1 && h[xx][yy]!=floor){
+					if(h[xx][yy]==rock || h[xx][yy]==door){
+						f=false;
+						break;
+					}
+					yy--;
+				} 
+				if(f && yy>=1){
+					h[xx][yy]=ball;
+					h[x][y]=floor;
+				}
+				break;
+			case rights:
+				while(h[xx][yy]!=floor){
+					if(h[xx][yy]==rock || h[xx][yy]==door){
+						f=false;
+						break;
+					}
+					yy++;
+				} 
+				if(f){
+					h[xx][yy]=ball;
+					h[x][y]=floor;
+				}
+				break;
+		}
 	}
 }
 void People::put_xy(Map &h){
 	h.print(x,y);
 }
-void People::save(Map &h){
-	ofstream fout;
-	fout.open(SAVE_NAME);
-	h.save();
-	fout << x << ' ' << y << endl;
-	fout.close();
-	
-}
-void People::imports(Map &h){
-	ifstream fin;
-	fin.open(SAVE_NAME);
-	h.imports();
-	fin >> x >> y;
-	fin.close();
-}
+//void People::save(Map &h){
+//	ofstream fout;
+//	fout.open(SAVE_NAME);
+//	h.save();
+//	fout << endl << x << ' ' << y << endl;
+//	fout.close();
+//	
+//}
+//void People::imports(Map &h){
+//	ifstream fin;
+//	fin.open(SAVE_NAME);
+//	h.imports();
+//	fin >> x >> y;
+//	fin.close();
+//}

@@ -17,7 +17,7 @@ int main(){
 		p.put_xy(G);
 		print_helper();
 		p.set_f(G);
-		p.save(G);
+//		p.save(G);
 		Sleep(10);
 	}
 	return 0;

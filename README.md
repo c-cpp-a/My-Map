@@ -21,3 +21,10 @@ The new portal function can easily reach remote places.
 Added the function of importing and exporting documents.
 
 新增导入导出文档功能。
+
+## V1.3 introduction
+## V1.3介绍
+
+Add small balls; Discard the archive function and stop providing it until the bug is fixed.
+
+新增小球；弃用存档功能，在修复好bug之前不再提供。

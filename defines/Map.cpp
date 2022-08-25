@@ -79,3 +79,6 @@ void Map::save(){
 	}
 	fout.close();
 }
+map<int,int> Map::operator[](int i){
+	return a[i];
+}
