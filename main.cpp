@@ -16,6 +16,7 @@ int main(){
 	while(1){
 		p.put_xy(G);
 		print_helper();
+		p.print_pos(); 
 		p.set_f(G);
 //		p.save(G);
 		Sleep(10);

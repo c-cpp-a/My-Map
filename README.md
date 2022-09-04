@@ -32,7 +32,7 @@ Add small balls; Discard the archive function and stop providing it until the bu
 ### Fix version
 ### 修复版本
 
-Fix the bug that the ball does not update.
+Fix the bug that the ball does not update, and make changes to the screen related help.
 
-修复小球不更新的bug。
+修复小球不更新的bug，并对屏幕相关帮助作出更改。
 
