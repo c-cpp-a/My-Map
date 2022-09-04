@@ -29,7 +29,10 @@ Add small balls; Discard the archive function and stop providing it until the bu
 
 新增小球；弃用存档功能，在修复好bug之前不再提供。
 
-## V1.3 Fix version introduction
-## V1.3 修复版本介绍
+### Fix version
+### 修复版本
+
+Fix the bug that the ball does not update.
 
 修复小球不更新的bug。
+
