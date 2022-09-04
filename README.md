@@ -28,3 +28,8 @@ Added the function of importing and exporting documents.
 Add small balls; Discard the archive function and stop providing it until the bug is fixed.
 
 新增小球；弃用存档功能，在修复好bug之前不再提供。
+
+## V1.3 Fix version introduction
+## V1.3 修复版本介绍
+
+修复小球不更新的bug。

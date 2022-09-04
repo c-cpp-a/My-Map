@@ -15,16 +15,24 @@ class People{
 			int x,y;
 			node(int xx=-1,int yy=-1):x(xx),y(yy){}
 			bool operator!=(node a);
-		}default_door={-1,-1};
+			bool operator==(node a);
+			bool check();
+			node &operator=(const node &)=default;
+		};
+		static const node default_node;
 	private:
-		int move_f=defaults,x,y,lang;
+		int move_f=defaults,lang;
+		node pos;
 		map<int,map<int,node> > doors;	
+		node check_xy(node x,const int &func); 
+		const int back(const int &);
 	public:
-		People():move_f(defaults),x(1),y(1),lang(unable){}
+		People():move_f(defaults),lang(unable),pos({1,1}){}
 		void set_f(Map &);
 		void put_xy(Map &);
 //		void save(Map &);
 //		void imports(Map &);
 };
+const People::node People::default_node={-1,-1};
 #include "People.cpp"
 #endif

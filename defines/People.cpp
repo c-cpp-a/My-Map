@@ -1,132 +1,116 @@
 bool People::node::operator!=(People::node a){
 	return x!=a.x || y!=a.y;
 }
+bool People::node::operator==(People::node a){
+	return x==a.x && y==a.y;
+}
+bool People::node::check(){
+	return x>=1 && y>=1;
+}
+People::node People::check_xy(node x,const int &func){
+	node res=x;
+	switch(func){
+		case ups:
+			res.x--;
+			break;
+		case downs:
+			res.x++;
+			break;
+		case lefts:
+			res.y--;
+			break;
+		case rights:
+			res.y++;
+			break;
+	}
+	return (res.check()?res:x);
+}
+const int People::back(const int &func){
+	switch(func){
+		case ups:
+			return downs;
+		case downs:
+			return ups;
+		case lefts:
+			return rights;
+		case rights:
+			return lefts;
+	}
+	return func;
+}
 void People::set_f(Map &h){
 	int a=getch();
 	switch(a){
 		case 'W':case 'w':
-			if(!h.issave(x-1,y))	break;
-			if(x>1){
-				x--;
+			if(!h.issave(pos.x-1,pos.y))	break;
+			if(pos.x>1){
+				pos.x--;
 				move_f=ups;
 			}
 			break;
 		case 'A':case 'a':
-			if(!h.issave(x,y-1))	break;
-			if(y>1){
-				y--;
+			if(!h.issave(pos.x,pos.y-1))	break;
+			if(pos.y>1){
+				pos.y--;
 				move_f=lefts;
 			}
 			break;
 		case 'S':case 's':
-			if(!h.issave(x+1,y))	break;
-			x++;
+			if(!h.issave(pos.x+1,pos.y))	break;
+			pos.x++;
 			move_f=downs;
 			break;
 		case 'D':case 'd':
-			if(!h.issave(x,y+1))	break;
-			y++;
+			if(!h.issave(pos.x,pos.y+1))	break;
+			pos.y++;
 			move_f=rights;
 			break;
 		case '1':
-			switch(move_f){
-				case ups:
-					h.change(x-1,y,floor);
-					doors[x-1][y]=default_door;
-					break;
-				case downs:
-					h.change(x+1,y,floor);
-					doors[x+1][y]=default_door;
-					break;
-				case lefts:
-					h.change(x,y-1,floor);
-					doors[x][y-1]=default_door;
-					break;
-				case rights:
-					h.change(x,y+1,floor);
-					doors[x][y+1]=default_door;
+			{
+				auto tmp=check_xy(pos,move_f);
+				h.change(tmp.x,tmp.y,floor);
+				doors[tmp.x][tmp.y]=default_node;
 			}
 			break;
 		case '2':
-			switch(move_f){
-				case ups:
-					h.change(x-1,y,rock);
-					doors[x-1][y]=default_door;
-					break;
-				case downs:
-					h.change(x+1,y,rock);
-					doors[x+1][y]=default_door;
-					break;
-				case lefts:
-					h.change(x,y-1,rock);
-					doors[x][y-1]=default_door;
-					break;
-				case rights:
-					h.change(x,y+1,rock);
-					doors[x][y+1]=default_door;
+			{
+				auto tmp=check_xy(pos,move_f);
+				h.change(tmp.x,tmp.y,rock);
+				doors[tmp.x][tmp.y]=default_node;
 			}
 			break;
 		case '3':
 			{
-				int xx,yy,nx,ny,input=0;
-				switch(move_f){
-					case ups:
-						h.change(x-1,y,door);
-						xx=x-1,yy=y;
-						break;
-					case downs:
-						h.change(x+1,y,door);
-						xx=x+1,yy=y;
-						break;
-					case lefts:
-						h.change(x,y-1,door);
-						xx=x,yy=y-1;
-						break;
-					case rights:
-						h.change(x,y+1,door);
-						xx=x,yy=y+1;
-				}
-				nx=xx,ny=yy;
+				int input=0;
+				auto tmp=check_xy(pos,move_f),tmp2=tmp;
+				h.change(tmp.x,tmp.y,door);
 				while(input!=' '){
-					h.print(nx,ny);
+					h.print(tmp2.x,tmp2.y);
 					create_door_helper();
 					input=getch();
 					switch(input){
 						case 'W':case 'w':
-							if(nx>1)	nx--;
+							if(tmp2.x>1)	tmp2.x--;
 							break;
 						case 'A':case 'a':
-							if(ny>1)	ny--;
+							if(tmp2.y>1)	tmp2.y--;
 							break;
 						case 'S':case 's':
-							nx++;
+							tmp2.x++;
 							break;
 						case 'D':case 'd':
-							ny++;
+							tmp2.y++;
 							break;
 					}
 				}
-				doors[xx][yy]=node({nx,ny});
+				doors[tmp.x][tmp.y]=tmp2;
 			}
 			break; 
 		case '4':
-			switch(move_f){
-				case ups:
-					h.change(x-1,y,ball);
-					doors[x-1][y]=default_door;
-					break;
-				case downs:
-					h.change(x+1,y,ball);
-					doors[x+1][y]=default_door;
-					break;
-				case lefts:
-					h.change(x,y-1,ball);
-					doors[x][y-1]=default_door;
-					break;
-				case rights:
-					h.change(x,y+1,ball);
-					doors[x][y+1]=default_door;
-					break;
+			{
+				auto tmp=check_xy(pos,move_f);
+				h.change(tmp.x,tmp.y,ball);
+				doors[tmp.x][tmp.y]=default_node;
 			}
 			break;
 		case 'C':case 'c':
@@ -136,71 +120,30 @@ void People::set_f(Map &h){
 			lang=English;
 			break;
 	}
-	if(doors[x][y]!=default_door){
-		int xx=x,yy=y;
-		x=doors[xx][yy].x;
-		y=doors[xx][yy].y;
-	} else if(h[x][y]==ball){
-		int xx=x,yy=y;
-		bool f=true;
-		switch(move_f){
-			case ups:
-				while(xx>=1 && h[xx][yy]!=floor){
-					if(h[xx][yy]==rock || h[xx][yy]==door){
-						f=false;
-						break;
-					}
-					xx--;
-				} 
-				if(f && xx>=1){
-					h[xx][yy]=ball;
-					h[x][y]=floor;
-				}
+	if(doors[pos.x][pos.y]!=default_node){
+		auto tmp=pos;
+		pos.x=doors[tmp.x][tmp.y].x;
+		pos.y=doors[tmp.x][tmp.y].y;
+	} else if(h[pos.x][pos.y]==ball){
+		auto tmp=pos;
+		bool flag=true;
+		while(h[tmp.x][tmp.y]!=floor){
+			if(h[tmp.x][tmp.y]==rock || !tmp.check()){
+				flag=false;
 				break;
-			case downs:
-				while(h[xx][yy]!=floor){
-					if(h[xx][yy]==rock || h[xx][yy]==door){
-						f=false;
-						break;
-					}
-					xx++;
-				} 
-				if(f){
-					h[xx][yy]=ball;
-					h[x][y]=floor;
-				}
-				break;
-			case lefts:
-				while(yy>=1 && h[xx][yy]!=floor){
-					if(h[xx][yy]==rock || h[xx][yy]==door){
-						f=false;
-						break;
-					}
-					yy--;
-				} 
-				if(f && yy>=1){
-					h[xx][yy]=ball;
-					h[x][y]=floor;
-				}
-				break;
-			case rights:
-				while(h[xx][yy]!=floor){
-					if(h[xx][yy]==rock || h[xx][yy]==door){
-						f=false;
-						break;
-					}
-					yy++;
-				} 
-				if(f){
-					h[xx][yy]=ball;
-					h[x][y]=floor;
-				}
-				break;
+			}
+			tmp=check_xy(tmp,move_f);
+		}
+		if(flag){
+			h.change(tmp.x,tmp.y,ball);	
+			h.change(pos.x,pos.y,floor);
+		} else{
+			pos=check_xy(pos,back(move_f));
 		}
 	}
 }
 void People::put_xy(Map &h){
-	h.print(x,y);
+	h.print(pos.x,pos.y);
 }
 //void People::save(Map &h){
 //	ofstream fout;
