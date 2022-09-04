@@ -50,7 +50,7 @@ void print_helper(){
 	if(lang==Chinese){
 		//language:Chinese
 		//语言：中文 
-		cout << "\n.:空地，可走动\n-:岩石，不可走动\n#:你自己\n"
+		cout << "\n :空地，可走动\t-:岩石，不可走动\t@:传送门\to:小球\t#:你自己\n"
 				"WASD移动，按1键将在前进方向上清除一切，"
 				"按2键将在前进方向上创建岩石。"
 				"按3键将在前进方向上创建传送门。" 
@@ -59,7 +59,7 @@ void print_helper(){
 	} else if(lang==English){
 		//language:English
 		//语言：英文
-		cout << "\n:open space, movable\n-:rock, not movable\n#:yourself\n"
+		cout << "\n :open space, movable\t-: rock, not movable\t@: portal\to: ball\t#: yourself\n";
 				"WASD moves, pressing the 1 key will clear everything in the forward direction,"
 				"Press 2 to create the rock in the forward direction." 
 				"Pressing the 3 key will create a portal in the forward direction."
