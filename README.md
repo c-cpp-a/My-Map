@@ -39,5 +39,7 @@ Fix the bug that the ball does not update, and make changes to the screen relate
 ## V2.0 introduction
 ## V2.0 版本
 
+New eggs. Please explore or consult the code yourself.
+
 新增彩蛋。请自行探索或查阅代码。
 
