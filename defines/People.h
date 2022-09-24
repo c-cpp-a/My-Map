@@ -11,11 +11,14 @@
 #include "init.h"
 class People{
 	public:
+		friend class Egg;
+		friend int ::isegg(const int &lang,People &p);
+	public:
 		struct node{
 			int x,y;
 			node(int xx=-1,int yy=-1):x(xx),y(yy){}
-			bool operator!=(node a);
-			bool operator==(node a);
+			bool operator!=(const node a) const;
+			bool operator==(const node a) const;
 			bool check();
 			node &operator=(const node &)=default;
 		};
@@ -23,13 +26,16 @@ class People{
 	private:
 		int move_f=defaults,lang;
 		node pos;
-		map<int,map<int,node> > doors;	
+		map<int,map<int,node> > doors;
 		node check_xy(node x,const int &func); 
 		const int back(const int &);
 	public:
 		People():move_f(defaults),lang(unable),pos({1,1}){}
 		void set_f(Map &);
 		void put_xy(Map &);
+		inline const node at(int x,int y){
+			return doors[x][y];
+		}
 //		void save(Map &);
 //		void imports(Map &);
 };

@@ -6,6 +6,8 @@
 #include<cstdlib>
 #include<conio.h>
 #include<iostream>
+#include<windows.h>
+using namespace std;
 //include custom library
 //导入自定义库
 #include "def"
@@ -20,6 +22,6 @@ inline void init(People &p,Map &h){
 	set_lang();
 	set_import(p,h);
 }
-
+const int &get_lang();
 #include "init.cpp"
 #endif

@@ -1,7 +1,7 @@
-bool People::node::operator!=(People::node a){
+bool People::node::operator!=(const People::node a) const{
 	return x!=a.x || y!=a.y;
 }
-bool People::node::operator==(People::node a){
+bool People::node::operator==(const People::node a) const{
 	return x==a.x && y==a.y;
 }
 bool People::node::check(){

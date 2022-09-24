@@ -5,6 +5,7 @@
 #include<map>
 const int COLS=100,LINES=50;
 const char SAVE_NAME[]="data.mymap";
+const int EGG_POS[]={10,10};
 enum{
 	defaults,
 	ups,
@@ -22,6 +23,10 @@ enum{
 	unable,
 	Chinese,
 	English
+};
+enum{
+	empty_egg, 
+	CHI_egg_1
 };
 std::map<int,char> print_c={
 	{floor,' '},

@@ -31,7 +31,7 @@ void set_import(People &p,Map &h){
 //		if(ifimport=='y'){
 //			p.imports(h);
 //		}
-		cout << "此功能暂时空缺。\n";
+		cout << "此功能暂时空缺。按任意键继续…\n";
 		getch();
 		system("CLS");
 	} else{
@@ -40,13 +40,14 @@ void set_import(People &p,Map &h){
 //		if(ifimport=='y'){
 //			p.imports(h);
 //		}
-		cout << "This function is temporarily unavailable.\n";
+		cout << "This function is temporarily unavailable. Press any key to continue...\n";
 		getch();
 		system("CLS");
 	}
 	system("CLS");
 }
 void print_helper(){
+	using namespace std;
 	if(lang==Chinese){
 		//language:Chinese
 		//语言：中文 
@@ -59,7 +60,7 @@ void print_helper(){
 	} else if(lang==English){
 		//language:English
 		//语言：英文
-		cout << "\n :open space, movable\t-: rock, not movable\t@: portal\to: ball\t#: yourself\n";
+		cout << "\n :open space, movable\t-: rock, not movable\t@: portal\to: ball\t#: yourself\n"
 				"WASD moves, pressing the 1 key will clear everything in the forward direction,"
 				"Press 2 to create the rock in the forward direction." 
 				"Pressing the 3 key will create a portal in the forward direction."
@@ -77,4 +78,7 @@ void create_door_helper(){
 		//语言：英文
 		cout << "\nWASD key to move, and space key to confirm to place the transfer door.\n";
 	} 
+}
+const int &get_lang(){
+	return ::lang;
 }
