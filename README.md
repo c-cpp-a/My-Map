@@ -36,3 +36,8 @@ Fix the bug that the ball does not update, and make changes to the screen relate
 
 修复小球不更新的bug，并对屏幕相关帮助作出更改。
 
+## V2.0 introduction
+## V2.0 版本
+
+新增彩蛋。请自行探索或查阅代码。
+
