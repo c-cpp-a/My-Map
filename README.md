@@ -4,6 +4,10 @@ This version is only available for windows.
 
 此版本只适用于Windows。
 
+Due to format conversion problems, the display of Chinese notes has problems. Please refer to English notes.
+
+由于格式转换问题，中文注释的显示出现问题，可以参照英文注释。
+
 ## V1.0 introduction
 ## V1.0介绍
 This is a new Sandbox game. You can create or destroy rocks here, and you can walk freely. More functions are under development.
