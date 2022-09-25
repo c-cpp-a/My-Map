@@ -7,16 +7,22 @@ namespace{
 	}
 	
 }
-int Egg::isegg(const int &lang,People &p){
+int Egg::isegg(const int &lang,People &p,Map &h){
 	if(lang==Chinese && 
-		p.at(EGG_POS[0],EGG_POS[1])==People::node(EGG_POS[0],EGG_POS[1])
-	   	&& p.pos.x==EGG_POS[0] && p.pos.y==EGG_POS[1])	return CHI_egg_1;
+		p.at(EGG_POS[Chinese][0][0],EGG_POS[Chinese][0][1])==
+		People::node(EGG_POS[Chinese][0][0],EGG_POS[Chinese][0][1])
+	   	&& p.pos.x==EGG_POS[Chinese][0][0] && p.pos.y==EGG_POS[Chinese][0][1])	return CHI_egg_1;
+	else if(lang==unable && 
+			p.pos.x==EGG_POS[unable][0][0] && p.pos.y==EGG_POS[unable][0][1]
+		&& h[EGG_POS[unable][0][0]][EGG_POS[unable][0][1]]==ball
+		&& p.move_f==rights)	return UNABLE_egg_1;
 	else	return empty_egg;
 }
-void Egg::check_run(const int &lang,People &p){
+void Egg::check_run(const int &lang,People &p,Map &h){
 	system("CLS");
-	switch(isegg(lang,p)){
+	switch(isegg(lang,p,h)){
 		case CHI_egg_1:
+			{
 			::print("恭喜您，发现了彩蛋！\n");
 			::print(">>>");
 			string s;
@@ -35,7 +41,28 @@ void Egg::check_run(const int &lang,People &p){
 				::print(">>>");
 			}
 			::print("已退出！");
+			}
 			break;
+		case UNABLE_egg_1:
+			{
+			::print("恭喜您，发现了彩蛋！\n");
+			::print("Congratulations, you found the egg!\n");
+			::print("<<<");
+			string s;
+			while(getline(cin,s) && s!="quit"){
+				if(s=="D o D o oooo"){
+					::print(s);
+					::print("\n挺不错嘛，这个彩蛋可难找到了！\n");
+					::print("Very good. It's hard to find this egg!\n");
+					::print("彩蛋提示：中文、10、传送门。\n");
+					::print("Egg tips: Chinese, 10. Transmission gate.\n");
+				} else{
+					::print(s);
+					::print("\n");
+				} 
+				::print("<<<");
+			}
+			}
 	}
 }
 

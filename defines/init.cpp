@@ -13,6 +13,7 @@ void set_lang(){
 	::lang=getch();
 	if(lang=='c')	::lang=Chinese;
 	else if(lang=='e')	::lang=English;
+	else if(lang==224)	::lang=unable;
 	else{
 		cout << "Error:cannot set this language.\n"
 				"错误：不能设置为此语言。\n";

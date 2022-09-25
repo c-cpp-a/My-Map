@@ -22,7 +22,7 @@ int main(){
 		print_helper();
 		p.set_f(G);
 //		p.save(G);
-		egg.check_run(get_lang(),p);
+		egg.check_run(get_lang(),p,G);
 		Sleep(10);
 	}
 	return 0;

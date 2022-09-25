@@ -10,8 +10,8 @@
 class Egg{
 	private:
 	public:
-		int isegg(const int &,People &);
-		void check_run(const int &,People &);
+		int isegg(const int &,People &,Map &);
+		void check_run(const int &,People &,Map &);
 };
 #include "Eggs.cpp"
 #endif
