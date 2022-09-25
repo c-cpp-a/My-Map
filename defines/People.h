@@ -8,11 +8,10 @@
 //导入自定义库
 #include "def"
 #include "Map.h"
-#include "init.h"
+#include "Eggs.h"
 class People{
 	public:
 		friend class Egg;
-		friend int ::isegg(const int &lang,People &p);
 	public:
 		struct node{
 			int x,y;
@@ -31,14 +30,16 @@ class People{
 		const int back(const int &);
 	public:
 		People():move_f(defaults),lang(unable),pos({1,1}){}
-		void set_f(Map &);
+		void set_f(Map &,Egg &);
 		void put_xy(Map &);
 		inline const node at(int x,int y){
 			return doors[x][y];
+		}
+		inline const node get_pos(){
+			return pos;
 		}
 //		void save(Map &);
 //		void imports(Map &);
 };
 const People::node People::default_node={-1,-1};
-#include "People.cpp"
 #endif

@@ -12,7 +12,6 @@ using namespace std;
 //导入自定义库
 #include "def"
 void create_door_helper();
-#include "People.h"
 void set_parameters();
 void set_lang();
 void set_import(People &,Map &);
@@ -23,5 +22,5 @@ inline void init(People &p,Map &h){
 	set_import(p,h);
 }
 const int &get_lang();
-#include "init.cpp"
+void set_lang(const int); 
 #endif

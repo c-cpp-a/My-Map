@@ -54,31 +54,31 @@ void Map::change(int x,int y,int c){
 bool Map::issave(int x,int y){
 	return a[x][y]!=rock;
 }
-void Map::imports(){
-	ifstream fin;
-	fin.open(SAVE_NAME);
-	fin >> downx >> righty;
-	for(int i=1;i<=downx;i++){
-		for(int j=1;j<=righty;j++){
-			char ch;
-			fin >> ch;
-			a[i][j]=ch;
-		}
-	}
-	fin.close();
-}
-void Map::save(){
-	ofstream fout;
-	fout.open(SAVE_NAME);
-	fout << downx << ' ' << righty;
-	for(int i=1;i<=downx;i++){
-		for(int j=1;j<=righty;j++){
-			fout << a[i][j] << ' ';
-		}
-		fout << '\n';
-	}
-	fout.close();
-}
-map<int,int> Map::operator[](int i){
+//void Map::imports(){
+//	ifstream fin;
+//	fin.open(SAVE_NAME);
+//	fin >> downx >> righty;
+//	for(int i=1;i<=downx;i++){
+//		for(int j=1;j<=righty;j++){
+//			char ch;
+//			fin >> ch;
+//			a[i][j]=ch;
+//		}
+//	}
+//	fin.close();
+//}
+//void Map::save(){
+//	ofstream fout;
+//	fout.open(SAVE_NAME);
+//	fout << downx << ' ' << righty;
+//	for(int i=1;i<=downx;i++){
+//		for(int j=1;j<=righty;j++){
+//			fout << a[i][j] << ' ';
+//		}
+//		fout << '\n';
+//	}
+//	fout.close();
+//}
+map<int,int> Map::operator[](const int i){
 	return a[i];
 }

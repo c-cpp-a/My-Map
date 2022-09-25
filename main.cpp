@@ -1,16 +1,21 @@
 //include STL
 //导入标准库
 #include<windows.h>
+#include<string>
 //include custom library
-//导入自定义库 
-class Egg;
+//导入自定义库
+class Map;
 class People;
-class Map; 
+class Egg;
 #include "defines\def"
-#include "defines\init.h"
+#include "defines\Eggs.h" 
 #include "defines\Map.h"
 #include "defines\People.h"
-#include "defines\Eggs.h" 
+#include "defines\init.h"
+#include "defines\Eggs.cpp"
+#include "defines\Map.cpp"
+#include "defines\People.cpp"
+#include "defines\init.cpp"
 using namespace std;
 int main(){
 	Map G;
@@ -18,14 +23,14 @@ int main(){
 	Egg egg; 
 	init(p,G);
 	while(1){
+//		p.save(G);
 		p.put_xy(G);
 		print_helper();
-		p.set_f(G);
-//		p.save(G);
-		egg.check_run(get_lang(),p,G);
+		if(egg.is_ach())	egg.print_ach();
 		Sleep(10);
+		p.set_f(G,egg);
+		egg.check_run(get_lang(),p,G);
 	}
 	return 0;
 }
-
 

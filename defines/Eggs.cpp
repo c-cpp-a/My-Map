@@ -1,28 +1,50 @@
 namespace{
+	using namespace std;
 	void print(const string s){
 		for(auto len=s.length(),i=0ULL;i<len;i++){
 			putchar(s[i]);
 			Sleep(30);
 		}
 	}
-	
+	void gotoxy(short x,short y){
+    	COORD coord = {x, y}; 
+    	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
+	}
+	int ach_print(const string s,short starty){
+		int i=0;
+		string tmp=s;
+		while(tmp.length()>=19){
+			gotoxy(COLS+2,starty+i);
+			cout << string(tmp.begin(),tmp.begin()+18);
+			tmp.erase(tmp.begin(),tmp.begin()+18);
+			i++;
+		}
+		gotoxy(COLS+2,starty+i);
+		cout << tmp;
+		return starty+i+1;
+	}
 }
 int Egg::isegg(const int &lang,People &p,Map &h){
-	if(lang==Chinese && 
+	if(lang==English && 
+		h[EGG_POS[English][0][0]][EGG_POS[English][0][1]]==rock){
+		has_ach=true;
+		system(("mode "+to_string(COLS+20)+","+to_string(LINES+10)).c_str());
+	} else if(lang==Chinese && 
 		p.at(EGG_POS[Chinese][0][0],EGG_POS[Chinese][0][1])==
 		People::node(EGG_POS[Chinese][0][0],EGG_POS[Chinese][0][1])
-	   	&& p.pos.x==EGG_POS[Chinese][0][0] && p.pos.y==EGG_POS[Chinese][0][1])	return CHI_egg_1;
+	   	&& p.get_pos().x==EGG_POS[Chinese][0][0] && p.get_pos().y==EGG_POS[Chinese][0][1])	return CHI_egg_1;
 	else if(lang==unable && 
-			p.pos.x==EGG_POS[unable][0][0] && p.pos.y==EGG_POS[unable][0][1]
+			p.get_pos().x==EGG_POS[unable][0][0] && p.get_pos().y==EGG_POS[unable][0][1]
 		&& h[EGG_POS[unable][0][0]][EGG_POS[unable][0][1]]==ball
 		&& p.move_f==rights)	return UNABLE_egg_1;
-	else	return empty_egg;
+	return empty_egg;
 }
 void Egg::check_run(const int &lang,People &p,Map &h){
 	system("CLS");
 	switch(isegg(lang,p,h)){
 		case CHI_egg_1:
 			{
+			achs[6]=true;
 			::print("恭喜您，发现了彩蛋！\n");
 			::print(">>>");
 			string s;
@@ -45,6 +67,7 @@ void Egg::check_run(const int &lang,People &p,Map &h){
 			break;
 		case UNABLE_egg_1:
 			{
+			achs[7]=true;
 			::print("恭喜您，发现了彩蛋！\n");
 			::print("Congratulations, you found the egg!\n");
 			::print("<<<");
@@ -65,5 +88,32 @@ void Egg::check_run(const int &lang,People &p,Map &h){
 			}
 	}
 }
-
+void Egg::print_ach(){
+	auto y=0;
+	y=ach_print("achievement",y);
+	if(achs[0]){
+		y=ach_print("1.creat your first floor.",y);
+	} 
+	if(achs[1]){
+		y=ach_print("2.creat your first rock.",y);
+	}
+	if(achs[2]){
+		y=ach_print("3.creat your first portal.",y);
+	}
+	if(achs[3]){
+		y=ach_print("4.creat your first ball.",y);
+	}
+	if(achs[4]){
+		y=ach_print("5.first access to the portal",y);
+	}
+	if(achs[5]){
+		y=ach_print("6.move your ball the first time.",y);
+	}
+	if(achs[6]){
+		y=ach_print("7.found Chinese egg 1.",y);
+	}
+	if(achs[7]){
+		y=ach_print("8.found [unable] Egg 1.",y);
+	}
+}
 

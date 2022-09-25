@@ -16,9 +16,8 @@ class Map{
 		void print(int,int);
 		void change(int,int,int);
 		bool issave(int,int);
-		void imports();
-		void save();
-		map<int,int> operator[](int i);
+//		void imports();
+//		void save();
+		map<int,int> operator[](const int i);
 };
-#include "Map.cpp"
 #endif

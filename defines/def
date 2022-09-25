@@ -5,7 +5,7 @@
 #include<map>
 const int COLS=100,LINES=50;
 const char SAVE_NAME[]="data.mymap";
-const int EGG_POS[3][10][2]={{5,5},{10,10},{}};//EGG_POS[language][egg_number]={x,y}
+const int EGG_POS[3][10][2]={{5,5},{10,10},{2,2}};//EGG_POS[language][egg_number]={x,y}
 enum{
 	defaults,
 	ups,

@@ -38,7 +38,7 @@ const int People::back(const int &func){
 	}
 	return func;
 }
-void People::set_f(Map &h){
+void People::set_f(Map &h,Egg &egg){
 	int a=getch();
 	switch(a){
 		case 'W':case 'w':
@@ -70,6 +70,7 @@ void People::set_f(Map &h){
 				auto tmp=check_xy(pos,move_f);
 				h.change(tmp.x,tmp.y,floor);
 				doors[tmp.x][tmp.y]=default_node;
+				if(egg.is_ach())	egg[0]=true;
 			}
 			break;
 		case '2':
@@ -77,6 +78,7 @@ void People::set_f(Map &h){
 				auto tmp=check_xy(pos,move_f);
 				h.change(tmp.x,tmp.y,rock);
 				doors[tmp.x][tmp.y]=default_node;
+				if(egg.is_ach())	egg[1]=true;
 			}
 			break;
 		case '3':
@@ -104,6 +106,7 @@ void People::set_f(Map &h){
 					}
 				}
 				doors[tmp.x][tmp.y]=tmp2;
+				if(egg.is_ach())	egg[2]=true;
 			}
 			break; 
 		case '4':
@@ -111,19 +114,19 @@ void People::set_f(Map &h){
 				auto tmp=check_xy(pos,move_f);
 				h.change(tmp.x,tmp.y,ball);
 				doors[tmp.x][tmp.y]=default_node;
+				if(egg.is_ach())	egg[3]=true;
 			}
 			break;
-		case 'C':case 'c':
-			lang=Chinese;
-			break;
-		case 'E':case 'e':
-			lang=English;
-			break;
+		case 'L':case 'l':
+			system("CLS");
+			set_lang();
+			break; 
 	}
 	if(doors[pos.x][pos.y]!=default_node){
 		auto tmp=pos;
 		pos.x=doors[tmp.x][tmp.y].x;
 		pos.y=doors[tmp.x][tmp.y].y;
+		if(egg.is_ach())	egg[4]=true;
 	} else if(h[pos.x][pos.y]==ball){
 		auto tmp=pos;
 		bool flag=true;
@@ -137,6 +140,7 @@ void People::set_f(Map &h){
 		if(flag){
 			h.change(tmp.x,tmp.y,ball);	
 			h.change(pos.x,pos.y,floor);
+			if(egg.is_ach())	egg[5]=true;
 		} else{
 			pos=check_xy(pos,back(move_f));
 		}

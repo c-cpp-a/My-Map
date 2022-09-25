@@ -57,6 +57,7 @@ void print_helper(){
 				"按2键将在前进方向上创建岩石。"
 				"按3键将在前进方向上创建传送门。" 
 				"按4键将在前进方向上创建球。\n"
+				"按l键选择语言。\n"
 				"更多功能拓展中。。。" << endl;
 	} else if(lang==English){
 		//language:English
@@ -66,6 +67,7 @@ void print_helper(){
 				"Press 2 to create the rock in the forward direction." 
 				"Pressing the 3 key will create a portal in the forward direction."
 				"Pressing the 4 key creates a ball in the forward direction.\n"
+				"Press l to select the language.\n"
 				"More function expansion..." << endl;
 	}
 }
@@ -82,4 +84,7 @@ void create_door_helper(){
 }
 const int &get_lang(){
 	return ::lang;
+}
+void set_lang(const int x){
+	::lang=x;
 }
