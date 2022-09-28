@@ -1,5 +1,5 @@
 void Map::print(int x,int y){
-	system("CLS");
+	gotoxy(0,0); 
 	if(x>=COLS/2 && y>=LINES/2){
 		for(int i=x-LINES/2+1;i<=x+LINES/2;i++){
 			for(int j=y-COLS/2+1;j<=y+COLS/2;j++){
