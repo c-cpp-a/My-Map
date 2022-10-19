@@ -8,9 +8,11 @@ class Map;
 class People;
 class Egg;
 #include "defines\def"
+#include "defines\help_func.h"
 #include "defines\Eggs.h" 
 #include "defines\Map.h"
 #include "defines\People.h"
+#include "defines\help_func.cpp"
 #include "defines\init.h"
 #include "defines\Eggs.cpp"
 #include "defines\Map.cpp"

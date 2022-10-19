@@ -1,6 +1,6 @@
-namespace{
-	int lang=unable;
-}
+//namespace{
+//	int lang=unable;
+//}
 void set_parameters(){
 	system("title ÎÒµÄµØÍ¼");
 	system(("mode "+to_string(COLS)+","+to_string(LINES+10)).c_str());
