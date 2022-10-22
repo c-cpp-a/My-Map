@@ -43,13 +43,19 @@ New eggs. Please explore or consult the code yourself.
 
 新增彩蛋。请自行探索或查阅代码。
 
-### V2.1
+### V2.1.0
 
 Expand the egg of the previous version and add new achievements. Add language menu option.
 
 对上一版本的彩蛋进行扩充，新增成就。新增语言菜单选项。
 
-### V2.2
+### V2.1.1
+
+Optimization of some details.
+
+一些细节的优化。
+
+### V2.1.2
 
 Optimization of some details.
 
