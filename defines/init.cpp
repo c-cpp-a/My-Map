@@ -3,7 +3,7 @@
 //}
 void set_parameters(){
 	system("title ÎÒµÄµØÍ¼");
-	system(("mode "+to_string(COLS)+","+to_string(LINES+10)).c_str());
+	system(("mode "+to_string(COLS)+","+to_string(LINES+ADD_LINE)).c_str());
 }
 void set_lang(){
 	::lang=unable;

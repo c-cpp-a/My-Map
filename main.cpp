@@ -24,7 +24,7 @@ int main(){
 	People p;
 	Egg egg; 
 	init(p,G);
-	while(1){
+	while(true){
 //		p.save(G);
 		p.put_xy(G);
 		print_helper();

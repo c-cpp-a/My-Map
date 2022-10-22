@@ -13,10 +13,10 @@ namespace{
 	int ach_print(const string s,short starty){
 		int i=0;
 		string tmp=s;
-		while(tmp.length()>=19){
+		while(tmp.length()>=ADD_COLS-1){
 			gotoxy(COLS+2,starty+i);
-			cout << string(tmp.begin(),tmp.begin()+18);
-			tmp.erase(tmp.begin(),tmp.begin()+18);
+			cout << string(tmp.begin(),tmp.begin()+ADD_COLS-2);
+			tmp.erase(tmp.begin(),tmp.begin()+ADD_COLS-2);
 			i++;
 		}
 		gotoxy(COLS+2,starty+i);

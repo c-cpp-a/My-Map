@@ -2,7 +2,7 @@ int Egg::isegg(const int &lang,People &p,Map &h){
 	if(lang==English && 
 		h[EGG_POS[English][0][0]][EGG_POS[English][0][1]]==rock){
 		has_ach=true;
-		system(("mode "+to_string(COLS+20)+","+to_string(LINES+10)).c_str());
+		system(("mode "+to_string(COLS+ADD_COLS)+","+to_string(LINES+ADD_LINE)).c_str());
 	} else if(lang==Chinese && 
 		p.at(EGG_POS[Chinese][0][0],EGG_POS[Chinese][0][1])==
 		People::node(EGG_POS[Chinese][0][0],EGG_POS[Chinese][0][1])
