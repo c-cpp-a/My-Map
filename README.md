@@ -1,12 +1,9 @@
 # My-Map
 ## 注意事项
-This version is only available for windows.
+This version is only applicable to Windows and is encoded as GB2312.
 
-此版本只适用于Windows。
+此版本只适用于Windows，编码为GB2312。
 
-Due to format conversion problems, the display of Chinese notes has problems. Please refer to English notes.
-
-由于格式转换问题，中文注释的显示出现问题，可以参照英文注释。
 
 ## 版本
 
