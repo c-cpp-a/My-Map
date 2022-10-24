@@ -47,6 +47,18 @@ void set_import(People &p,Map &h){
 	}
 	system("CLS");
 }
+void screen_helper(){
+	using namespace std;
+	if(lang==Chinese){
+		//language:Chinese
+		//语言：中文 
+		cout << "\n按H键弹出帮助。" << endl;
+	} else if(lang==English){
+		//language:English
+		//语言：英文
+		cout << "Press the H key to pop up the help." << endl;
+	}
+} 
 void print_helper(){
 	using namespace std;
 	if(lang==Chinese){
@@ -58,7 +70,7 @@ void print_helper(){
 				"按3键将在前进方向上创建传送门。" 
 				"按4键将在前进方向上创建球。\n"
 				"按l键选择语言。\n"
-				"更多功能拓展中。。。" << endl;
+				"更多功能拓展中。。。（请按H键关闭帮助）" << endl;
 	} else if(lang==English){
 		//language:English
 		//语言：英文
@@ -68,7 +80,11 @@ void print_helper(){
 				"Pressing the 3 key will create a portal in the forward direction."
 				"Pressing the 4 key creates a ball in the forward direction.\n"
 				"Press l to select the language.\n"
-				"More function expansion..." << endl;
+				"More function expansion...(Press H to close the help)" << endl;
+	}
+	auto a=getch();
+	while(a!='H' && a!='h'){
+		a=getch();
 	}
 }
 void create_door_helper(){

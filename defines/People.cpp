@@ -65,6 +65,9 @@ void People::set_f(Map &h,Egg &egg){
 			pos.y++;
 			move_f=rights;
 			break;
+		case 'H':case 'h':
+			system("CLS");
+			print_helper();
 		case '1':
 			{
 				auto tmp=check_xy(pos,move_f);
