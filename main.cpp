@@ -27,7 +27,7 @@ int main(){
 	while(true){
 //		p.save(G);
 		p.put_xy(G);
-		print_helper();
+		screen_helper();
 		if(egg.is_ach())	egg.print_ach();
 		Sleep(10);
 		p.set_f(G,egg);
