@@ -4,6 +4,9 @@ This version is only applicable to Windows and is encoded as GB2312.
 
 此版本只适用于Windows，编码为GB2312。
 
+Because the window size is limited, the pop-up version is introduced. Please refer to pop window version.
+
+因为窗口大小受限，所以推出了弹窗版本，请看pop-window-version。
 
 ## 版本
 
@@ -57,3 +60,9 @@ Optimization of some details.
 Optimization of some details.
 
 一些细节的优化。
+
+2022/11/8:
+
+合并pop-window-version为main分支。
+
+Merge pop-window-version into main branch.
