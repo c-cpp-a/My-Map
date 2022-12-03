@@ -66,3 +66,9 @@ Optimization of some details.
 合并pop-window-version为main分支。
 
 Merge pop-window-version into main branch.
+
+### V2.1.3
+
+New mode settings: normal mode and developer mode.
+
+新增模式设置：普通模式和开发者模式。
