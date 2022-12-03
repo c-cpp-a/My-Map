@@ -45,6 +45,11 @@ void Map::print(int x,int y){
 			putchar('\n');
 		}
 	}
+	if(::mode==debugger){
+		string contents="pos=("+to_string(x)+","+to_string(y)+")";
+		gotoxy(0,COLS-contents.length());
+		cout << contents;
+	}
 }
 void Map::change(int x,int y,int c){
 	a[x][y]=c;

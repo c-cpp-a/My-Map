@@ -52,11 +52,11 @@ void screen_helper(){
 	if(lang==Chinese){
 		//language:Chinese
 		//语言：中文 
-		cout << "\n按H键弹出帮助。" << endl;
+		cout << "\n按H键弹出帮助。\n按T键弹出设置。" << endl;
 	} else if(lang==English){
 		//language:English
 		//语言：英文
-		cout << "Press the H key to pop up the help." << endl;
+		cout << "Press the H key to pop up the help.\nPress the T key to pop up the settings." << endl;
 	}
 } 
 void print_helper(){
@@ -104,4 +104,44 @@ const int &get_lang(){
 }
 void set_lang(const int x){
 	::lang=x;
+}
+void settings(){
+	int choose;
+	do{
+		system("CLS");
+		if(lang==Chinese){
+			//language:Chinese
+			//语言：中文
+			cout << "模式：\n< ";
+			if(::mode==normal){
+				cout << "普通模式 " << ' ' << " >";
+			} else{
+				cout << "开发者模式 >";
+			}
+			cout << "\n按q键退出。";
+		} else if(lang==English){
+			//language:English
+			//语言：英文
+			cout << "pattern:\n< ";
+			if(::mode==normal){
+				cout << ' ' << "Normal mode" << ' ' << ' ' << " >";
+			} else{
+				cout << "Developer Mode >";
+			}
+			cout << "\nPress the q key to exit.";
+		}
+		choose=getch();
+		if(choose==224){
+			choose=getch();
+		}
+		switch(choose){
+			case 77://右键
+				::mode=(::mode+1)&1; 
+				break;
+			case 75://左键 
+				::mode=(::mode-1)&1;
+				if(mode<0)	mode+=2;
+				break;
+		}
+	} while(choose!='q' && choose!='Q');
 }

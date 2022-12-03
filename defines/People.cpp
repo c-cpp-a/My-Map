@@ -124,6 +124,11 @@ void People::set_f(Map &h,Egg &egg){
 			system("CLS");
 			set_lang();
 			break; 
+		case 'T':case 't':
+			system("CLS");
+			settings();
+			break;
+			
 	}
 	if(doors[pos.x][pos.y]!=default_node){
 		auto tmp=pos;

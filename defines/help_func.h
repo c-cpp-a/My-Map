@@ -7,6 +7,7 @@
 namespace{
 	using namespace std;
 	int lang=unable;
+	int mode=normal;
 	void print(const string s);
 	void gotoxy(short x,short y);
 	int ach_print(const string s,short starty);

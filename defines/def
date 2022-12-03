@@ -30,6 +30,10 @@ enum{
 	CHI_egg_1,
 	UNABLE_egg_1
 };
+enum{
+	normal,
+	debugger
+};
 std::map<int,char> print_c={
 	{floor,' '},
 	{rock,'-'},

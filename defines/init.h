@@ -25,4 +25,5 @@ inline void init(People &p,Map &h){
 }
 const int &get_lang();
 void set_lang(const int); 
+void settings();
 #endif
