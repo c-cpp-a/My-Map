@@ -2,22 +2,22 @@
 //	int lang=unable;
 //}
 void set_parameters(){
-	system("title ÎÒµÄµØÍ¼");
+	system("title æˆ‘çš„åœ°å›¾");
 	system(("mode "+to_string(COLS)+","+to_string(LINES+ADD_LINE)).c_str());
 }
 void set_lang(){
 	system("CLS");
 	::lang=unable;
-	ask:cout << "Please Choose language.\nÇëÉèÖÃÓïÑÔ¡£\n"
+	ask:cout << "Please Choose language.\nè¯·è®¾ç½®è¯­è¨€ã€‚\n"
 			"Press'e'to set the language to English, and press'c' to set the language to Chinese.\n"
-			"°´'e'¼üÉèÖÃÓïÑÔÎªÓ¢ÎÄ£¬°´'c'¼üÉèÖÃÓïÑÔÎªÖĞÎÄ¡£\n";
+			"æŒ‰'e'é”®è®¾ç½®è¯­è¨€ä¸ºè‹±æ–‡ï¼ŒæŒ‰'c'é”®è®¾ç½®è¯­è¨€ä¸ºä¸­æ–‡ã€‚\n";
 	::lang=getch();
 	if(lang=='c')	::lang=Chinese;
 	else if(lang=='e')	::lang=English;
 	else if(lang==224)	::lang=unable;
 	else{
 		cout << "Error:cannot set this language.\n"
-				"´íÎó£º²»ÄÜÉèÖÃÎª´ËÓïÑÔ¡£\n";
+				"é”™è¯¯ï¼šä¸èƒ½è®¾ç½®ä¸ºæ­¤è¯­è¨€ã€‚\n";
 				goto ask;
 	}
 }
@@ -25,14 +25,14 @@ void set_import(People &p,Map &h){
 //	int ifimport=0;
 	if(lang==Chinese){
 		//language:Chinese
-		//ÓïÑÔ£ºÖĞÎÄ 
-//		cout << "ÇëÎÊÄúÊÇ·ñÒªµ¼Èë´æµµ£¿Èç¹û²»µ¼Èë£¬´æµµ¿ÉÄÜ¶ªÊ§¡££¨±¾¹¦ÄÜ²âÊÔÖĞ£©\n";
-//		cout << "°´'y'¼üµ¼Èë´æµµ¡£";
+		//è¯­è¨€ï¼šä¸­æ–‡ 
+//		cout << "è¯·é—®æ‚¨æ˜¯å¦è¦å¯¼å…¥å­˜æ¡£ï¼Ÿå¦‚æœä¸å¯¼å…¥ï¼Œå­˜æ¡£å¯èƒ½ä¸¢å¤±ã€‚ï¼ˆæœ¬åŠŸèƒ½æµ‹è¯•ä¸­ï¼‰\n";
+//		cout << "æŒ‰'y'é”®å¯¼å…¥å­˜æ¡£ã€‚";
 //		ifimport=getch();
 //		if(ifimport=='y'){
 //			p.imports(h);
 //		}
-		cout << "´Ë¹¦ÄÜÔİÊ±¿ÕÈ±¡£°´ÈÎÒâ¼ü¼ÌĞø¡­\n";
+		cout << "æ­¤åŠŸèƒ½æš‚æ—¶ç©ºç¼ºã€‚æŒ‰ä»»æ„é”®ç»§ç»­â€¦\n";
 		getch();
 		system("CLS");
 	} else{
@@ -51,11 +51,11 @@ void screen_helper(){
 	using namespace std;
 	if(lang==Chinese){
 		//language:Chinese
-		//ÓïÑÔ£ºÖĞÎÄ 
-		cout << "\n°´H¼üµ¯³ö°ïÖú¡£\n°´T¼üµ¯³öÉèÖÃ¡£" << endl;
+		//è¯­è¨€ï¼šä¸­æ–‡ 
+		cout << "\næŒ‰Hé”®å¼¹å‡ºå¸®åŠ©ã€‚\næŒ‰Té”®å¼¹å‡ºè®¾ç½®ã€‚" << endl;
 	} else if(lang==English){
 		//language:English
-		//ÓïÑÔ£ºÓ¢ÎÄ
+		//è¯­è¨€ï¼šè‹±æ–‡
 		cout << "Press the H key to pop up the help.\nPress the T key to pop up the settings." << endl;
 	}
 } 
@@ -63,17 +63,17 @@ void print_helper(){
 	using namespace std;
 	if(lang==Chinese){
 		//language:Chinese
-		//ÓïÑÔ£ºÖĞÎÄ 
-		cout << "\n :¿ÕµØ£¬¿É×ß¶¯\t-:ÑÒÊ¯£¬²»¿É×ß¶¯\t@:´«ËÍÃÅ\to:Ğ¡Çò\t#:Äã×Ô¼º\n"
-				"WASDÒÆ¶¯£¬°´1¼ü½«ÔÚÇ°½ø·½ÏòÉÏÇå³ıÒ»ÇĞ£¬"
-				"°´2¼ü½«ÔÚÇ°½ø·½ÏòÉÏ´´½¨ÑÒÊ¯¡£"
-				"°´3¼ü½«ÔÚÇ°½ø·½ÏòÉÏ´´½¨´«ËÍÃÅ¡£" 
-				"°´4¼ü½«ÔÚÇ°½ø·½ÏòÉÏ´´½¨Çò¡£\n"
-				"°´l¼üÑ¡ÔñÓïÑÔ¡£\n"
-				"¸ü¶à¹¦ÄÜÍØÕ¹ÖĞ¡£¡£¡££¨Çë°´H¼ü¹Ø±Õ°ïÖú£©" << endl;
+		//è¯­è¨€ï¼šä¸­æ–‡ 
+		cout << "\n :ç©ºåœ°ï¼Œå¯èµ°åŠ¨\t-:å²©çŸ³ï¼Œä¸å¯èµ°åŠ¨\t@:ä¼ é€é—¨\to:å°çƒ\t#:ä½ è‡ªå·±\n"
+				"WASDç§»åŠ¨ï¼ŒæŒ‰1é”®å°†åœ¨å‰è¿›æ–¹å‘ä¸Šæ¸…é™¤ä¸€åˆ‡ï¼Œ"
+				"æŒ‰2é”®å°†åœ¨å‰è¿›æ–¹å‘ä¸Šåˆ›å»ºå²©çŸ³ã€‚"
+				"æŒ‰3é”®å°†åœ¨å‰è¿›æ–¹å‘ä¸Šåˆ›å»ºä¼ é€é—¨ã€‚" 
+				"æŒ‰4é”®å°†åœ¨å‰è¿›æ–¹å‘ä¸Šåˆ›å»ºçƒã€‚\n"
+				"æŒ‰lé”®é€‰æ‹©è¯­è¨€ã€‚\n"
+				"æ›´å¤šåŠŸèƒ½æ‹“å±•ä¸­ã€‚ã€‚ã€‚ï¼ˆè¯·æŒ‰Hé”®å…³é—­å¸®åŠ©ï¼‰" << endl;
 	} else if(lang==English){
 		//language:English
-		//ÓïÑÔ£ºÓ¢ÎÄ
+		//è¯­è¨€ï¼šè‹±æ–‡
 		cout << "\n :open space, movable\t-: rock, not movable\t@: portal\to: ball\t#: yourself\n"
 				"WASD moves, pressing the 1 key will clear everything in the forward direction,"
 				"Press 2 to create the rock in the forward direction." 
@@ -91,11 +91,11 @@ void print_helper(){
 void create_door_helper(){
 	if(lang==Chinese){
 		//language:Chinese
-		//ÓïÑÔ£ºÖĞÎÄ
-		cout << "\nWASD¼üÒÆ¶¯£¬¿Õ¸ñ¼üÈ·ÈÏ·ÅÖÃ´«ËÍÃÅ¡£\n";
+		//è¯­è¨€ï¼šä¸­æ–‡
+		cout << "\nWASDé”®ç§»åŠ¨ï¼Œç©ºæ ¼é”®ç¡®è®¤æ”¾ç½®ä¼ é€é—¨ã€‚\n";
 	} else if(lang==English){
 		//language:English
-		//ÓïÑÔ£ºÓ¢ÎÄ
+		//è¯­è¨€ï¼šè‹±æ–‡
 		cout << "\nWASD key to move, and space key to confirm to place the transfer door.\n";
 	} 
 }
@@ -111,19 +111,19 @@ void settings(){
 		system("CLS");
 		if(lang==Chinese){
 			//language:Chinese
-			//ÓïÑÔ£ºÖĞÎÄ
-			cout << "Ä£Ê½£º\n< ";
+			//è¯­è¨€ï¼šä¸­æ–‡
+			cout << "æ¨¡å¼ï¼š\n< ";
 			if(::mode==normal){
-				cout << "ÆÕÍ¨Ä£Ê½ " << ' ' << " >";
+				cout << "æ™®é€šæ¨¡å¼ " << ' ' << " >";
 			} else if(::mode==debugger){
-				cout << "¿ª·¢ÕßÄ£Ê½ >";
+				cout << "å¼€å‘è€…æ¨¡å¼ >";
 			} else{
-				cout << "µØÓüÄ£Ê½ " << ' ' << " >";
+				cout << "åœ°ç‹±æ¨¡å¼ " << ' ' << " >";
 			}
-			cout << "\n°´q¼üÍË³ö¡£";
+			cout << "\næŒ‰qé”®é€€å‡ºã€‚";
 		} else if(lang==English){
 			//language:English
-			//ÓïÑÔ£ºÓ¢ÎÄ
+			//è¯­è¨€ï¼šè‹±æ–‡
 			cout << "pattern:\n< ";
 			if(::mode==normal){
 				cout << ' ' << "Normal mode" << ' ' << ' ' << " >";
@@ -139,10 +139,10 @@ void settings(){
 			choose=getch();
 		}
 		switch(choose){
-			case 77://ÓÒ¼ü
+			case 77://å³é”®
 				::mode=(::mode+1)%MODE_COUNT; 
 				break;
-			case 75://×ó¼ü 
+			case 75://å·¦é”® 
 				::mode=(::mode-1+MODE_COUNT)%MODE_COUNT;
 				break;
 		}
