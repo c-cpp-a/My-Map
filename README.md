@@ -67,8 +67,18 @@ Optimization of some details.
 
 Merge pop-window-version into main branch.
 
-### V2.1.3
+### V2.2.0
 
 New mode settings: normal mode and developer mode.
 
 新增模式设置：普通模式和开发者模式。
+
+## V2.2.1
+
+1. New mode setting: Hell mode.
+
+2. Functional comments are provided for part of the code.
+
+1、新增模式设置：地狱模式。
+
+2、为部分代码提供了功能注释。

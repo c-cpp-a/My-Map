@@ -1,3 +1,9 @@
+/*
+ *	作者：c_cpp_a(Github) 
+ *	最近更新：2022/12/4
+ *	功能简述：这是游戏的基本定义部分。负责常量、enum。当然为了游戏的编写方便，这里的显示字符映射使用了std::map。 
+ */ 
+//For some reasons, the English version notes will not be displayed here. 
 #ifndef DEF
 #define DEF
 //include STL
@@ -5,36 +11,38 @@
 #include<map>
 const int COLS=100,LINES=50;
 const int ADD_COLS=20,ADD_LINE=10;
+const int MODE_COUNT=3;
 const char SAVE_NAME[]="data.mymap";
 const int EGG_POS[3][10][2]={{5,5},{10,10},{2,2}};//EGG_POS[language][egg_number]={x,y}
-enum{
-	defaults,
-	ups,
-	downs,
-	lefts,
-	rights
+enum{//地图里面的方向 
+	defaults,//默认 
+	ups,//上 
+	downs,//下 
+	lefts,//左 
+	rights//右 
 };
-enum{
-	floor,
-	rock,
-	door,
-	ball
+enum{//地图的基本元素 
+	floor,//空地（默认） 
+	rock,//岩石 
+	door,//传送门 
+	ball//小球 
 };
-enum{
-	unable,
-	Chinese,
-	English
+enum{//游戏的语言 
+	unable,//未定义（默认） 
+	Chinese,//中文 
+	English//英文 
 };
-enum{
-	empty_egg, 
-	CHI_egg_1,
-	UNABLE_egg_1
+enum{//彩蛋的类型 
+	empty_egg, //空彩蛋（默认，就是没有彩蛋） 
+	CHI_egg_1,//中文彩蛋1 
+	UNABLE_egg_1//[未命名]彩蛋1 
 };
-enum{
-	normal,
-	debugger
+enum{//游戏模式 
+	normal,//正常（默认） 
+	debugger,//开发者模式 
+	infernal//地狱模式 
 };
-std::map<int,char> print_c={
+std::map<int,char> print_c={//对应元素显示成什么样 
 	{floor,' '},
 	{rock,'-'},
 	{door,'@'},

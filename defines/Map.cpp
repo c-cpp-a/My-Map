@@ -7,7 +7,9 @@ void Map::print(int x,int y){
 					putchar('#');
 					continue;
 				}
-				putchar(print_c[a[i][j]]);
+				if(::mode!=infernal || a[i][j]){
+					putchar(print_c[a[i][j]]);
+				}
 			}
 			putchar('\n');
 		}
@@ -18,7 +20,9 @@ void Map::print(int x,int y){
 					putchar('#');
 					continue;
 				}
-				putchar(print_c[a[i][j]]);
+				if(::mode!=infernal || a[i][j]){
+					putchar(print_c[a[i][j]]);
+				}
 			}
 			putchar('\n');
 		}
@@ -29,7 +33,9 @@ void Map::print(int x,int y){
 					putchar('#');
 					continue;
 				}
-				putchar(print_c[a[i][j]]);
+				if(::mode!=infernal || a[i][j]){
+					putchar(print_c[a[i][j]]);
+				}
 			}
 			putchar('\n');
 		}
@@ -40,7 +46,9 @@ void Map::print(int x,int y){
 					putchar('#');
 					continue;
 				}
-				putchar(print_c[a[i][j]]);
+				if(::mode!=infernal || a[i][j]){
+					putchar(print_c[a[i][j]]);
+				}
 			}
 			putchar('\n');
 		}

@@ -115,8 +115,10 @@ void settings(){
 			cout << "模式：\n< ";
 			if(::mode==normal){
 				cout << "普通模式 " << ' ' << " >";
-			} else{
+			} else if(::mode==debugger){
 				cout << "开发者模式 >";
+			} else{
+				cout << "地狱模式 " << ' ' << " >";
 			}
 			cout << "\n按q键退出。";
 		} else if(lang==English){
@@ -125,9 +127,11 @@ void settings(){
 			cout << "pattern:\n< ";
 			if(::mode==normal){
 				cout << ' ' << "Normal mode" << ' ' << ' ' << " >";
+			} else if(::mode==debugger){
+				cout << "Developer mode >";
 			} else{
-				cout << "Developer Mode >";
-			}
+				cout << "Infernal mode" << ' ' << " >";
+			} 
 			cout << "\nPress the q key to exit.";
 		}
 		choose=getch();
@@ -136,11 +140,10 @@ void settings(){
 		}
 		switch(choose){
 			case 77://右键
-				::mode=(::mode+1)&1; 
+				::mode=(::mode+1)%MODE_COUNT; 
 				break;
 			case 75://左键 
-				::mode=(::mode-1)&1;
-				if(mode<0)	mode+=2;
+				::mode=(::mode-1+MODE_COUNT)%MODE_COUNT;
 				break;
 		}
 	} while(choose!='q' && choose!='Q');
