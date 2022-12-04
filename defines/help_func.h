@@ -1,7 +1,7 @@
 #ifndef HELP_FUNC_H_H_
 #define HELP_FUNC_H_H_
 //include STL
-//å¯¼å…¥æ ‡å‡†åº“
+//µ¼Èë±ê×¼¿â
 #include<string>
 #include<windows.h>
 namespace{

@@ -1,48 +1,48 @@
 /*
- *	ä½œè€…ï¼šc_cpp_a(Github) 
- *	æœ€è¿‘æ›´æ–°ï¼š2022/12/4
- *	åŠŸèƒ½ç®€è¿°ï¼šè¿™æ˜¯æ¸¸æˆçš„åŸºæœ¬å®šä¹‰éƒ¨åˆ†ã€‚è´Ÿè´£å¸¸é‡ã€enumã€‚å½“ç„¶ä¸ºäº†æ¸¸æˆçš„ç¼–å†™æ–¹ä¾¿ï¼Œè¿™é‡Œçš„æ˜¾ç¤ºå­—ç¬¦æ˜ å°„ä½¿ç”¨äº†std::mapã€‚ 
+ *	×÷Õß£ºc_cpp_a(Github) 
+ *	×î½ü¸üĞÂ£º2022/12/4
+ *	¹¦ÄÜ¼òÊö£ºÕâÊÇÓÎÏ·µÄ»ù±¾¶¨Òå²¿·Ö¡£¸ºÔğ³£Á¿¡¢enum¡£µ±È»ÎªÁËÓÎÏ·µÄ±àĞ´·½±ã£¬ÕâÀïµÄÏÔÊ¾×Ö·ûÓ³ÉäÊ¹ÓÃÁËstd::map¡£ 
  */ 
 //For some reasons, the English version notes will not be displayed here. 
 #ifndef DEF
 #define DEF
 //include STL
-//å¯¼å…¥æ ‡å‡†åº“ 
+//µ¼Èë±ê×¼¿â 
 #include<map>
-const int COLS=100,LINES=50;
-const int ADD_COLS=20,ADD_LINE=10;
-const int MODE_COUNT=3;
-const char SAVE_NAME[]="data.mymap";
+const int COLS=100,LINES=50;//ÓÎÏ·µÄ´°¿Ú´óĞ¡ 
+const int ADD_COLS=20,ADD_LINE=10;//³É¾ÍµÄĞÂÔö´°¿Ú´óĞ¡ 
+const int MODE_COUNT=3;//Ä£Ê½µÄÖÖÊı 
+const char SAVE_NAME[]="data.mymap";//±£´æÎÄ¼şÃû£¨Î´Êµ×°£© 
 const int EGG_POS[3][10][2]={{5,5},{10,10},{2,2}};//EGG_POS[language][egg_number]={x,y}
-enum{//åœ°å›¾é‡Œé¢çš„æ–¹å‘ 
-	defaults,//é»˜è®¤ 
-	ups,//ä¸Š 
-	downs,//ä¸‹ 
-	lefts,//å·¦ 
-	rights//å³ 
+enum{//µØÍ¼ÀïÃæµÄ·½Ïò 
+	defaults,//Ä¬ÈÏ 
+	ups,//ÉÏ 
+	downs,//ÏÂ 
+	lefts,//×ó 
+	rights//ÓÒ 
 };
-enum{//åœ°å›¾çš„åŸºæœ¬å…ƒç´  
-	floor,//ç©ºåœ°ï¼ˆé»˜è®¤ï¼‰ 
-	rock,//å²©çŸ³ 
-	door,//ä¼ é€é—¨ 
-	ball//å°çƒ 
+enum{//µØÍ¼µÄ»ù±¾ÔªËØ 
+	floor,//¿ÕµØ£¨Ä¬ÈÏ£© 
+	rock,//ÑÒÊ¯ 
+	door,//´«ËÍÃÅ 
+	ball//Ğ¡Çò 
 };
-enum{//æ¸¸æˆçš„è¯­è¨€ 
-	unable,//æœªå®šä¹‰ï¼ˆé»˜è®¤ï¼‰ 
-	Chinese,//ä¸­æ–‡ 
-	English//è‹±æ–‡ 
+enum{//ÓÎÏ·µÄÓïÑÔ 
+	unable,//Î´¶¨Òå£¨Ä¬ÈÏ£© 
+	Chinese,//ÖĞÎÄ 
+	English//Ó¢ÎÄ 
 };
-enum{//å½©è›‹çš„ç±»å‹ 
-	empty_egg, //ç©ºå½©è›‹ï¼ˆé»˜è®¤ï¼Œå°±æ˜¯æ²¡æœ‰å½©è›‹ï¼‰ 
-	CHI_egg_1,//ä¸­æ–‡å½©è›‹1 
-	UNABLE_egg_1//[æœªå‘½å]å½©è›‹1 
+enum{//²Êµ°µÄÀàĞÍ 
+	empty_egg, //¿Õ²Êµ°£¨Ä¬ÈÏ£¬¾ÍÊÇÃ»ÓĞ²Êµ°£© 
+	CHI_egg_1,//ÖĞÎÄ²Êµ°1 
+	UNABLE_egg_1//[Î´ÃüÃû]²Êµ°1 
 };
-enum{//æ¸¸æˆæ¨¡å¼ 
-	normal,//æ­£å¸¸ï¼ˆé»˜è®¤ï¼‰ 
-	debugger,//å¼€å‘è€…æ¨¡å¼ 
-	infernal//åœ°ç‹±æ¨¡å¼ 
+enum{//ÓÎÏ·Ä£Ê½ 
+	normal,//Õı³££¨Ä¬ÈÏ£© 
+	debugger,//¿ª·¢ÕßÄ£Ê½ 
+	infernal//µØÓüÄ£Ê½ 
 };
-std::map<int,char> print_c={//å¯¹åº”å…ƒç´ æ˜¾ç¤ºæˆä»€ä¹ˆæ · 
+std::map<int,char> print_c={//¶ÔÓ¦ÔªËØÏÔÊ¾³ÉÊ²Ã´Ñù 
 	{floor,' '},
 	{rock,'-'},
 	{door,'@'},

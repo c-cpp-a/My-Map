@@ -1,7 +1,7 @@
 /*
- *	ä½œè€…ï¼šc_cpp_a(Github) 
- *	æœ€è¿‘æ›´æ–°ï¼š2022/12/4
- *	åŠŸèƒ½ç®€è¿°ï¼šè¿™æ˜¯æ•´ä¸ªæ¸¸æˆçš„ä¸»ä½“éƒ¨åˆ†ï¼Œè´Ÿè´£è¿è¡Œæ¸¸æˆã€‚ 
+ *	×÷Õß£ºc_cpp_a(Github) 
+ *	×î½ü¸üĞÂ£º2022/12/4
+ *	¹¦ÄÜ¼òÊö£ºÕâÊÇÕû¸öÓÎÏ·µÄÖ÷Ìå²¿·Ö£¬¸ºÔğÔËĞĞÓÎÏ·¡£ 
  */ 
 /*
  *	Author: c_ cpp_ a(Github)
@@ -9,11 +9,11 @@
  *	Function description: This is the main part of the whole game, responsible for running the game.
  */
 //include STL
-//å¯¼å…¥æ ‡å‡†åº“
+//µ¼Èë±ê×¼¿â
 #include<windows.h>
 #include<string>
 //include custom library
-//å¯¼å…¥è‡ªå®šä¹‰åº“
+//µ¼Èë×Ô¶¨Òå¿â
 class Map;
 class People;
 class Egg;
@@ -31,21 +31,22 @@ class Egg;
 using namespace std;
 int main(){
 	//Instantiate Object
-	//å®ä¾‹åŒ–å¯¹è±¡ 
+	//ÊµÀı»¯¶ÔÏó 
 	Map G;
 	People p;
 	Egg egg; 
-	init(p,G);//è°ƒç”¨åˆå§‹åŒ–å‡½æ•°(Call initialization function)
-	//æ¸¸æˆå¾ªç¯(Game cycle)
-	//æ¸¸æˆçš„åˆ·æ–°é€Ÿåº¦=100æ¬¡/ç§’(Running speed of the game=100ticks/second)
+	init(p,G);//µ÷ÓÃ³õÊ¼»¯º¯Êı(Call initialization function)
+	//ÓÎÏ·Ñ­»·(Game cycle)
+	//ÓÎÏ·µÄË¢ĞÂËÙ¶È=100´Î/Ãë(Running speed of the game=100ticks/second)
 	while(true){
-//		p.save(G);//ä¿å­˜æ¸¸æˆï¼ˆæœªå®è£…ï¼‰ 
-		p.put_xy(G);//è¾“å‡º(print) 
-		screen_helper();//æä¾›å¸®åŠ©(Help)
-		if(egg.is_ach())	egg.print_ach();//å¦‚æœè§¦å‘äº†æˆå°±ç³»ç»Ÿï¼Œå°±è¿è¡Œè¾“å‡ºæˆå°±(If the achievement system is triggered, run the output achievement)
-		Sleep(10);//æ¸¸æˆçš„åˆ·æ–°æ—¶é—´ 
-		p.set_f(G,egg);//è¾“å…¥(input)
-		egg.check_run(get_lang(),p,G);//æ£€æµ‹æ˜¯å¦è§¦å‘å½©è›‹(Check whether the egg is triggered)
+//		p.save(G);//±£´æÓÎÏ·£¨Î´Êµ×°£© 
+		p.put_xy(G);//Êä³ö(print) 
+		screen_helper();//Ìá¹©°ïÖú(Help)
+		if(egg.is_ach())	egg.print_ach();//Èç¹û´¥·¢ÁË³É¾ÍÏµÍ³£¬¾ÍÔËĞĞÊä³ö³É¾Í(If the achievement system is triggered, run the output achievement)
+		Sleep(10);//ÓÎÏ·µÄË¢ĞÂÊ±¼ä 
+		p.set_f(G,egg);//ÊäÈë(input)
+		egg.check_run(get_lang(),p,G);//¼ì²âÊÇ·ñ´¥·¢²Êµ°(Check whether the egg is triggered)
 	}
 	return 0;
 }
+

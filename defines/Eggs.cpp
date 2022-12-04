@@ -19,39 +19,39 @@ void Egg::check_run(const int &lang,People &p,Map &h){
 		case CHI_egg_1:
 			{
 			achs[6]=true;
-			::print("æ­å–œæ‚¨ï¼Œå‘ç°äº†å½©è›‹ï¼\n");
+			::print("¹§Ï²Äú£¬·¢ÏÖÁË²Êµ°£¡\n");
 			::print(">>>");
 			string s;
 			while(getline(cin,s) && s!="quit"){
 				if(s=="creater"){
-					::print("c_cpp_a,Githubç½‘å€:www.github.com/c-cpp-a/My-Map\n");
+					::print("c_cpp_a,GithubÍøÖ·:www.github.com/c-cpp-a/My-Map\n");
 				} else if(s=="lgker"){
-					::print("å“ˆå“ˆï¼Œæ­å–œæ‚¨å‘ç°äº†éšè—çš„å½©è›‹ï¼\næ´›è°·è´¦å·ï¼šc_cpp_aï¼Œæ´›è°·UIDï¼š346332ã€‚\n");
+					::print("¹ş¹ş£¬¹§Ï²Äú·¢ÏÖÁËÒş²ØµÄ²Êµ°£¡\nÂå¹ÈÕËºÅ£ºc_cpp_a£¬Âå¹ÈUID£º346332¡£\n");
 				} else if(s=="Snake"){
-					::print("åŠ è½½è´ªåƒè›‡æ¸¸æˆä¸­â€¦â€¦\n");
-					Sleep(1000);//ç©ºç•™ç€ä»¥åå†è¡¥ 
-					::print("åŠ è½½å¤±è´¥ï¼\n");
+					::print("¼ÓÔØÌ°³ÔÉßÓÎÏ·ÖĞ¡­¡­\n");
+					Sleep(1000);//¿ÕÁô×ÅÒÔºóÔÙ²¹ 
+					::print("¼ÓÔØÊ§°Ü£¡\n");
 				} else{
-					::print("å¯¹ä¸èµ·ï¼Œæ‚¨è¾“å…¥çš„ä¸æ˜¯ä»»ä½•æŒ‡ä»¤ã€‚\n");
+					::print("¶Ô²»Æğ£¬ÄúÊäÈëµÄ²»ÊÇÈÎºÎÖ¸Áî¡£\n");
 				}
 				::print(">>>");
 			}
-			::print("å·²é€€å‡ºï¼");
+			::print("ÒÑÍË³ö£¡");
 			}
 			break;
 		case UNABLE_egg_1:
 			{
 			achs[7]=true;
-			::print("æ­å–œæ‚¨ï¼Œå‘ç°äº†å½©è›‹ï¼\n");
+			::print("¹§Ï²Äú£¬·¢ÏÖÁË²Êµ°£¡\n");
 			::print("Congratulations, you found the egg!\n");
 			::print("<<<");
 			string s;
 			while(getline(cin,s) && s!="quit"){
 				if(s=="D o D o oooo"){
 					::print(s);
-					::print("\næŒºä¸é”™å˜›ï¼Œè¿™ä¸ªå½©è›‹å¯éš¾æ‰¾åˆ°äº†ï¼\n");
+					::print("\nÍ¦²»´íÂï£¬Õâ¸ö²Êµ°¿ÉÄÑÕÒµ½ÁË£¡\n");
 					::print("Very good. It's hard to find this egg!\n");
-					::print("å½©è›‹æç¤ºï¼šä¸­æ–‡ã€10ã€ä¼ é€é—¨ã€‚\n");
+					::print("²Êµ°ÌáÊ¾£ºÖĞÎÄ¡¢10¡¢´«ËÍÃÅ¡£\n");
 					::print("Egg tips: Chinese, 10. Transmission gate.\n");
 				} else{
 					::print(s);
@@ -90,3 +90,4 @@ void Egg::print_ach(){
 		y=ach_print("8.found [unable] Egg 1.",y);
 	}
 }
+

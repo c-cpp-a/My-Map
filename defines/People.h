@@ -1,11 +1,11 @@
 #ifndef PEOPLE_H_
 #define PEOPLE_H_
 //include STL
-//å¯¼å…¥æ ‡å‡†åº“ 
+//µ¼Èë±ê×¼¿â 
 #include<conio.h>
 #include<map>
 //include custom library
-//å¯¼å…¥è‡ªå®šä¹‰åº“
+//µ¼Èë×Ô¶¨Òå¿â
 #include "def"
 #include "Map.h"
 #include "Eggs.h"

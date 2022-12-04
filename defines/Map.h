@@ -1,11 +1,11 @@
 #ifndef MAP_H_
 #define MAP_H_
 //include STL
-//å¯¼å…¥æ ‡å‡†åº“ 
+//µ¼Èë±ê×¼¿â 
 #include<map>
 #include<fstream>
 //include custom library
-//å¯¼å…¥è‡ªå®šä¹‰åº“
+//µ¼Èë×Ô¶¨Òå¿â
 #include "def"
 using namespace std;
 class Map{

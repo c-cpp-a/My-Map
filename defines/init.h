@@ -1,7 +1,7 @@
 #ifndef INIT_H_
 #define INIT_H_
 //include STL
-//å¯¼å…¥æ ‡å‡†åº“ 
+//µ¼Èë±ê×¼¿â 
 #include<string>
 #include<cstdlib>
 #include<conio.h>
@@ -9,7 +9,7 @@
 #include<windows.h>
 using namespace std;
 //include custom library
-//å¯¼å…¥è‡ªå®šä¹‰åº“
+//µ¼Èë×Ô¶¨Òå¿â
 #include "def"
 void create_door_helper();
 void set_parameters();

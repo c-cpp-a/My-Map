@@ -1,11 +1,11 @@
 #ifndef EGGS_H_
 #define EGGS_H_
 //include STL
-//å¯¼å…¥æ ‡å‡†åº“ 
+//µ¼Èë±ê×¼¿â 
 #include<string>
 #include<iostream>
 //include custom library
-//å¯¼å…¥è‡ªå®šä¹‰åº“
+//µ¼Èë×Ô¶¨Òå¿â
 #include "def"
 class People;
 class Map;
