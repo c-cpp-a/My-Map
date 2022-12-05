@@ -1,8 +1,8 @@
 # My-Map
 ## 注意事项
-This version is only applicable to Windows and is encoded as GB2312.
+This version is for Windows only. Chinese output or comments may be garbled, so feedback or transcoding can be performed (code usage code: GB2312).
 
-此版本只适用于Windows，编码为GB2312。
+此版本只适用于Windows。中文的输出或注释可能出现乱码，可以进行反馈或转码（代码使用编码：GB2312）。
 
 Because the window size is limited, the pop-up version is introduced. Please refer to pop window version.
 
@@ -67,13 +67,13 @@ Optimization of some details.
 
 Merge pop-window-version into main branch.
 
-### V2.2.0
+## V2.2.0
 
 New mode settings: normal mode and developer mode.
 
 新增模式设置：普通模式和开发者模式。
 
-## V2.2.1
+### V2.2.1
 
 1. New mode setting: Hell mode.
 
@@ -82,3 +82,9 @@ New mode settings: normal mode and developer mode.
 1、新增模式设置：地狱模式。
 
 2、为部分代码提供了功能注释。
+
+### V2.2.2
+
+Modification of some details.
+
+一些细节的修改。
