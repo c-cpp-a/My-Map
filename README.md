@@ -88,3 +88,17 @@ New mode settings: normal mode and developer mode.
 Modification of some details.
 
 一些细节的修改。
+
+#### V2.2.3
+
+1. Expand comments.
+
+2. Change the structure slightly.
+
+3. New mode: All in one mode.
+
+1、扩充注释。
+
+2、稍微更改结构。
+
+3、新增模式：清一色模式。

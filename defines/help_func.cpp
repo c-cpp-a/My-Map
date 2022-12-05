@@ -23,5 +23,24 @@ namespace{
 		cout << tmp;
 		return starty+i+1;
 	}
+	void map_print(const char &ch){
+		switch(::mode){
+			case normal:case debugger:
+				putchar(print_c[ch]);
+				break;
+			case infernal:
+				if(ch){
+					putchar(print_c[ch]);
+				}
+				break;
+			case AIOC:
+				if(ch){
+					putchar('-');
+				} else{
+					putchar(' ');
+				}
+				break;
+		}
+	}
 }
 

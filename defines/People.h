@@ -38,6 +38,9 @@ class People{
 		inline const node get_pos(){
 			return pos;
 		}
+		inline const int &get_movef(){
+			return move_f;
+		}
 //		void save(Map &);
 //		void imports(Map &);
 };

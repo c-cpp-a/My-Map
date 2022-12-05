@@ -1,4 +1,4 @@
-void Map::print(int x,int y){
+void Map::print(int x,int y,const int &direct){
 	gotoxy(0,0); 
 	if(x>=COLS/2 && y>=LINES/2){
 		for(int i=x-LINES/2+1;i<=x+LINES/2;i++){
@@ -7,9 +7,7 @@ void Map::print(int x,int y){
 					putchar('#');
 					continue;
 				}
-				if(::mode!=infernal || a[i][j]){
-					putchar(print_c[a[i][j]]);
-				}
+				map_print(a[i][j]);
 			}
 			putchar('\n');
 		}
@@ -20,9 +18,7 @@ void Map::print(int x,int y){
 					putchar('#');
 					continue;
 				}
-				if(::mode!=infernal || a[i][j]){
-					putchar(print_c[a[i][j]]);
-				}
+				map_print(a[i][j]);
 			}
 			putchar('\n');
 		}
@@ -33,9 +29,7 @@ void Map::print(int x,int y){
 					putchar('#');
 					continue;
 				}
-				if(::mode!=infernal || a[i][j]){
-					putchar(print_c[a[i][j]]);
-				}
+				map_print(a[i][j]);
 			}
 			putchar('\n');
 		}
@@ -46,16 +40,14 @@ void Map::print(int x,int y){
 					putchar('#');
 					continue;
 				}
-				if(::mode!=infernal || a[i][j]){
-					putchar(print_c[a[i][j]]);
-				}
+				map_print(a[i][j]);
 			}
 			putchar('\n');
 		}
 	}
 	if(::mode==debugger){
-		string contents="pos=("+to_string(x)+","+to_string(y)+")";
-		gotoxy(0,COLS-contents.length());
+		string contents="pos=("+to_string(x)+","+to_string(y)+"),direct="+direct_content[::lang][direct];
+		gotoxy(0,COLS);
 		cout << contents;
 	}
 }

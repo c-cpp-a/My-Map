@@ -90,7 +90,7 @@ void People::set_f(Map &h,Egg &egg){
 				auto tmp=check_xy(pos,move_f),tmp2=tmp;
 				h.change(tmp.x,tmp.y,door);
 				while(input!=' '){
-					h.print(tmp2.x,tmp2.y);
+					h.print(tmp2.x,tmp2.y,move_f);
 					create_door_helper();
 					input=getch();
 					switch(input){
@@ -155,7 +155,7 @@ void People::set_f(Map &h,Egg &egg){
 	}
 }
 void People::put_xy(Map &h){
-	h.print(pos.x,pos.y);
+	h.print(pos.x,pos.y,move_f);
 }
 //void People::save(Map &h){
 //	ofstream fout;

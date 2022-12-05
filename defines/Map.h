@@ -13,7 +13,7 @@ class Map{
 		map<int,map<int,int>> a;
 		int downx=0,righty=0;
 	public:
-		void print(int,int);
+		void print(int,int,const int &);
 		void change(int,int,int);
 		bool issave(int,int);
 //		void imports();

@@ -56,7 +56,7 @@ void screen_helper(){
 	} else if(lang==English){
 		//language:English
 		//语言：英文
-		cout << "Press the H key to pop up the help.\nPress the T key to pop up the settings." << endl;
+		cout << "\nPress the H key to pop up the help.\nPress the T key to pop up the settings." << endl;
 	}
 } 
 void print_helper(){
@@ -112,27 +112,21 @@ void settings(){
 		if(lang==Chinese){
 			//language:Chinese
 			//语言：中文
-			cout << "模式：\n< ";
-			if(::mode==normal){
-				cout << "普通模式 " << ' ' << " >";
-			} else if(::mode==debugger){
-				cout << "开发者模式 >";
-			} else{
-				cout << "地狱模式 " << ' ' << " >";
-			}
-			cout << "\n按q键退出。";
+			cout << "模式：";
 		} else if(lang==English){
 			//language:English
 			//语言：英文
-			cout << "pattern:\n< ";
-			if(::mode==normal){
-				cout << ' ' << "Normal mode" << ' ' << ' ' << " >";
-			} else if(::mode==debugger){
-				cout << "Developer mode >";
-			} else{
-				cout << "Infernal mode" << ' ' << " >";
-			} 
-			cout << "\nPress the q key to exit.";
+			cout << "pattern:";
+		}
+		cout << mode_content[lang][::mode];
+		if(lang==Chinese){
+			//language:Chinese
+			//语言：中文
+			cout << "\n按左右键选择，按q键退出。";
+		} else if(lang==English){
+			//language:English
+			//语言：英文
+			cout << "\nPress the left and right keys to select, and press the q key to exit.";
 		}
 		choose=getch();
 		if(choose==224){
