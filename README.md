@@ -52,6 +52,12 @@ New mode settings: normal mode and developer mode.
 
 ### V2.1
 
+#### V2.1.3:
+
+Merge pop-window-version into main branch.
+
+合并pop-window-version为main分支。
+
 #### V2.1.2
 
 Optimization of some details.
@@ -63,14 +69,6 @@ Optimization of some details.
 Optimization of some details.
 
 一些细节的优化。
-
-#### V2.1.3:
-
-Merge pop-window-version into main branch.
-
-合并pop-window-version为main分支。
-
-### V2.1
 
 #### V2.1.0
 
