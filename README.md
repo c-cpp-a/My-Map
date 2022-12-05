@@ -49,31 +49,31 @@ Expand the egg of the previous version and add new achievements. Add language me
 
 对上一版本的彩蛋进行扩充，新增成就。新增语言菜单选项。
 
-### V2.1.1
+#### V2.1.1
 
 Optimization of some details.
 
 一些细节的优化。
 
-### V2.1.2
+#### V2.1.2
 
 Optimization of some details.
 
 一些细节的优化。
 
-2022/11/8:
+#### 2022/11/8:
 
 合并pop-window-version为main分支。
 
 Merge pop-window-version into main branch.
 
-## V2.2.0
+### V2.2.0
 
 New mode settings: normal mode and developer mode.
 
 新增模式设置：普通模式和开发者模式。
 
-### V2.2.1
+#### V2.2.1
 
 1. New mode setting: Hell mode.
 
@@ -83,7 +83,7 @@ New mode settings: normal mode and developer mode.
 
 2、为部分代码提供了功能注释。
 
-### V2.2.2
+#### V2.2.2
 
 Modification of some details.
 
