@@ -4,6 +4,10 @@ This version is for Windows only. Chinese output or comments may be garbled, so 
 
 此版本只适用于Windows。中文的输出或注释可能出现乱码，可以进行反馈或转码（代码使用编码：GB2312）。
 
+The newly introduced portable version of Linux may damage the experience.
+
+新推出了linux的移植版本，体验可能受损。
+
 ## 版本
 
 ### V2.2
