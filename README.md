@@ -10,6 +10,12 @@ The newly introduced portable version of Linux may damage the experience.
 
 ## 版本
 
+### V2.3
+
+An archiving system has been introduced, which will store the player's map, location and eggs in a file named `data.mymap` under the same directory of the game. Later, after entering the game and choosing to refuse to import and archive, the program will automatically overwrite this file. At present, it has not been archived: the movement of the ball (only the location where it was originally created will be archived) and the portal (only display, not transfer).
+
+推出了存档系统，会把玩家的地图、位置、彩蛋存进游戏同一目录下名为`data.mymap`的文件，后续进入游戏选择拒绝导入存档后，程序会自动覆盖这一文件。目前还未做到存档：小球的移动（只会存档初始被创建的位置）和传送门（只会显示，无法传送）。
+
 ### V2.2
 
 #### V2.2.4

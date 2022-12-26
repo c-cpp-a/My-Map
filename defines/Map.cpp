@@ -53,37 +53,35 @@ void Map::print(int x,int y,const int &direct){
 }
 void Map::change(int x,int y,int c){
 	a[x][y]=c;
-	downx=max(downx,x);
-	righty=max(righty,y);
+	save_message.push_back(save_format(x,y,c,nowt++));
 }
 bool Map::issave(int x,int y){
 	return a[x][y]!=rock;
 }
-//void Map::imports(){
-//	ifstream fin;
-//	fin.open(SAVE_NAME);
-//	fin >> downx >> righty;
-//	for(int i=1;i<=downx;i++){
-//		for(int j=1;j<=righty;j++){
-//			char ch;
-//			fin >> ch;
-//			a[i][j]=ch;
-//		}
-//	}
-//	fin.close();
-//}
-//void Map::save(){
-//	ofstream fout;
-//	fout.open(SAVE_NAME);
-//	fout << downx << ' ' << righty;
-//	for(int i=1;i<=downx;i++){
-//		for(int j=1;j<=righty;j++){
-//			fout << a[i][j] << ' ';
-//		}
-//		fout << '\n';
-//	}
-//	fout.close();
-//}
+void Map::imports(ifstream &fin){
+	int n;
+	fin >> n;
+	while(n--){
+		int x,y,c,t;
+		fin >> x >> y >> c >> t;
+		a[x][y]=c;
+		save_message.push_back(save_format(x,y,c,t));
+		nowt=max(nowt,t);
+	}
+	++nowt;
+}
+void Map::save(ofstream &fout){
+	sort(save_message.begin(),save_message.end());
+	for(int i=1,len=save_message.size();i<len;i++){
+		if(save_message[i]==save_message[i-1]){
+			save_message.erase(save_message.begin()+i-1);
+		}
+	}
+	fout << save_message.size() << endl;
+	for(int i=0,len=save_message.size();i<len;i++){
+		fout << save_message[i].x << ' ' << save_message[i].y << ' ' << save_message[i].c << ' ' << save_message[i].t << endl;
+	}
+}
 map<int,int> Map::operator[](const int i){
 	return a[i];
 }

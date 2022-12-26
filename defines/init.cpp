@@ -1,6 +1,3 @@
-//namespace{
-//	int lang=unable;
-//}
 void set_parameters(){
 	system("title 我的地图");
 	system(("mode "+to_string(COLS)+","+to_string(LINES+ADD_LINE)).c_str());
@@ -21,28 +18,36 @@ void set_lang(){
 				goto ask;
 	}
 }
-void set_import(People &p,Map &h){
-//	int ifimport=0;
+void set_import(People &p,Map &h,Egg &egg){
+	int ifimport=0;
 	if(lang==Chinese){
 		//language:Chinese
 		//语言：中文 
-//		cout << "请问您是否要导入存档？如果不导入，存档可能丢失。（本功能测试中）\n";
-//		cout << "按'y'键导入存档。";
-//		ifimport=getch();
-//		if(ifimport=='y'){
-//			p.imports(h);
-//		}
-		cout << "此功能暂时空缺。按任意键继续…\n";
-		getch();
+		cout << "请问您是否要导入存档？如果不导入，存档可能丢失。（本功能测试中）\n";
+		cout << "按'y'键导入存档。";
+		ifimport=getch();
+		if(ifimport=='y'){
+			ifstream fin(SAVE_NAME);
+			h.imports(fin);
+			p.imports(fin);
+			egg.imports(fin);
+			fin.close();
+		}
+//		cout << "此功能暂时空缺。按任意键继续…\n";
+//		getch();
 		system("CLS");
 	} else{
-//		cout << "Do you want to import the archive? If you do not import, the archive may be lost.(in this function test)\n";
-//		cout << "Press the 'y' key to import the archive.";
-//		if(ifimport=='y'){
-//			p.imports(h);
-//		}
-		cout << "This function is temporarily unavailable. Press any key to continue...\n";
-		getch();
+		cout << "Do you want to import the archive? If you do not import, the archive may be lost.(in this function test)\n";
+		cout << "Press the 'y' key to import the archive.";
+		if(ifimport=='y'){
+			ifstream fin(SAVE_NAME);
+			h.imports(fin);
+			p.imports(fin);
+			egg.imports(fin);
+			fin.close();
+		}
+//		cout << "This function is temporarily unavailable. Press any key to continue...\n";
+//		getch();
 		system("CLS");
 	}
 	system("CLS");
@@ -99,12 +104,6 @@ void create_door_helper(){
 		cout << "\nWASD key to move, and space key to confirm to place the transfer door.\n";
 	} 
 }
-const int &get_lang(){
-	return ::lang;
-}
-void set_lang(const int x){
-	::lang=x;
-}
 void settings(){
 	int choose;
 	do{
@@ -141,4 +140,11 @@ void settings(){
 				break;
 		}
 	} while(choose!='q' && choose!='Q');
+}
+void save(People &p,Map &h,Egg &egg){
+	ofstream fout(SAVE_NAME);
+	h.save(fout);
+	p.save(fout);
+	egg.save(fout);
+	fout.close();
 }

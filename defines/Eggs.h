@@ -4,11 +4,10 @@
 //导入标准库 
 #include<string>
 #include<iostream>
+#include<fstream>
 //include custom library
 //导入自定义库
 #include "def"
-class People;
-class Map;
 class Egg{
 	private:
 		bool has_ach=false;
@@ -17,6 +16,8 @@ class Egg{
 		int isegg(const int &,People &,Map &);
 		void check_run(const int &,People &,Map &);
 		void print_ach(); 
+		void imports(ifstream &);
+		void save(ofstream &);
 		inline bool is_ach(){
 			return has_ach;
 		}

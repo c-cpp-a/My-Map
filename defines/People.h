@@ -41,8 +41,8 @@ class People{
 		inline const int &get_movef(){
 			return move_f;
 		}
-//		void save(Map &);
-//		void imports(Map &);
+		void save(ofstream &);
+		void imports(ifstream &);
 };
 const People::node People::default_node={-1,-1};
 #endif

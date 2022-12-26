@@ -71,7 +71,7 @@ void People::set_f(Map &h,Egg &egg){
 		case '1':
 			{
 				auto tmp=check_xy(pos,move_f);
-				h.change(tmp.x,tmp.y,floor);
+				h.change(tmp.x,tmp.y,floors);
 				doors[tmp.x][tmp.y]=default_node;
 				if(egg.is_ach())	egg[0]=true;
 			}
@@ -138,7 +138,7 @@ void People::set_f(Map &h,Egg &egg){
 	} else if(h[pos.x][pos.y]==ball){
 		auto tmp=pos;
 		bool flag=true;
-		while(h[tmp.x][tmp.y]!=floor){
+		while(h[tmp.x][tmp.y]!=floors){
 			if(h[tmp.x][tmp.y]==rock || !tmp.check()){
 				flag=false;
 				break;
@@ -147,7 +147,7 @@ void People::set_f(Map &h,Egg &egg){
 		}
 		if(flag){
 			h.change(tmp.x,tmp.y,ball);	
-			h.change(pos.x,pos.y,floor);
+			h.change(pos.x,pos.y,floors);
 			if(egg.is_ach())	egg[5]=true;
 		} else{
 			pos=check_xy(pos,back(move_f));
@@ -157,18 +157,9 @@ void People::set_f(Map &h,Egg &egg){
 void People::put_xy(Map &h){
 	h.print(pos.x,pos.y,move_f);
 }
-//void People::save(Map &h){
-//	ofstream fout;
-//	fout.open(SAVE_NAME);
-//	h.save();
-//	fout << endl << x << ' ' << y << endl;
-//	fout.close();
-//	
-//}
-//void People::imports(Map &h){
-//	ifstream fin;
-//	fin.open(SAVE_NAME);
-//	h.imports();
-//	fin >> x >> y;
-//	fin.close();
-//}
+void People::save(ofstream &fout){
+	fout << pos.x << ' ' << pos.y << endl;
+}
+void People::imports(ifstream &fin){
+	fin >> pos.x >> pos.y;
+}

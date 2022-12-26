@@ -1,7 +1,7 @@
 namespace{
 	using namespace std;
 	void print(const string s){
-		for(auto len=s.length(),i=0ULL;i<len;i++){
+		for(auto len=s.length(),i=0U;i<len;i++){
 			putchar(s[i]);
 			Sleep(30);
 		}

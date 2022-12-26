@@ -90,4 +90,16 @@ void Egg::print_ach(){
 		y=ach_print("8.found [unable] Egg 1.",y);
 	}
 }
-
+void Egg::imports(ifstream &fin){
+	fin >> has_ach;
+	for(int i=0;i<8;i++){
+		fin >> achs[i];
+	} 
+}
+void Egg::save(ofstream &fout){
+	fout << has_ach << endl;
+	for(int i=0;i<8;i++){
+		fout << achs[i] << ' ';
+	}
+	fout << endl;
+}

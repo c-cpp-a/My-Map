@@ -11,19 +11,21 @@ using namespace std;
 //include custom library
 //导入自定义库
 #include "def"
+#include "Map.h"
+#include "People.h"
+#include "Eggs.h"
 void create_door_helper();
 void set_parameters();
 void set_lang();
-void set_import(People &,Map &);
+void set_import(People &,Map &,Egg &egg);
 void screen_helper();
 void print_helper();
-inline void init(People &p,Map &h){
+inline void init(People &p,Map &h,Egg &egg){
 	set_parameters();
 	set_lang();
 	system("CLS");
-	set_import(p,h);
+	set_import(p,h,egg);
 }
-const int &get_lang();
-void set_lang(const int); 
 void settings();
+void save(People &,Map &,Egg &);
 #endif
