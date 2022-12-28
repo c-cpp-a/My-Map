@@ -1,6 +1,6 @@
 /*
  *	作者：c_cpp_a(Github) 
- *	最近更新：2022/12/26
+ *	最近更新：2022/12/28
  *	功能简述：这是整个游戏的主体部分，负责运行游戏。 
  */ 
 /*
@@ -39,7 +39,7 @@ int main(){
 	//游戏循环(Game cycle)
 	//游戏的刷新速度=100次/秒(Running speed of the game=100ticks/second)
 	while(true){
-		save(p,G,egg);//保存游戏（未实装） 
+		save(p,G,egg);//保存游戏
 		p.put_xy(G);//输出(print) 
 		screen_helper();//提供帮助(Help)
 		if(egg.is_ach())	egg.print_ach();//如果触发了成就系统，就运行输出成就(If the achievement system is triggered, run the output achievement)

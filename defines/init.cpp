@@ -31,6 +31,7 @@ void set_import(People &p,Map &h,Egg &egg){
 			h.imports(fin);
 			p.imports(fin);
 			egg.imports(fin);
+			fin >> ::mode;
 			fin.close();
 		}
 //		cout << "此功能暂时空缺。按任意键继续…\n";
@@ -44,6 +45,7 @@ void set_import(People &p,Map &h,Egg &egg){
 			h.imports(fin);
 			p.imports(fin);
 			egg.imports(fin);
+			fin >> ::mode;
 			fin.close();
 		}
 //		cout << "This function is temporarily unavailable. Press any key to continue...\n";
@@ -146,5 +148,6 @@ void save(People &p,Map &h,Egg &egg){
 	h.save(fout);
 	p.save(fout);
 	egg.save(fout);
+	fout << ::mode << endl;
 	fout.close();
 }

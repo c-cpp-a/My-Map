@@ -158,8 +158,24 @@ void People::put_xy(Map &h){
 	h.print(pos.x,pos.y,move_f);
 }
 void People::save(ofstream &fout){
-	fout << pos.x << ' ' << pos.y << endl;
+	fout << pos.x << ' ' << pos.y << ' ' << move_f << endl;
+	for(auto it=doors.begin();it!=doors.end();++it){
+		for(auto itj=(it->second).begin();itj!=(it->second).end();++itj){
+			if((itj->second)!=default_node){
+				fout << (it->first) << ' ' << (itj->first) << ' ' << (itj->second).x << ' ' << (itj->second).y << endl;
+			}
+		}
+	} 
+	fout << "-1 -1 -1 -1 \n";
 }
 void People::imports(ifstream &fin){
-	fin >> pos.x >> pos.y;
+	fin >> pos.x >> pos.y >> move_f;
+	int xi,yi,xv,yv;
+	while(fin >> xi >> yi >> xv >> yv){
+		if(xi==-1 && yi==-1 && xv==-1 && yv==-1){
+			break;
+		} else{
+			doors[xi][yi]=node({xv,yv});
+		}
+	}
 }
