@@ -12,6 +12,12 @@ The newly introduced portable version of Linux may damage the experience.
 
 ### V2.3
 
+#### V2.3.2
+
+The map storage mode has been changed, and the position of the ball can also be stored.
+
+更换了地图的存储方式，小球的位置也可以存储了。
+
 #### V2.3.1
 
 Update the archive and add the game mode and direction.

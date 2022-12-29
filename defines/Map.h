@@ -12,26 +12,7 @@
 using namespace std;
 class Map{
 	private:
-		struct save_format{
-			int x,y,c,t;
-			save_format(int _x=0,int _y=0,int _c=0,int _t=0):x(_x),y(_y),c(_c),t(_t){}
-			bool operator<(const save_format &a){
-				if(x!=a.x){
-					return x<a.x;
-				} else if(y!=a.y){
-					return y<a.y;
-				} else{
-					return t<a.t;
-				}
-			}
-			bool operator==(const save_format &a){
-				return (x==a.x && y==a.y);
-			}
-		};
-	private:
 		map<int,map<int,int>> a;
-		vector<save_format> save_message;
-		int nowt=0;
 	public:
 		void print(int,int,const int &);
 		void change(int,int,int);
