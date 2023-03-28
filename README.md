@@ -143,3 +143,6 @@ This is a new Sandbox game. You can create or destroy rocks here, and you can wa
 
 这是一个新的沙盒游戏。你在这里可以创建或销毁岩石，也可以自由行走。更多功能开发中。
 
+# 讨论频道
+
+[discord链接](https://discord.gg/hK3P8YaJ) (discord.gg)
