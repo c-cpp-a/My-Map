@@ -12,6 +12,12 @@ The newly introduced portable version of Linux may damage the experience.
 
 ### V2.3
 
+#### V2.3.3
+
+Slightly changed the game description to make the expression more concise.
+
+稍微更改了游戏说明，让表达更简洁。
+
 #### V2.3.2
 
 The map storage mode has been changed, and the position of the ball can also be stored.
