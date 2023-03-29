@@ -1,14 +1,14 @@
 #ifndef MAP_H_
 #define MAP_H_
 //include STL
-//µ¼Èë±ê×¼¿â 
+//å¯¼å…¥æ ‡å‡†åº“ 
 #include<map>
 #include<fstream>
+#include<iostream>
 #include<vector>
 #include<algorithm>
 //include custom library
-//µ¼Èë×Ô¶¨Òå¿â
-#include "def"
+//å¯¼å…¥è‡ªå®šä¹‰åº“
 using namespace std;
 class Map{
 	private:

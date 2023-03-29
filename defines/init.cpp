@@ -1,20 +1,24 @@
+#include<iostream>
+#include<string>
+#include "def"
 void set_parameters(){
-	system("title ÎÒµÄµØÍ¼");
+	using namespace std;
+	system("title æˆ‘çš„åœ°å›¾");
 	system(("mode "+to_string(COLS)+","+to_string(LINES+ADD_LINE)).c_str());
 }
 void set_lang(){
 	system("CLS");
 	::lang=unable;
-	ask:cout << "Please Choose language.\nÇëÉèÖÃÓïÑÔ¡£\n"
-			"Press'e'to set the language to English, and press'c' to set the language to Chinese.\n"
-			"°´'e'¼üÉèÖÃÓïÑÔÎªÓ¢ÎÄ£¬°´'c'¼üÉèÖÃÓïÑÔÎªÖÐÎÄ¡£\n";
+	ask:cout << "Please Choose language.\nè¯·è®¾ç½®è¯­è¨€ã€‚\n"
+			"English[E]\tChinese[C]\n"
+			"è‹±æ–‡[E]\tä¸­æ–‡[C]\n";
 	::lang=getch();
-	if(lang=='c')	::lang=Chinese;
-	else if(lang=='e')	::lang=English;
-	else if(lang==224)	::lang=unable;
+	if(lang=='c' || lang=='C')	::lang=Chinese;
+	else if(lang=='e' || lang=='E')	::lang=English;
+	else if(lang==224)	::lang=unable;//egg
 	else{
 		cout << "Error:cannot set this language.\n"
-				"´íÎó£º²»ÄÜÉèÖÃÎª´ËÓïÑÔ¡£\n";
+				"é”™è¯¯ï¼šä¸èƒ½è®¾ç½®ä¸ºæ­¤è¯­è¨€ã€‚\n";
 				goto ask;
 	}
 }
@@ -22,9 +26,9 @@ void set_import(People &p,Map &h,Egg &egg){
 	int ifimport=0;
 	if(lang==Chinese){
 		//language:Chinese
-		//ÓïÑÔ£ºÖÐÎÄ 
-		cout << "ÇëÎÊÄúÊÇ·ñÒªµ¼Èë´æµµ£¿Èç¹û²»µ¼Èë£¬´æµµ¿ÉÄÜ¶ªÊ§¡££¨±¾¹¦ÄÜ²âÊÔÖÐ£©\n";
-		cout << "°´'y'¼üµ¼Èë´æµµ¡£";
+		//è¯­è¨€ï¼šä¸­æ–‡ 
+		cout << "è¯·é—®æ‚¨æ˜¯å¦è¦å¯¼å…¥å­˜æ¡£ï¼Ÿå¦‚æžœä¸å¯¼å…¥ï¼Œå­˜æ¡£å¯èƒ½ä¸¢å¤±ã€‚ï¼ˆæœ¬åŠŸèƒ½æµ‹è¯•ä¸­ï¼‰\n";
+		cout << "æŒ‰'y'é”®å¯¼å…¥å­˜æ¡£ã€‚";
 		ifimport=getch();
 		if(ifimport=='y'){
 			ifstream fin(SAVE_NAME);
@@ -34,7 +38,7 @@ void set_import(People &p,Map &h,Egg &egg){
 			fin >> ::mode;
 			fin.close();
 		}
-//		cout << "´Ë¹¦ÄÜÔÝÊ±¿ÕÈ±¡£°´ÈÎÒâ¼ü¼ÌÐø¡­\n";
+//		cout << "æ­¤åŠŸèƒ½æš‚æ—¶ç©ºç¼ºã€‚æŒ‰ä»»æ„é”®ç»§ç»­â€¦\n";
 //		getch();
 		system("CLS");
 	} else{
@@ -58,36 +62,40 @@ void screen_helper(){
 	using namespace std;
 	if(lang==Chinese){
 		//language:Chinese
-		//ÓïÑÔ£ºÖÐÎÄ 
-		cout << "\n°´H¼üµ¯³ö°ïÖú¡£\n°´T¼üµ¯³öÉèÖÃ¡£" << endl;
+		//è¯­è¨€ï¼šä¸­æ–‡ 
+		cout << "\nå¸®åŠ©[H]\tè®¾ç½®[T]" << endl;
 	} else if(lang==English){
 		//language:English
-		//ÓïÑÔ£ºÓ¢ÎÄ
-		cout << "\nPress the H key to pop up the help.\nPress the T key to pop up the settings." << endl;
+		//è¯­è¨€ï¼šè‹±æ–‡
+		cout << "\nHelp[H]\nTools[T]" << endl;
 	}
 } 
 void print_helper(){
 	using namespace std;
-	if(lang==Chinese){
+	if(::lang==Chinese){
 		//language:Chinese
-		//ÓïÑÔ£ºÖÐÎÄ 
-		cout << "\n :¿ÕµØ£¬¿É×ß¶¯\t-:ÑÒÊ¯£¬²»¿É×ß¶¯\t@:´«ËÍÃÅ\to:Ð¡Çò\t#:Äã×Ô¼º\n"
-				"WASDÒÆ¶¯£¬°´1¼ü½«ÔÚÇ°½ø·½ÏòÉÏÇå³ýÒ»ÇÐ£¬"
-				"°´2¼ü½«ÔÚÇ°½ø·½ÏòÉÏ´´½¨ÑÒÊ¯¡£"
-				"°´3¼ü½«ÔÚÇ°½ø·½ÏòÉÏ´´½¨´«ËÍÃÅ¡£" 
-				"°´4¼ü½«ÔÚÇ°½ø·½ÏòÉÏ´´½¨Çò¡£\n"
-				"°´l¼üÑ¡ÔñÓïÑÔ¡£\n"
-				"¸ü¶à¹¦ÄÜÍØÕ¹ÖÐ¡£¡£¡££¨Çë°´H¼ü¹Ø±Õ°ïÖú£©" << endl;
-	} else if(lang==English){
+		//è¯­è¨€ï¼šä¸­æ–‡ 
+		cout << "\n :ç©ºåœ°ï¼Œå¯èµ°åŠ¨\t-:å²©çŸ³ï¼Œä¸å¯èµ°åŠ¨\t@:ä¼ é€é—¨\to:å°çƒ\t#:ä½ è‡ªå·±\n"
+				"WASDç§»åŠ¨ã€‚\n"
+				"æ¸…é™¤ç‰©å“[1]\t"
+				"åˆ›å»ºå²©çŸ³[2]\t"
+				"åˆ›å»ºä¼ é€é—¨[3]\t" 
+				"åˆ›å»ºå°çƒ[4]\n"
+				"é€‰æ‹©è¯­è¨€[L]\t"
+				"å…³é—­å¸®åŠ©[H]\n"
+				"æ›´å¤šåŠŸèƒ½æ‹“å±•ä¸­ã€‚ã€‚ã€‚" << endl;
+	} else if(::lang==English){
 		//language:English
-		//ÓïÑÔ£ºÓ¢ÎÄ
+		//è¯­è¨€ï¼šè‹±æ–‡
 		cout << "\n :open space, movable\t-: rock, not movable\t@: portal\to: ball\t#: yourself\n"
-				"WASD moves, pressing the 1 key will clear everything in the forward direction,"
-				"Press 2 to create the rock in the forward direction." 
-				"Pressing the 3 key will create a portal in the forward direction."
-				"Pressing the 4 key creates a ball in the forward direction.\n"
-				"Press l to select the language.\n"
-				"More function expansion...(Press H to close the help)" << endl;
+				"WASD moves.\n"
+				"clear everything in the forward direction[1]\t"
+				"create a rock in the forward direction[2]\t" 
+				"create a portal in the forward direction[3]\t"
+				"create a ball in the forward direction[4]\n"
+				"select the language[L]\t"
+				"close the help content[H]\n"
+				"More function expansion..." << endl;
 	}
 	char a;
 	do{
@@ -96,13 +104,13 @@ void print_helper(){
 	}while(a!='H' && a!='h');
 }
 void create_door_helper(){
-	if(lang==Chinese){
+	if(::lang==Chinese){
 		//language:Chinese
-		//ÓïÑÔ£ºÖÐÎÄ
-		cout << "\nWASD¼üÒÆ¶¯£¬¿Õ¸ñ¼üÈ·ÈÏ·ÅÖÃ´«ËÍÃÅ¡£\n";
-	} else if(lang==English){
+		//è¯­è¨€ï¼šä¸­æ–‡
+		cout << "\nWASDé”®ç§»åŠ¨ï¼Œç©ºæ ¼é”®ç¡®è®¤æ”¾ç½®ä¼ é€é—¨ã€‚\n";
+	} else if(::lang==English){
 		//language:English
-		//ÓïÑÔ£ºÓ¢ÎÄ
+		//è¯­è¨€ï¼šè‹±æ–‡
 		cout << "\nWASD key to move, and space key to confirm to place the transfer door.\n";
 	} 
 }
@@ -112,21 +120,21 @@ void settings(){
 		system("CLS");
 		if(lang==Chinese){
 			//language:Chinese
-			//ÓïÑÔ£ºÖÐÎÄ
-			cout << "Ä£Ê½£º";
+			//è¯­è¨€ï¼šä¸­æ–‡
+			cout << "æ¨¡å¼ï¼š";
 		} else if(lang==English){
 			//language:English
-			//ÓïÑÔ£ºÓ¢ÎÄ
+			//è¯­è¨€ï¼šè‹±æ–‡
 			cout << "pattern:";
 		}
 		cout << mode_content[lang][::mode];
 		if(lang==Chinese){
 			//language:Chinese
-			//ÓïÑÔ£ºÖÐÎÄ
-			cout << "\n°´×óÓÒ¼üÑ¡Ôñ£¬°´q¼üÍË³ö¡£";
+			//è¯­è¨€ï¼šä¸­æ–‡
+			cout << "\næŒ‰å·¦å³é”®é€‰æ‹©ï¼ŒæŒ‰qé”®é€€å‡ºã€‚";
 		} else if(lang==English){
 			//language:English
-			//ÓïÑÔ£ºÓ¢ÎÄ
+			//è¯­è¨€ï¼šè‹±æ–‡
 			cout << "\nPress the left and right keys to select, and press the q key to exit.";
 		}
 		choose=getch();
@@ -134,10 +142,10 @@ void settings(){
 			choose=getch();
 		}
 		switch(choose){
-			case 77://ÓÒ¼ü
+			case 77://å³é”®
 				::mode=(::mode+1)%MODE_COUNT; 
 				break;
-			case 75://×ó¼ü 
+			case 75://å·¦é”® 
 				::mode=(::mode-1+MODE_COUNT)%MODE_COUNT;
 				break;
 		}

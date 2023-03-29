@@ -1,13 +1,13 @@
 #ifndef EGGS_H_
 #define EGGS_H_
 //include STL
-//µ¼Èë±ê×¼¿â 
+//å¯¼å…¥æ ‡å‡†åº“ 
 #include<string>
 #include<iostream>
 #include<fstream>
 //include custom library
-//µ¼Èë×Ô¶¨Òå¿â
-#include "def"
+//å¯¼å…¥è‡ªå®šä¹‰åº“
+using namespace std;
 class Egg{
 	private:
 		bool has_ach=false;
