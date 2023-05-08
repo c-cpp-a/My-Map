@@ -147,6 +147,6 @@ This is a new Sandbox game. You can create or destroy rocks here, and you can wa
 
 # 讨论频道
 
-[discord链接 discord link](https://discord.gg/hK3P8YaJ) (discord.gg)
+[github 链接]([https://discord.gg/hK3P8YaJ](https://github.com/c-cpp-a/My-Map/discussions)) (github.com)
 
-[洛谷链接 luogu link](https://www.luogu.com.cn/blog/somebody66xyyd/my-map) （luogu.com.cn）
+[洛谷链接](https://www.luogu.com.cn/blog/somebody66xyyd/my-map) （luogu.com.cn）
