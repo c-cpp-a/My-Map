@@ -9,7 +9,7 @@
 #define DEF
 //include STL
 //导入标准库 
-#include<map>
+#include<unordered_map>
 enum{//地图里面的方向 
 	defaults,//默认 
 	ups,//上 
@@ -46,7 +46,7 @@ enum{//游戏模式
 	 *	清一色模式：所有的东西（空地除外）都显示成-，让你猜。 
 	 */
 };
-std::map<size_t,char> print_c={//对应元素显示成什么样 
+std::unordered_map<std::size_t,char> print_c={//对应元素显示成什么样 
 	{floors,' '},
 	{rock,'-'},
 	{door,'@'},
