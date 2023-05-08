@@ -55,3 +55,9 @@ Slightly revised RENAME.md.
 3. New mode: All in one mode.
 
 --snip--
+
+## Discussion Channel
+
+[github link]([https://discord.gg/hK3P8YaJ](https://github.com/c-cpp-a/My-Map/discussions)) (github.com)
+
+[luogu link](https://www.luogu.com.cn/blog/somebody66xyyd/my-map) （luogu.com.cn）
