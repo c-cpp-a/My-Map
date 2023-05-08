@@ -12,7 +12,7 @@ The game adopts the form of displaying a two-dimensional map to the console. The
 
 - Wall, press the '2' key to create it. The wall displays as' - '. Players cannot move through walls. This means you can build a maze now!
 - Portal, press the '3' key to create. The portal is displayed as' @ '. If players move through the portal, they will be teleported to a specific location (designated by themselves). Of course, ignore what item is on it (note, this is the key to egg coloring!)
--Ball, press the '4' key to create it. The ball is displayed as' o '. If a player wants to move onto a small ball, the ball will be pushed back one grid. Of course, the small ball behind it will also be pushed.
+- Ball, press the '4' key to create it. The ball is displayed as' o '. If a player wants to move onto a small ball, the ball will be pushed back one grid. Of course, the small ball behind it will also be pushed.
 
 If you want to clear the items in the forward direction, you can press the '1' button, which is equivalent to creating a floor (not displayed).
 
