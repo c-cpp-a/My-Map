@@ -1,6 +1,8 @@
-//Author:c-cpp-a
-//Last Updated:2023/3/29
-//This file is used for included all the header files of this game.
+/*
+ * Author:c-cpp-a
+ * Last Updated:2023/5/9
+ * This file is used for included all the header files in need of this game.
+ */
 class Map;
 class People;
 class Egg;

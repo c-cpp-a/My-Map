@@ -1,7 +1,7 @@
 /*
- *	作者：c_cpp_a(Github) 
- *	最近更新：2022/12/26
- *	功能简述：这是游戏的基本定义部分。负责常量、enum。当然为了游戏的编写方便，这里的显示字符映射使用了std::map。 
+ *	作者：C-cpp-a(Github) 
+ *	最近更新：2023/5/9
+ *	功能简述：这是游戏的基本定义部分。负责常量、enum。当然为了游戏的编写方便，这里的显示字符映射使用了std::unordered_map。 
  */ 
 //For some reasons, the English version notes will not be displayed here. 
 #pragma once
@@ -55,16 +55,26 @@ std::unordered_map<std::size_t,char> print_c={//对应元素显示成什么样
 const int COLS=100,LINES=50;//游戏的窗口大小 
 const int ADD_COLS=20,ADD_LINE=10;//成就的新增窗口大小 
 const int MODE_COUNT=4,LANGUAGE_COUNT=3,DIRECT_COUNT=5;//模式的种数、语言的种数和方向的种数 
-const char SAVE_NAME[]="data.mymap";//保存文件名（未实装） 
+char * SAVE_NAME=const_cast<char *>("data.mymap");//保存文件名（默认导入/保存位置为data.mmap）
 const int EGG_POS[LANGUAGE_COUNT][10][2]={{5,5},{10,10},{2,2}};//EGG_POS[language][egg_number]={x,y}，存储彩蛋的触发坐标 
 const char mode_content[LANGUAGE_COUNT][MODE_COUNT][101]={//模式的介绍(mode_content[language][mode]=s)
 	{},//未定义的自然什么都没有啦 
 	{"正常的模式","开发者模式","地狱的模式","清一色模式"},//中文 
 	{"normal","debugger","infernal","all in one color"}//英文 
 };
-const char direct_content[LANGUAGE_COUNT][DIRECT_COUNT][101]={//方向对应的名称
+const char direct_content[LANGUAGE_COUNT][DIRECT_COUNT][8]={//方向对应的名称
 	{},//未定义的自然什么都没有啦 
 	{"?","上","下","左","右"},//中文
 	{"?","up","down","left","right"}//英文 
+};
+const char achs_print[][64]={
+	{"1.creat your first floor."},
+	{"2.creat your first rock."},
+	{"3.creat your first portal."},
+	{"4.creat your first ball."},
+	{"5.first access to the portal"},
+	{"6.move your ball the first time."},
+	{"7.found Chinese egg 1."},
+	{"8.found [unable] Egg 1."}
 };
 #endif 

@@ -20,6 +20,10 @@
 
 ### V2.3
 
+#### V2.3.5
+
+存档再次更新！添加了语言选项。此外，如果你不想使用默认的存档位置的话，也可以将存档文件使用`main.exe`打开。
+
 #### V2.3.4
 
 更新游戏说明，添加了玩法相关的介绍。稍后我会再次更新的。
@@ -147,6 +151,6 @@ This is a new Sandbox game. You can create or destroy rocks here, and you can wa
 
 # 讨论频道
 
-[github 链接](https://github.com/c-cpp-a/My-Map/discussions) (github.com)
+[discord链接 discord link](https://discord.gg/hK3P8YaJ) (discord.gg)
 
-[洛谷链接](https://www.luogu.com.cn/blog/somebody66xyyd/my-map) （luogu.com.cn）
+[洛谷链接 luogu link](https://www.luogu.com.cn/blog/somebody66xyyd/my-map) （luogu.com.cn）

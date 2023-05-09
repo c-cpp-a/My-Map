@@ -20,6 +20,10 @@ Of course, you can also set modes, view help, and create archives. These parts a
 
 ### V2.3
 
+#### V2.3.5
+
+Archive updated again! Added language options. In addition, if you do not want to use the default archive location, you can also open the archive file using 'main.exe'.
+
 #### V2.3.4
 
 Updated game instructions and added gameplay related introductions. I will update again later.
@@ -55,9 +59,3 @@ Slightly revised RENAME.md.
 3. New mode: All in one mode.
 
 --snip--
-
-## Discussion Channel
-
-[github link](https://github.com/c-cpp-a/My-Map/discussions) (github.com)
-
-[luogu link](https://www.luogu.com.cn/blog/somebody66xyyd/my-map) （luogu.com.cn）

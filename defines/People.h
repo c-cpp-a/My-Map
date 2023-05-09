@@ -125,7 +125,7 @@ void People::set_f(Map &h,Egg &egg){
 	auto tmp=check_xy(pos,move_f);
 	h.change(tmp.x,tmp.y,floors);
 	doors[tmp.x][tmp.y]=default_node;
-	if(egg.is_ach())	egg[0]=true;
+	if(egg.is_ach())	egg.set_ach(0,1);
 }
 		break;
 	case '2':
@@ -133,7 +133,7 @@ void People::set_f(Map &h,Egg &egg){
 	auto tmp=check_xy(pos,move_f);
 	h.change(tmp.x,tmp.y,rock);
 	doors[tmp.x][tmp.y]=default_node;
-	if(egg.is_ach())	egg[1]=true;
+	if(egg.is_ach())	egg.set_ach(1,1);
 }
 		break;
 	case '3':
@@ -161,7 +161,7 @@ void People::set_f(Map &h,Egg &egg){
 		}
 	}
 	doors[tmp.x][tmp.y]=tmp2;
-	if(egg.is_ach())	egg[2]=true;
+	if(egg.is_ach())	egg.set_ach(2,1);
 }
 		break; 
 	case '4':
@@ -169,7 +169,7 @@ void People::set_f(Map &h,Egg &egg){
 	auto tmp=check_xy(pos,move_f);
 	h.change(tmp.x,tmp.y,ball);
 	doors[tmp.x][tmp.y]=default_node;
-	if(egg.is_ach())	egg[3]=true;
+	if(egg.is_ach())	egg.set_ach(3,1);
 }
 		break;
 	case 'L':case 'l':
@@ -186,7 +186,7 @@ void People::set_f(Map &h,Egg &egg){
 		auto tmp=pos;
 		pos.x=doors[tmp.x][tmp.y].x;
 		pos.y=doors[tmp.x][tmp.y].y;
-		if(egg.is_ach())	egg[4]=true;
+		if(egg.is_ach())	egg.set_ach(4,1);
 	} else if(h[pos.x][pos.y]==ball){
 		auto tmp=pos;
 		bool flag=true;
@@ -200,7 +200,7 @@ void People::set_f(Map &h,Egg &egg){
 		if(flag){
 			h.change(tmp.x,tmp.y,ball);	
 			h.change(pos.x,pos.y,floors);
-			if(egg.is_ach())	egg[5]=true;
+			if(egg.is_ach())	egg.set_ach(5,1);
 		} else{
 			pos=check_xy(pos,back(move_f));
 		}

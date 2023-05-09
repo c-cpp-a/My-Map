@@ -12,19 +12,23 @@ class People;
 class Map;
 class Egg{
 	private:
-		bool has_ach=false;
-		bool achs[10]={};
+		bool has_ach;
+		unsigned int achs;
 	public:
+		Egg():achs(0),has_ach(false){}
 		int isegg(const int &,People &,Map &);
 		void check_run(const int &,People &,Map &);
 		void print_ach(); 
 		void imports(ifstream &);
 		void save(ofstream &);
 		inline bool is_ach(){
-			return has_ach;
+			return achs!=0;
 		}
-		inline bool &operator[](size_t i){
-			return achs[i];
+		inline bool operator[](size_t i){
+			return achs&(1<<i);
+		}
+		inline void set_ach(size_t i,bool value){
+			achs|=(1<<i);
 		}
 };
 #include "def"
@@ -50,7 +54,7 @@ void Egg::check_run(const int &lang,People &p,Map &h){
 	switch(isegg(lang,p,h)){
 	case CHI_egg_1:
 {
-	achs[6]=true;
+	set_ach(6,1);
 	::print("恭喜您，发现了彩蛋！\n");
 	::print(">>>");
 	string s;
@@ -73,7 +77,7 @@ void Egg::check_run(const int &lang,People &p,Map &h){
 		break;
 	case UNABLE_egg_1:
 {
-	achs[7]=true;
+	set_ach(7,1);
 	::print("恭喜您，发现了彩蛋！\n");
 	::print("Congratulations, you found the egg!\n");
 	::print("<<<");
@@ -97,42 +101,17 @@ void Egg::check_run(const int &lang,People &p,Map &h){
 void Egg::print_ach(){
 	auto y=0;
 	y=ach_print("achievement",y);
-	if(achs[0]){
-		y=ach_print("1.creat your first floor.",y);
-	} 
-	if(achs[1]){
-		y=ach_print("2.creat your first rock.",y);
-	}
-	if(achs[2]){
-		y=ach_print("3.creat your first portal.",y);
-	}
-	if(achs[3]){
-		y=ach_print("4.creat your first ball.",y);
-	}
-	if(achs[4]){
-		y=ach_print("5.first access to the portal",y);
-	}
-	if(achs[5]){
-		y=ach_print("6.move your ball the first time.",y);
-	}
-	if(achs[6]){
-		y=ach_print("7.found Chinese egg 1.",y);
-	}
-	if(achs[7]){
-		y=ach_print("8.found [unable] Egg 1.",y);
+	for(int i=0;i<8;i++){
+		y=ach_print(achs_print[i],y);
 	}
 }
 void Egg::imports(ifstream &fin){
 	fin >> has_ach;
-	for(int i=0;i<8;i++){
-		fin >> achs[i];
-	} 
+	fin >> achs;
 }
 void Egg::save(ofstream &fout){
 	fout << has_ach << endl;
-	for(int i=0;i<8;i++){
-		fout << achs[i] << ' ';
-	}
+	fout << achs;
 	fout << endl;
 }
 #endif

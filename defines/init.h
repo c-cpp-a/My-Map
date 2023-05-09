@@ -8,29 +8,27 @@
 #include<iostream>
 #include<windows.h>
 using namespace std;
-//include custom library
-//导入自定义库
+class People;
+class Map;
+class Egg;
 #include "def"
+void create_door_helper();
+void set_parameters();
+void set_lang();
+void import(People &p,Map &h,Egg &egg,char * name=SAVE_NAME);
+bool set_import(People &,Map &,Egg &egg);
+void screen_helper();
+void print_helper();
+void init(People &p,Map &h,Egg &egg,int argc,char ** argv);
+void settings();
+void save(People &,Map &,Egg &,const char * name=SAVE_NAME);
 #include "help_func.h"
 #include "People.h"
 #include "Map.h"
 #include "Eggs.h"
-void create_door_helper();
-void set_parameters();
-void set_lang();
-void set_import(People &,Map &,Egg &egg);
-void screen_helper();
-void print_helper();
-inline void init(People &p,Map &h,Egg &egg){
-	set_parameters();
-	set_lang();
-	system("CLS");
-	set_import(p,h,egg);
-}
-void settings();
-void save(People &,Map &,Egg &);
 void set_parameters(){
 	using namespace std;
+	::ShowCursor(false);
 	system("title 我的地图");
 	system(("mode "+to_string(COLS)+","+to_string(LINES+ADD_LINE)).c_str());
 }
@@ -50,52 +48,55 @@ void set_lang(){
 		goto ask;
 	}
 }
-void set_import(People &p,Map &h,Egg &egg){
-	int ifimport=0;
+void import(People &p,Map &h,Egg &egg,char * name){
+	ifstream fin(name);
+	h.imports(fin);
+	p.imports(fin);
+	egg.imports(fin);
+	fin >> ::mode >> ::lang;
+	SAVE_NAME=name;
+	fin.close();
+}
+bool set_import(People &p,Map &h,Egg &egg){
+	bool ifimport=false;
 	if(lang==Chinese){
 		//language:Chinese
 		//语言：中文 
 		cout << "请问您是否要导入存档？如果不导入，存档可能丢失。（本功能测试中）\n";
 		cout << "按'y'键导入存档。";
-		ifimport=getch();
-		if(ifimport=='y'){
-			ifstream fin(SAVE_NAME);
-			h.imports(fin);
-			p.imports(fin);
-			egg.imports(fin);
-			fin >> ::mode;
-			fin.close();
+		char ch=getch();
+		if(ch=='y'){
+			ifimport=true;
+			
 		}
+		cout << "加载中。。。";
 		//		cout << "此功能暂时空缺。按任意键继续…\n";
 		//		getch();
-		system("CLS");
 	} else{
 		cout << "Do you want to import the archive? If you do not import, the archive may be lost.(in this function test)\n";
 		cout << "Press the 'y' key to import the archive.";
-		if(ifimport=='y'){
-			ifstream fin(SAVE_NAME);
-			h.imports(fin);
-			p.imports(fin);
-			egg.imports(fin);
-			fin >> ::mode;
-			fin.close();
+		char ch=getch();
+		if(ch=='y'){
+			ifimport=true;
 		}
+		cout << "loading...";
 		//		cout << "This function is temporarily unavailable. Press any key to continue...\n";
 		//		getch();
-		system("CLS");
 	}
+	if(ifimport)	import(p,h,egg);
 	system("CLS");
+	return ifimport;
 }
 void screen_helper(){
 	using namespace std;
 	if(lang==Chinese){
 		//language:Chinese
 		//语言：中文 
-		cout << "\n帮助[H]\t设置[T]" << endl;
+		cout << "\n帮助[H]\t设置[T]\n";
 	} else if(lang==English){
 		//language:English
 		//语言：英文
-		cout << "\nHelp[H]\nTools[T]" << endl;
+		cout << "\nHelp[H]\nTools[T]\n";
 	}
 } 
 void print_helper(){
@@ -111,7 +112,7 @@ void print_helper(){
 		"创建小球[4]\n"
 		"选择语言[L]\t"
 		"关闭帮助[H]\n"
-		"更多功能拓展中。。。" << endl;
+		"更多功能拓展中。。。\n";
 	} else if(::lang==English){
 		//language:English
 		//语言：英文
@@ -123,7 +124,7 @@ void print_helper(){
 		"create a ball in the forward direction[4]\n"
 		"select the language[L]\t"
 		"close the help content[H]\n"
-		"More function expansion..." << endl;
+		"More function expansion...\n";
 	}
 	char a;
 	do{
@@ -141,6 +142,16 @@ void create_door_helper(){
 		//语言：英文
 		cout << "\nWASD key to move, and space key to confirm to place the transfer door.\n";
 	} 
+}
+void init(People &p,Map &h,Egg &egg,int argc,char ** argv){
+	set_parameters();
+	if(argc==1){
+		set_lang();
+		bool ifimport=set_import(p,h,egg);
+		system("CLS");
+	} else{
+		import(p,h,egg,argv[1]);
+	}
 }
 void settings(){
 	int choose;
@@ -179,12 +190,12 @@ void settings(){
 		}
 	} while(choose!='q' && choose!='Q');
 }
-void save(People &p,Map &h,Egg &egg){
-	ofstream fout(SAVE_NAME);
+void save(People &p,Map &h,Egg &egg,const char * name){
+	ofstream fout(name);
 	h.save(fout);
 	p.save(fout);
 	egg.save(fout);
-	fout << ::mode << endl;
+	fout << ::mode << ' ' << ::lang << endl;
 	fout.close();
 }
 #endif

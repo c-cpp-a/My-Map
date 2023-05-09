@@ -56,5 +56,9 @@ namespace{
 			break;
 		}
 	}
+	void ShowCursor(bool visible){
+		CONSOLE_CURSOR_INFO cursor_info={20, visible};
+		SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE),&cursor_info);
+	}
 }
 #endif
