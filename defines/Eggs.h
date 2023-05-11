@@ -107,6 +107,9 @@ void Egg::print_ach(){
 void Egg::imports(ifstream &fin){
 	fin >> has_ach;
 	fin >> achs;
+	if(has_ach){
+		system(("mode "+to_string(COLS+ADD_COLS)+","+to_string(LINES+ADD_LINE)).c_str());
+	}
 }
 void Egg::save(ofstream &fout){
 	fout << has_ach << endl;
