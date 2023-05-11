@@ -7,7 +7,7 @@
 
 - [version](#version)
 
-- [Discussion Channel](#Discussion Channel)
+- [Discussion Channel](#Discussion-Channel)
 
 ## note
 
