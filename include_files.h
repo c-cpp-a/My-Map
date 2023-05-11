@@ -12,3 +12,4 @@ class Egg;
 #include "defines/People.h"
 #include "defines/Eggs.h"
 #include "defines/init.h"
+#include "defines/SoundPlayer.h"

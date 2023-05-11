@@ -75,6 +75,8 @@ const char achs_print[][64]={
 	{"5.first access to the portal"},
 	{"6.move your ball the first time."},
 	{"7.found Chinese egg 1."},
-	{"8.found [unable] Egg 1."}
+	{"8.found [unable] Egg 1."},
+	{"9.entered a place that should not have been entered."},
+	{"10.entered the wrong place and returned to the original area."}
 };
 #endif 

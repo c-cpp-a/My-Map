@@ -1,5 +1,15 @@
 # My-Map
 
+## 目录
+
+- [注意事项](#注意事项)
+
+- [游戏说明](#游戏说明)
+
+- [版本](#版本)
+
+- [讨论频道](#讨论频道)
+
 ## 注意事项
 
 此版本只适用于Windows。中文的输出或注释可能出现乱码，可以进行反馈或转码（代码使用编码：GB2312）。你也可以选择阅读语言：[English](README-EN.md)，[中文](README.md)。目前板式转换尚未完工。
@@ -20,9 +30,15 @@
 
 ### V2.3
 
+#### V2.3.6
+
+1. 新增两个成就（极难获得）！
+
+2. 为`README.md`新增了目录。
+
 #### V2.3.5
 
-存档再次更新！添加了语言选项。此外，如果你不想使用默认的存档位置的话，也可以将存档文件使用`main.exe`打开。
+存档再次更新！添加了语言选项。此外，如果你不想使用默认的存档位置的话，也可以将存档文件拖入`main.exe`中打开。
 
 #### V2.3.4
 
@@ -149,8 +165,8 @@ This is a new Sandbox game. You can create or destroy rocks here, and you can wa
 
 这是一个新的沙盒游戏。你在这里可以创建或销毁岩石，也可以自由行走。更多功能开发中。
 
-# 讨论频道
+## 讨论频道
 
-[discord链接 discord link](https://discord.gg/hK3P8YaJ) (discord.gg)
+[github链接](https://github.com/c-cpp-a/My-Map/discussions) (github.com)
 
-[洛谷链接 luogu link](https://www.luogu.com.cn/blog/somebody66xyyd/my-map) （luogu.com.cn）
+[洛谷链接](https://www.luogu.com.cn/blog/somebody66xyyd/my-map) (luogu.com.cn）

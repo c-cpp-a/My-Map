@@ -22,14 +22,12 @@ class Egg{
 		void imports(ifstream &);
 		void save(ofstream &);
 		inline bool is_ach(){
-			return achs!=0;
+			return has_ach;
 		}
 		inline bool operator[](size_t i){
 			return achs&(1<<i);
 		}
-		inline void set_ach(size_t i,bool value){
-			achs|=(1<<i);
-		}
+		void set_ach(size_t i,bool value);
 };
 #include "def"
 #include "Map.h"
@@ -51,7 +49,8 @@ int Egg::isegg(const int &lang,People &p,Map &h){
 }
 void Egg::check_run(const int &lang,People &p,Map &h){
 	system("CLS");
-	switch(isegg(lang,p,h)){
+	int get_egg=isegg(lang,p,h);
+	switch(get_egg){
 	case CHI_egg_1:
 {
 	set_ach(6,1);
@@ -101,8 +100,8 @@ void Egg::check_run(const int &lang,People &p,Map &h){
 void Egg::print_ach(){
 	auto y=0;
 	y=ach_print("achievement",y);
-	for(int i=0;i<8;i++){
-		y=ach_print(achs_print[i],y);
+	for(int i=0;i<10;i++){
+		if((*this)[i])	y=ach_print(achs_print[i],y);
 	}
 }
 void Egg::imports(ifstream &fin){
@@ -113,5 +112,8 @@ void Egg::save(ofstream &fout){
 	fout << has_ach << endl;
 	fout << achs;
 	fout << endl;
+}
+void Egg::set_ach(size_t i,bool value){
+	achs|=(1<<i);
 }
 #endif

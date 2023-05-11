@@ -22,7 +22,10 @@ int main(int argc,char ** argv){
 	Map G;
 	People p;
 	Egg egg; 
+//	AudioClip musicplayer;
 	init(p,G,egg,argc,argv);//调用初始化函数(Call initialization function)
+//	musicplayer.load("./defines/music/1st.mp3");
+//	musicplayer.play();
 	//游戏循环(Game cycle)
 	//游戏的刷新速度约为60次/秒(Running speed of the game is about 60ticks/second)
 	while(true){
@@ -33,7 +36,6 @@ int main(int argc,char ** argv){
 		Sleep(1000/60);//游戏的刷新时间 
 		p.set_f(G,egg);//输入(input)
 		egg.check_run(::lang,p,G);//检测是否触发彩蛋(Check whether the egg is triggered)
-		fflush(stdout);
 	}
 	return 0;
 }

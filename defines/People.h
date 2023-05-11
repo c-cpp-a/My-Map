@@ -91,6 +91,10 @@ const int People::back(const int &func){
 	return func;
 }
 void People::set_f(Map &h,Egg &egg){
+	if(pos.x<=0 || pos.y<=0)	egg.set_ach(8,1);
+	if(egg[8] && pos.y>0 && pos.x>0){
+		egg.set_ach(9,1);
+	}
 	int a=getch();
 	switch(a){
 	case 'W':case 'w':
