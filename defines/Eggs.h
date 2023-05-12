@@ -15,7 +15,7 @@ class Egg{
 		bool has_ach;
 		unsigned int achs;
 	public:
-		Egg():achs(0),has_ach(false){}
+		Egg():has_ach(false),achs(0){}
 		int isegg(const int &,People &,Map &);
 		void check_run(const int &,People &,Map &);
 		void print_ach(); 

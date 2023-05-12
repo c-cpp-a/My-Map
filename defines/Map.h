@@ -14,7 +14,7 @@ class Map{
 	private:
 		map<int,map<int,int>> a;
 	public:
-		void print(int,int,const int &);
+		void print(const int &,const int &,const int &);
 		void change(int,int,int);
 		bool issave(int,int);
 		void imports(ifstream &);
@@ -22,7 +22,7 @@ class Map{
 		map<int,int> operator[](const int i);
 };
 #include "help_func.h"
-void Map::print(int x,int y,const int &direct){
+void Map::print(const int &x,const int &y,const int &direct){
 	gotoxy(0,0); 
 	if(x>=COLS/2 && y>=LINES/2){
 		for(int i=x-LINES/2+1;i<=x+LINES/2;i++){

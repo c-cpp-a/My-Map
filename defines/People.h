@@ -25,26 +25,30 @@ class People{
 		};
 		static const node default_node;
 	private:
-		int move_f=defaults,lang;
+		bool canedit;
+		int move_f=defaults;
 		node pos;
 		map<int,map<int,node> > doors;
 		node check_xy(node x,const int &func); 
 		const int back(const int &);
 	public:
-		People():move_f(defaults),lang(unable),pos({1,1}){}
+		People(bool _edit=true):canedit(_edit),move_f(defaults),pos({1,1}){}
 		void set_f(Map &,Egg &);
 		void put_xy(Map &);
-		inline const node at(int x,int y){
+		inline const node &at(int x,int y){
 			return doors[x][y];
 		}
-		inline const node get_pos(){
+		inline const node &get_pos() const{
 			return pos;
 		}
-		inline const int &get_movef(){
+		inline const int &get_movef() const{
 			return move_f;
 		}
-		void save(ofstream &);
-		void imports(ifstream &);
+		inline const bool &edit() const{
+			return canedit;
+		}
+		void save(ostream &);
+		void imports(istream &);
 };
 #include "Map.h"
 #include "Eggs.h"
@@ -124,57 +128,6 @@ void People::set_f(Map &h,Egg &egg){
 	case 'H':case 'h':
 		system("CLS");
 		print_helper();
-	case '1':
-{
-	auto tmp=check_xy(pos,move_f);
-	h.change(tmp.x,tmp.y,floors);
-	doors[tmp.x][tmp.y]=default_node;
-	if(egg.is_ach())	egg.set_ach(0,1);
-}
-		break;
-	case '2':
-{
-	auto tmp=check_xy(pos,move_f);
-	h.change(tmp.x,tmp.y,rock);
-	doors[tmp.x][tmp.y]=default_node;
-	if(egg.is_ach())	egg.set_ach(1,1);
-}
-		break;
-	case '3':
-{
-	int input=0;
-	auto tmp=check_xy(pos,move_f),tmp2=tmp;
-	h.change(tmp.x,tmp.y,door);
-	while(input!=' '){
-		h.print(tmp2.x,tmp2.y,move_f);
-		create_door_helper();
-		input=getch();
-		switch(input){
-		case 'W':case 'w':
-			if(tmp2.x>1)	tmp2.x--;
-			break;
-		case 'A':case 'a':
-			if(tmp2.y>1)	tmp2.y--;
-			break;
-		case 'S':case 's':
-			tmp2.x++;
-			break;
-		case 'D':case 'd':
-			tmp2.y++;
-			break;
-		}
-	}
-	doors[tmp.x][tmp.y]=tmp2;
-	if(egg.is_ach())	egg.set_ach(2,1);
-}
-		break; 
-	case '4':
-{
-	auto tmp=check_xy(pos,move_f);
-	h.change(tmp.x,tmp.y,ball);
-	doors[tmp.x][tmp.y]=default_node;
-	if(egg.is_ach())	egg.set_ach(3,1);
-}
 		break;
 	case 'L':case 'l':
 		system("CLS");
@@ -184,8 +137,64 @@ void People::set_f(Map &h,Egg &egg){
 		system("CLS");
 		settings();
 		break;
-		
 	}
+	if(canedit){
+		switch(a){
+			case '1':
+			{
+				auto tmp=check_xy(pos,move_f);
+				h.change(tmp.x,tmp.y,floors);
+				doors[tmp.x][tmp.y]=default_node;
+				if(egg.is_ach())	egg.set_ach(0,1);
+			}
+			break;
+			case '2':
+			{
+				auto tmp=check_xy(pos,move_f);
+				h.change(tmp.x,tmp.y,rock);
+				doors[tmp.x][tmp.y]=default_node;
+				if(egg.is_ach())	egg.set_ach(1,1);
+			}
+			break;
+			case '3':
+			{
+				int input=0;
+				auto tmp=check_xy(pos,move_f),tmp2=tmp;
+				h.change(tmp.x,tmp.y,door);
+				while(input!=' '){
+					h.print(tmp2.x,tmp2.y,move_f);
+					create_door_helper();
+					input=getch();
+					switch(input){
+					case 'W':case 'w':
+						if(tmp2.x>1)	tmp2.x--;
+						break;
+					case 'A':case 'a':
+						if(tmp2.y>1)	tmp2.y--;
+						break;
+					case 'S':case 's':
+						tmp2.x++;
+						break;
+					case 'D':case 'd':
+						tmp2.y++;
+						break;
+					}
+				}
+				doors[tmp.x][tmp.y]=tmp2;
+				if(egg.is_ach())	egg.set_ach(2,1);
+			}
+			break; 
+			case '4':
+			{
+				auto tmp=check_xy(pos,move_f);
+				h.change(tmp.x,tmp.y,ball);
+				doors[tmp.x][tmp.y]=default_node;
+				if(egg.is_ach())	egg.set_ach(3,1);
+			}
+			break;
+		}
+	}
+	
 	if(doors[pos.x][pos.y]!=default_node){
 		auto tmp=pos;
 		pos.x=doors[tmp.x][tmp.y].x;
@@ -213,7 +222,7 @@ void People::set_f(Map &h,Egg &egg){
 void People::put_xy(Map &h){
 	h.print(pos.x,pos.y,move_f);
 }
-void People::save(ofstream &fout){
+void People::save(ostream &fout){
 	fout << pos.x << ' ' << pos.y << ' ' << move_f << endl;
 	for(auto it=doors.begin();it!=doors.end();++it){
 		for(auto itj=(it->second).begin();itj!=(it->second).end();++itj){
@@ -224,7 +233,7 @@ void People::save(ofstream &fout){
 	} 
 	fout << "-1 -1 -1 -1 \n";
 }
-void People::imports(ifstream &fin){
+void People::imports(istream &fin){
 	fin >> pos.x >> pos.y >> move_f;
 	int xi,yi,xv,yv;
 	while(fin >> xi >> yi >> xv >> yv){

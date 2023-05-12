@@ -21,7 +21,7 @@ int main(int argc,char ** argv){
 	//Instantiate Object
 	//实例化对象 
 	Map G;
-	People p;
+	People p(false);
 	Egg egg; 
 	AudioClip musicplayer;
 	init(p,G,egg,argc,argv);//调用初始化函数(Call initialization function)

@@ -26,10 +26,11 @@ void save(People &,Map &,Egg &,const char * name=SAVE_NAME);
 #include "People.h"
 #include "Map.h"
 #include "Eggs.h"
-void set_parameters(){
+void set_parameters(const bool &canedit){
 	using namespace std;
 	::ShowCursor(false);
-	system("title 我的地图");
+	if(canedit)	system("title 我的地图(My-Map)");
+	else system("title MapReader[read only]");
 	system(("mode "+to_string(COLS)+","+to_string(LINES+ADD_LINE)).c_str());
 }
 void set_lang(){
@@ -144,10 +145,10 @@ void create_door_helper(){
 	} 
 }
 void init(People &p,Map &h,Egg &egg,int argc,char ** argv){
-	set_parameters();
+	set_parameters(p.edit());
 	if(argc==1){
 		set_lang();
-		bool ifimport=set_import(p,h,egg);
+		set_import(p,h,egg);
 		system("CLS");
 	} else{
 		import(p,h,egg,argv[1]);

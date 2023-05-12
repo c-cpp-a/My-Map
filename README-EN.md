@@ -15,7 +15,7 @@ This version is for Windows only. Chinese output or comments may be garbled, so 
 
 ## instructions
 
-The game adopts the form of displaying a two-dimensional map to the console. The player displays the character '#' and displays it. Players can use the 'WASD' button to move (those who have played the game know what I mean, or they can search for it themselves), and can create the following items in the forward direction (if they are already items, they will overwrite the original items):
+The game adopts the form of displaying a two-dimensional map to the console. The player displays the character '#' and displays it. Players can use the 'WASD' button to move (those who have played the game know what I mean, or they can search for it themselves), and can create the following items in the forward direction (If it is already an item, it will overwrite the original item; Editing is invalid in read-only mode 'MapReader'):
 
 - Wall, press the '2' key to create it. The wall displays as' - '. Players cannot move through walls. This means you can build a maze now!
 - Portal, press the '3' key to create. The portal is displayed as' @ '. If players move through the portal, they will be teleported to a specific location (designated by themselves). Of course, ignore what item is on it (note, this is the key to egg coloring!)
@@ -28,6 +28,12 @@ Of course, you can also set modes, view help, and create archives. These parts a
 ## version
 
 ### V2.3
+
+#### V2.3.7
+
+1. Fixed some minor bugs.
+
+2. You can see that I have added a new file called 'MapReader.cpp' and the corresponding 'exe' file. This can be used for just manipulating games (without editing). That is to say, you can create a decryption game and share the saved file for others to use to operate the game. You don't have to worry about others cheating by modifying levels. The titles of the two files are not the same, so you can easily distinguish between edit mode and read-only mode.
 
 #### V2.3.6
 

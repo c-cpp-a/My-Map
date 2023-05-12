@@ -10,14 +10,14 @@ private:
 	Egg &egg;
 	Map &map;
 	People &people;
-	HANDLE hins;
+	HANDLE handle;
 	void title(const std::string &s){
-		
+		system(("title "+s).c_str());
 	}
 public:
-	Screen(Egg &_egg,Map &_m,People &_p):egg(_egg),map(_m),people(_p){
-		hins=GetStdHandle(STD_OUTPUT_HANDLE);
-		
+	Screen(Egg &_egg,Map &_m,People &_p,bool isedit):egg(_egg),map(_m),people(_p){
+		handle=GetStdHandle(STD_OUTPUT_HANDLE);
+		title("我的地图(My-Map)");
 	}
 };
 #endif
