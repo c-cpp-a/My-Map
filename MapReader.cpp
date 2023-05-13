@@ -22,7 +22,7 @@ int main(int argc,char ** argv){
 	//Instantiate Object
 	//实例化对象 
 	Map G;
-	People p;
+	People p(false);
 	Egg egg; 
 	system(("cd \""+string(_getcwd(NULL,0))+"\"").c_str());
 	system("start \"\" \".\\defines\\sound\\1st.mp3\"");
