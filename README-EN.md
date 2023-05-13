@@ -29,6 +29,10 @@ Of course, you can also set modes, view help, and create archives. These parts a
 
 ### V2.3
 
+#### V2.3.8
+
+You can play the music now.
+
 #### V2.3.7
 
 1. Fixed some minor bugs.

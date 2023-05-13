@@ -12,6 +12,7 @@
 //导入标准库
 #include<windows.h>
 #include<stdlib.h>
+#include<direct.h>
 #include<string>
 //include custom library
 //导入自定义库
@@ -21,12 +22,11 @@ int main(int argc,char ** argv){
 	//Instantiate Object
 	//实例化对象 
 	Map G;
-	People p(false);
+	People p;
 	Egg egg; 
-	AudioClip musicplayer;
+	system(("cd \""+string(_getcwd(NULL,0))+"\"").c_str());
+	system("start \"\" \".\\defines\\sound\\1st.mp3\"");
 	init(p,G,egg,argc,argv);//调用初始化函数(Call initialization function)
-	//	cout << (musicplayer.load("defines/music/1st.mp3")?"Load sucessfully":"Load fail");
-	//	system("pause");
 	//游戏循环(Game cycle)
 	//游戏的刷新速度约为100次/秒(Running speed of the game is about 100 ticks/second)
 	while(true){
