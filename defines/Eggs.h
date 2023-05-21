@@ -32,6 +32,7 @@ class Egg{
 #include "def"
 #include "Map.h"
 #include "People.h"
+#include "help_func.h"
 int Egg::isegg(const int &lang,People &p,Map &h){
 	if(lang==English && 
 		h[EGG_POS[English][0][0]][EGG_POS[English][0][1]]==rock){

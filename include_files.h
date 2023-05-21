@@ -11,5 +11,5 @@ class Egg;
 #include "defines/Map.h"
 #include "defines/People.h"
 #include "defines/Eggs.h"
-#include "defines/init.h"
-#include "defines/SoundPlayer.h"
+//#include "defines/init.h"
+#include "defines/Screen.h"

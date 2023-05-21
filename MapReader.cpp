@@ -1,11 +1,11 @@
 /*
  *	作者：c-cpp-a(Github) 
- *	最近更新：2023/5/12
+ *	最近更新：2023/5/21
  *	功能简述：这是整个游戏的主体部分，负责运行游戏。 
  */ 
 /*
  *	Author: c-cpp-a(Github)
- *	Last updated: 2023/5/12
+ *	Last updated: 2023/5/21
  *	Function description: This is the main part of the whole game, responsible for running the game.
  */
 //include STL
@@ -22,21 +22,20 @@ int main(int argc,char ** argv){
 	//Instantiate Object
 	//实例化对象 
 	Map G;
-	People p(false);
+	People p;
 	Egg egg; 
-	system(("cd \""+string(_getcwd(NULL,0))+"\"").c_str());
-	system("start \"\" \".\\defines\\sound\\1st.mp3\"");
-	init(p,G,egg,argc,argv);//调用初始化函数(Call initialization function)
+	Screen screen(egg,G,p,false,argc,argv);
+	//	init(p,G,egg,argc,argv);//调用初始化函数(Call initialization function)
 	//游戏循环(Game cycle)
 	//游戏的刷新速度约为100次/秒(Running speed of the game is about 100 ticks/second)
 	while(true){
-		save(p,G,egg);//保存游戏
-		egg.check_run(::lang,p,G);//检测是否触发彩蛋(Check whether the egg is triggered)
-		G.print(p.get_pos().x,p.get_pos().y,p.get_movef());//输出(print) 
-		screen_helper();//提供帮助(Help)
+		//		save(p,G,egg);//保存游戏
+		egg.check_run(screen.get_data().lang,p,G);//检测是否触发彩蛋(Check whether the egg is triggered)
+		G.print(p.get_pos().x,p.get_pos().y,p.get_movef(),screen);//输出(print) 
+		::screen_helper(screen.get_data().lang);//提供帮助(Help)
 		if(egg.is_ach())	egg.print_ach();//如果触发了成就系统，就运行输出成就(If the achievement system is triggered, run the output achievement)
 		Sleep(10);//游戏的刷新时间 
-		p.set_f(G,egg);//输入(input)
+		p.move(G,egg,screen);//输入(input)
 	}
 	return 0;
 }

@@ -27,6 +27,14 @@ Of course, you can also set modes, view help, and create archives. These parts a
 
 ## version
 
+### V2.4
+
+#### V2.4.0
+
+1. A new folder 'example' has been added, where you can view the 'mymap' file example (if you double-click to open it after downloading, the music may fail to load, and I am working hard to fix it).
+
+2. 'init. h' has been deprecated and its functionality has been decomposed into 'Screen. h' and 'help'_ func.h`。 If there are no issues in the future, I will remove them.
+
 ### V2.3
 
 #### V2.3.8

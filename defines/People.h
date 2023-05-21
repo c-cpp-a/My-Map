@@ -11,6 +11,7 @@
 using namespace std;
 class Map;
 class Egg;
+class Screen;
 class People{
 	public:
 		friend class Egg;
@@ -33,8 +34,7 @@ class People{
 		const int back(const int &);
 	public:
 		People(bool _edit=true):canedit(_edit),move_f(defaults),pos({1,1}){}
-		void set_f(Map &,Egg &);
-		void put_xy(Map &);
+		void move(Map &,Egg &,Screen &);
 		inline const node &at(int x,int y){
 			return doors[x][y];
 		}
@@ -52,7 +52,8 @@ class People{
 };
 #include "Map.h"
 #include "Eggs.h"
-#include "init.h"
+//#include "init.h"
+#include "Screen.h"
 const People::node People::default_node={-1,-1};
 bool People::node::operator!=(const People::node a) const{
 	return x!=a.x || y!=a.y;
@@ -94,7 +95,7 @@ const int People::back(const int &func){
 	}
 	return func;
 }
-void People::set_f(Map &h,Egg &egg){
+void People::move(Map &h,Egg &egg,Screen &screen){
 	if(pos.x<=0 || pos.y<=0)	egg.set_ach(8,1);
 	if(egg[8] && pos.y>0 && pos.x>0){
 		egg.set_ach(9,1);
@@ -126,16 +127,16 @@ void People::set_f(Map &h,Egg &egg){
 		move_f=rights;
 		break;
 	case 'H':case 'h':
-		system("CLS");
-		print_helper();
+		screen.clear();
+		print_helper(screen);
 		break;
 	case 'L':case 'l':
-		system("CLS");
-		set_lang();
+		screen.clear();
+		screen.init_lang(screen.get_data().lang);
 		break; 
 	case 'T':case 't':
-		system("CLS");
-		settings();
+		screen.clear();
+		screen.setting();
 		break;
 	}
 	if(canedit){
@@ -162,8 +163,8 @@ void People::set_f(Map &h,Egg &egg){
 				auto tmp=check_xy(pos,move_f),tmp2=tmp;
 				h.change(tmp.x,tmp.y,door);
 				while(input!=' '){
-					h.print(tmp2.x,tmp2.y,move_f);
-					create_door_helper();
+					h.print(tmp2.x,tmp2.y,move_f,screen);
+					create_door_helper(screen.get_data().lang);
 					input=getch();
 					switch(input){
 					case 'W':case 'w':
@@ -219,9 +220,6 @@ void People::set_f(Map &h,Egg &egg){
 		}
 	}
 }
-void People::put_xy(Map &h){
-	h.print(pos.x,pos.y,move_f);
-}
 void People::save(ostream &fout){
 	fout << pos.x << ' ' << pos.y << ' ' << move_f << endl;
 	for(auto it=doors.begin();it!=doors.end();++it){
@@ -241,6 +239,7 @@ void People::imports(istream &fin){
 			break;
 		} else{
 			doors[xi][yi]=node({xv,yv});
+			
 		}
 	}
 }

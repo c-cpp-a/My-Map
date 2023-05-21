@@ -28,6 +28,14 @@
 
 ## 版本
 
+### V2.4
+
+#### V2.4.0
+
+1. 新增了一个文件夹`example`，您可以查看`mymap`文件示例（如果下载后直接双击打开，音乐可能会加载失败，我正在努力修复）。
+
+2. `init.h`被弃用，其功能被分解至`Screen.h`和`help_func.h`。如果接下来的时间内没有什么问题，我会将其移除。
+
 ### V2.3
 
 #### V2.3.8
@@ -144,15 +152,15 @@ New eggs. Please explore or consult the code yourself.
 
 #### V1.3.1
 
-Add small balls; Discard the archive function and stop providing it until the bug is fixed.
-
-新增小球；弃用存档功能，在修复好bug之前不再提供。
-
-#### V1.3.0
-
 Fix the bug that the ball does not update, and make changes to the screen related help.
 
 修复小球不更新的bug，并对屏幕相关帮助作出更改。
+
+#### V1.3.0
+
+Add small balls; Discard the archive function and stop providing it until the bug is fixed.
+
+新增小球；弃用存档功能，在修复好bug之前不再提供。
 
 ### V1.2
 

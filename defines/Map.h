@@ -10,28 +10,30 @@
 //include custom library
 //导入自定义库
 using namespace std;
+class Screen;
 class Map{
 	private:
 		map<int,map<int,int>> a;
 	public:
-		void print(const int &,const int &,const int &);
+		void print(const int &,const int &,const int &,Screen &);
 		void change(int,int,int);
 		bool issave(int,int);
 		void imports(ifstream &);
 		void save(ofstream &);
 		map<int,int> operator[](const int i);
 };
+#include "Screen.h"
 #include "help_func.h"
-void Map::print(const int &x,const int &y,const int &direct){
-	gotoxy(0,0); 
+void Map::print(const int &x,const int &y,const int &direct,Screen &screen){
+	::gotoxy(0,0); 
 	if(x>=COLS/2 && y>=LINES/2){
 		for(int i=x-LINES/2+1;i<=x+LINES/2;i++){
 			for(int j=y-COLS/2+1;j<=y+COLS/2;j++){
 				if(i==x && j==y){
-					putchar('#');
+					::putchar('#');
 					continue;
 				}
-				map_print(a[i][j]);
+				::map_print(a[i][j],screen);
 			}
 			putchar('\n');
 		}
@@ -42,7 +44,7 @@ void Map::print(const int &x,const int &y,const int &direct){
 					putchar('#');
 					continue;
 				}
-				map_print(a[i][j]);
+				::map_print(a[i][j],screen);
 			}
 			putchar('\n');
 		}
@@ -53,7 +55,7 @@ void Map::print(const int &x,const int &y,const int &direct){
 					putchar('#');
 					continue;
 				}
-				map_print(a[i][j]);
+				::map_print(a[i][j],screen);
 			}
 			putchar('\n');
 		}
@@ -64,13 +66,13 @@ void Map::print(const int &x,const int &y,const int &direct){
 					putchar('#');
 					continue;
 				}
-				map_print(a[i][j]);
+				map_print(a[i][j],screen);
 			}
 			putchar('\n');
 		}
 	}
-	if(::mode==debugger){
-		string contents="pos=("+to_string(x)+","+to_string(y)+"),direct="+direct_content[::lang][direct];
+	if(screen.get_data().mode==debugger){
+		string contents="pos=("+to_string(x)+","+to_string(y)+"),direct="+direct_content[screen.get_data().lang][direct];
 		gotoxy(0,COLS);
 		cout << contents;
 	}
