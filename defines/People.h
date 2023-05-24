@@ -34,7 +34,7 @@ class People{
 		const int back(const int &);
 	public:
 		People(bool _edit=true):canedit(_edit),move_f(defaults),pos({1,1}){}
-		void move(Map &,Egg &,Screen &);
+		void move(Map &h,Egg &egg,Screen &screen,const char &command);
 		inline const node &at(int x,int y){
 			return doors[x][y];
 		}
@@ -95,13 +95,12 @@ const int People::back(const int &func){
 	}
 	return func;
 }
-void People::move(Map &h,Egg &egg,Screen &screen){
+void People::move(Map &h,Egg &egg,Screen &screen,const char &command){
 	if(pos.x<=0 || pos.y<=0)	egg.set_ach(8,1);
 	if(egg[8] && pos.y>0 && pos.x>0){
 		egg.set_ach(9,1);
 	}
-	int a=getch();
-	switch(a){
+	switch(command){
 	case 'W':case 'w':
 		if(!h.issave(pos.x-1,pos.y))	break;
 		if(pos.x>1){
@@ -140,7 +139,7 @@ void People::move(Map &h,Egg &egg,Screen &screen){
 		break;
 	}
 	if(canedit){
-		switch(a){
+		switch(command){
 			case '1':
 			{
 				auto tmp=check_xy(pos,move_f);

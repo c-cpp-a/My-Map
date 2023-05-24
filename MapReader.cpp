@@ -35,7 +35,9 @@ int main(int argc,char ** argv){
 		::screen_helper(screen.get_data().lang);//提供帮助(Help)
 		if(egg.is_ach())	egg.print_ach();//如果触发了成就系统，就运行输出成就(If the achievement system is triggered, run the output achievement)
 		Sleep(10);//游戏的刷新时间 
-		p.move(G,egg,screen);//输入(input)
+		char ch=getch();
+		if(ch==27)	break;
+		p.move(G,egg,screen,ch);//输入(input)
 	}
 	return 0;
 }
