@@ -1,5 +1,9 @@
 # My-Map
 
+## note
+
+This version is for Windows only. Chinese output or comments may be garbled, so feedback or transcoding can be performed (code usage code: GB2312). You can also read README.md in [English](README-EN.md) or [Chinese](README.md). At present, the panel conversion has not been completed.
+
 ## directory
 - [note](#note)
 
@@ -7,11 +11,7 @@
 
 - [version](#version)
 
-- [Discussion Channel](#Discussion Channel)
-
-## note
-
-This version is for Windows only. Chinese output or comments may be garbled, so feedback or transcoding can be performed (code usage code: GB2312). You can also read README.md in [English](README-EN.md) or [Chinese](README.md). At present, the panel conversion has not been completed.
+- [Discussion Channel](#Discussion-Channel)
 
 ## instructions
 
