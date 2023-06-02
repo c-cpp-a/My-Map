@@ -39,6 +39,8 @@ public:
 	~Screen();
 	Data &get_data(){return data;}
 	void setting();
+	void alert(const std::string &title,const std::string &content);
+	void save();
 };
 #include "Map.h"
 #include "People.h"
@@ -75,8 +77,14 @@ Screen::Screen(Egg &_egg,Map &_m,People &_p,bool isedit,int argc,char ** argv):e
 		title("MapReader[read only]");
 	}
 	set_length_width(COLS,LINES+ADD_LINE);
+	string background_music_name=argv[0];
+	while(background_music_name.back()!='\\'){
+		background_music_name.pop_back();
+	}
+	background_music_name+="defines\\sound\\1st.mp3";
+//	alert("提示","background_music_name="+background_music_name);
 	system(("cd \""+std::string(_getcwd(NULL,0))+"\"").c_str());
-	system("start \"\" \".\\defines\\sound\\1st.mp3\"");
+	system(("start "+background_music_name).c_str());
 	if(argc==1){
 		data.savefile_name=SAVE_NAME;
 		init_lang(data.lang);
@@ -104,12 +112,7 @@ Screen::Screen(Egg &_egg,Map &_m,People &_p,bool isedit,int argc,char ** argv):e
 	clear();
 }
 Screen::~Screen(){
-	std::ofstream fout(data.savefile_name);
-	map.save(fout);
-	people.save(fout);
-	egg.save(fout);
-	fout << data.mode << ' ' << data.lang << endl;
-	fout.close();
+	save();
 }
 void Screen::setting(){
 	int choose;
@@ -147,5 +150,16 @@ void Screen::setting(){
 			break;
 		}
 	} while(choose!='q' && choose!='Q');
+}
+void Screen::alert(const std::string &title,const std::string &content){
+	MessageBox(NULL,content.c_str(),title.c_str(),MB_OK);
+}
+void Screen::save(){
+	std::ofstream fout(data.savefile_name);
+	map.save(fout);
+	people.save(fout);
+	egg.save(fout);
+	fout << data.mode << ' ' << data.lang << endl;
+	fout.close();
 }
 #endif

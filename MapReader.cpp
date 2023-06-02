@@ -25,12 +25,13 @@ int main(int argc,char ** argv){
 	People p;
 	Egg egg; 
 	Screen screen(egg,G,p,false,argc,argv);
-	//	init(p,G,egg,argc,argv);//调用初始化函数(Call initialization function)
+	//init(p,G,egg,argc,argv);//调用初始化函数(Call initialization function)
 	//游戏循环(Game cycle)
 	//游戏的刷新速度约为100次/秒(Running speed of the game is about 100 ticks/second)
 	while(true){
-		//		save(p,G,egg);//保存游戏
+		screen.save();//保存游戏
 		egg.check_run(screen.get_data().lang,p,G);//检测是否触发彩蛋(Check whether the egg is triggered)
+		::ShowCursor(false);
 		G.print(p.get_pos().x,p.get_pos().y,p.get_movef(),screen);//输出(print) 
 		::screen_helper(screen.get_data().lang);//提供帮助(Help)
 		if(egg.is_ach())	egg.print_ach();//如果触发了成就系统，就运行输出成就(If the achievement system is triggered, run the output achievement)

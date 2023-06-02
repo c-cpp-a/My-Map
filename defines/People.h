@@ -238,7 +238,6 @@ void People::imports(istream &fin){
 			break;
 		} else{
 			doors[xi][yi]=node({xv,yv});
-			
 		}
 	}
 }

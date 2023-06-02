@@ -1,9 +1,5 @@
 # My-Map
 
-## note
-
-This version is for Windows only. Chinese output or comments may be garbled, so feedback or transcoding can be performed (code usage code: GB2312). You can also read README.md in [English](README-EN.md) or [Chinese](README.md). At present, the panel conversion has not been completed.
-
 ## directory
 - [note](#note)
 
@@ -11,7 +7,11 @@ This version is for Windows only. Chinese output or comments may be garbled, so 
 
 - [version](#version)
 
-- [Discussion Channel](#Discussion-Channel)
+- [Discussion Channel](#Discussion Channel)
+
+## note
+
+This version is for Windows only. Chinese output or comments may be garbled, so feedback or transcoding can be performed (code usage code: GB2312). You can also read README.md in [English](README-EN.md) or [Chinese](README.md). At present, the panel conversion has not been completed.
 
 ## instructions
 
@@ -31,7 +31,7 @@ Of course, you can also set modes, view help, and create archives. These parts a
 
 #### V2.4.0
 
-1. A new folder 'example' has been added, where you can view the 'mymap' file example (if you double-click to open it after downloading, the music may fail to load, and I am working hard to fix it).
+1. A new folder 'example' has been added, where you can view examples of the 'mymap' file. We strongly recommend trying to pass the 'maze. mymap' level. This file utilizes some bugs, but I will make it a setting in future technical adjustments. You can wait for it!
 
 2. 'init. h' has been deprecated and its functionality has been decomposed into 'Screen. h' and 'help'_ func.h`。 If there are no issues in the future, I will remove them.
 

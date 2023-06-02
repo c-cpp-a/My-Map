@@ -46,6 +46,16 @@ enum{//游戏模式
 	 *	清一色模式：所有的东西（空地除外）都显示成-，让你猜。 
 	 */
 };
+enum{//键盘操作
+	ESC_ASCII=27,
+	DIRECT_ASCII=224,
+	DIRECT_RIGHT_ASCII=77,
+	DIRECT_LEFT_ASCII=75,
+	KEY_UP='W',
+	KEY_DOWN='A',
+	KEY_LEFT='S',
+	KEY_RIGHT='D'
+};
 std::unordered_map<std::size_t,char> print_c={//对应元素显示成什么样 
 	{floors,' '},
 	{rock,'-'},
