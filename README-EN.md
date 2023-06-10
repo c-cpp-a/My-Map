@@ -7,7 +7,7 @@
 
 - [version](#version)
 
-- [Discussion Channel](#Discussion Channel)
+- [Discussion Channel](#Discussion-Channel)
 
 ## note
 
@@ -98,3 +98,5 @@ Slightly revised RENAME.md.
 [github link](https://github.com/c-cpp-a/My-Map/discussions) (github.com)
 
 [luogu link](https://www.luogu.com.cn/blog/somebody66xyyd/my-map) (luogu.com.cn）
+
+[discord link](https://discord.gg/cfasGUAj) (discord.gg)
