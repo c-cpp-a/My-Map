@@ -26,6 +26,10 @@
 
 当然，你也可以设定模式、查看帮助、创建存档。这些部分留给玩家自己探索。
 
+The newly introduced portable version of Linux may damage the experience.
+
+新推出了linux的移植版本，体验可能受损。
+
 ## 版本
 
 ### V2.4
