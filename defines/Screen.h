@@ -92,14 +92,16 @@ Screen::Screen(Egg &_egg,Map &_m,People &_p,bool isedit,int argc,char ** argv):e
 		if(data.lang==Chinese){
 			cout << "请问您是否要导入存档？如果不导入，存档可能丢失。（本功能测试中）\n";
 			cout << "按'y'键导入存档。";
-			if(getch()=='y'){
+			char ch=getch();
+			if(ch=='y' || ch=='Y'){
 				cout << "加载中……";
 				import();
 			}
 		} else if(data.lang==English){
 			cout << "Do you want to import the archive? If you do not import, the archive may be lost.(in this function test)\n";
 			cout << "Press the 'y' key to import the archive.";
-			if(getch()=='y'){
+			char ch=getch();
+			if(ch=='y' || ch=='Y'){
 				cout << "loading...";
 				import();
 			}
