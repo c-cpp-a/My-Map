@@ -16,6 +16,7 @@ private:
 	Map &map;
 	People &people;
 	HANDLE handle;
+	std::string gametitle;
 public:
 	struct Data{
 		int lang,mode;
@@ -24,14 +25,17 @@ public:
 private:
 	Data data;
 public:
-	void title(const std::string &s){
+	inline void title(const std::string &s){
 		system(("title "+s).c_str());
 	}
-	void set_length_width(const int &length,const int &width){
+	inline void set_length_width(const int &length,const int &width){
 		system(("mode "+std::to_string(length)+","+std::to_string(width)).c_str());
 	}
-	void clear(){
+	inline void clear(){
 		system("CLS");
+	}
+	inline const std::string defaut_title(bool isedit) const{
+		return std::string((isedit?"我的地图(My-Map)":"MapReader[read only]"));
 	}
 	void init_lang(int &lang);
 	void import();
@@ -69,13 +73,16 @@ void Screen::import(){
 	fin >> data.mode >> data.lang;
 	fin.close();
 }
-Screen::Screen(Egg &_egg,Map &_m,People &_p,bool isedit,int argc,char ** argv):egg(_egg),map(_m),people(_p){
+Screen::Screen(Egg &_egg,Map &_m,People &_p,bool isedit,int argc,char ** argv):egg(_egg),map(_m),people(_p),gametitle(defaut_title(isedit)){
 	handle=GetStdHandle(STD_OUTPUT_HANDLE);
-	if(isedit){
-		title("我的地图(My-Map)");
-	} else{
-		title("MapReader[read only]");
+	for(int args=2;args<argc;args++){
+		string nowcmd=argv[args];
+		if(nowcmd.rfind("-title=")==0){
+			gametitle+=nowcmd.substr(7);
+			alert(("update title="+gametitle).c_str());
+		}
 	}
+	title(gametitle);
 	set_length_width(COLS,LINES+ADD_LINE);
 	string background_music_name=argv[0];
 	while(background_music_name.back()!='\\'){
@@ -111,6 +118,7 @@ Screen::Screen(Egg &_egg,Map &_m,People &_p,bool isedit,int argc,char ** argv):e
 		data.savefile_name=argv[1];
 		import();
 	}
+	
 	clear();
 }
 Screen::~Screen(){
@@ -119,7 +127,7 @@ Screen::~Screen(){
 void Screen::setting(){
 	int choose;
 	do{
-		system("CLS");
+		clear();
 		if(data.lang==Chinese){
 			//language:Chinese
 			//语言：中文

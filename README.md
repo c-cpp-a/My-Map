@@ -30,6 +30,14 @@
 
 ### V2.4
 
+#### V2.4.1
+
+1. 修复了读入存档时不能通过大写`Y`读入的问题。感谢[peizekai](https://github.com/peizekai)。
+
+2. 修复了`MapReader`的只读被破坏的问题。
+
+3. 新增一个命令行参数，您可以通过在命令行中指定`-title=`来修改标题（前提是先传入一个存档文件），形如`main.exe data.mymap -title=FirstMap`。显示标题时会附加您的标题，形如`我的世界(My-Map)FirstMap`。注意标题不能有空格。（未实装）
+
 #### V2.4.0
 
 1. 新增了一个文件夹`example`，您可以查看`mymap`文件示例。强烈建议尝试通关 `maze.mymap`。这个文件利用了一些bug，不过我会在之后的技术性调整中将其变为一种设置。可以等待！
@@ -188,5 +196,3 @@ This is a new Sandbox game. You can create or destroy rocks here, and you can wa
 [github链接](https://github.com/c-cpp-a/My-Map/discussions) (github.com)
 
 [洛谷链接](https://www.luogu.com.cn/blog/somebody66xyyd/my-map) (luogu.com.cn）
-
-[discord链接](https://discord.gg/cfasGUAj)（discord.gg）

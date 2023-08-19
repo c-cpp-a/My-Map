@@ -7,7 +7,7 @@
 
 - [version](#version)
 
-- [Discussion Channel](#Discussion-Channel)
+- [Discussion Channel](#Discussion Channel)
 
 ## note
 
@@ -28,6 +28,14 @@ Of course, you can also set modes, view help, and create archives. These parts a
 ## version
 
 ### V2.4
+
+#### V2.4.1
+
+1. Fixed the issue of not being able to read through uppercase `Y` when reading into archives. Thanks [peizekai](https://github.com/peizekai).
+
+2. Fixed the issue of read-only corruption in `MapReader`.
+
+3. Add a command line parameter that allows you to modify the title by specifying '-title=' on the command line (provided an archive file is passed in first), such as `main.exe data.mymap -title=FirstMap`. When displaying the title, your title will be attached, in the form of `我的地图(My-Map)FirstMap'. Please note that the title cannot have spaces. (Not actually installed)
 
 #### V2.4.0
 
@@ -98,5 +106,3 @@ Slightly revised RENAME.md.
 [github link](https://github.com/c-cpp-a/My-Map/discussions) (github.com)
 
 [luogu link](https://www.luogu.com.cn/blog/somebody66xyyd/my-map) (luogu.com.cn）
-
-[discord link](https://discord.gg/cfasGUAj) (discord.gg)
