@@ -1,11 +1,11 @@
 /*
  *	作者：c-cpp-a(Github) 
- *	最近更新：2023/5/21
+ *	最近更新：2024/1/28
  *	功能简述：这是整个游戏的主体部分，负责运行游戏。 
  */ 
 /*
  *	Author: c-cpp-a(Github)
- *	Last updated: 2023/5/21
+ *	Last updated: 2024/1/28
  *	Function description: This is the main part of the whole game, responsible for running the game.
  */
 //include STL
@@ -42,4 +42,3 @@ int main(int argc,char ** argv){
 	}
 	return 0;
 }
-

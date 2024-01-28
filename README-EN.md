@@ -1,33 +1,55 @@
 # My-Map
 
-## directory
-- [note](#note)
+## Table of contents
 
-- [instructions](#instructions)
+- [Precautions](#Precautions)
 
-- [version](#version)
+- [game instructions](#game-instructions)
 
-- [Discussion Channel](#Discussion-Channel)
+- [Version](#Version)
 
-## note
+- [discussion channel](#discussion-channel)
 
-This version is for Windows only. Chinese output or comments may be garbled, so feedback or transcoding can be performed (code usage code: GB2312). You can also read README.md in [English](README-EN.md) or [Chinese](README.md). At present, the panel conversion has not been completed.
+## Precautions
 
-## instructions
+This version is only available for Windows. Chinese output or comments may be garbled and can be fed back or transcoded (code usage encoding: GB2312). You can also choose the reading language: [English](README-EN.md), [中文](README.md). The plate conversion has not yet been completed.
 
-The game adopts the form of displaying a two-dimensional map to the console. The player displays the character '#' and displays it. Players can use the 'WASD' button to move (those who have played the game know what I mean, or they can search for it themselves), and can create the following items in the forward direction (If it is already an item, it will overwrite the original item; Editing is invalid in read-only mode 'MapReader'):
+## game instructions
 
-- Wall, press the '2' key to create it. The wall displays as' - '. Players cannot move through walls. This means you can build a maze now!
-- Portal, press the '3' key to create. The portal is displayed as' @ '. If players move through the portal, they will be teleported to a specific location (designated by themselves). Of course, ignore what item is on it (note, this is the key to egg coloring!)
-- Ball, press the '4' key to create it. The ball is displayed as' o '. If a player wants to move onto a small ball, the ball will be pushed back one grid. Of course, the small ball behind it will also be pushed.
+### Game rules and items
 
-If you want to clear the items in the forward direction, you can press the '1' button, which is equivalent to creating a floor (not displayed).
+The game takes the form of a two-dimensional map displayed to the console. The player is shown as the character `#`, and displayed. Players can use the `WASD` keys to move up, down, left, and right (anyone who has played the game will know what I am referring to, or you can search for it yourself), and can create the following items in the forward direction (if the item has been, the original item will be overwritten; editing will be invalid in read-only mode `MapReader`):
 
-Of course, you can also set modes, view help, and create archives. These parts are left for players to explore on their own.
+- Walls, created by pressing the `2` key. The wall appears as `-`. Players cannot move through walls. This means you can build a maze!
+- Portal, created by pressing `3` key. The portal appears as `@`. If the player passes through the portal by moving, you will be teleported to a certain location (specified by yourself). Of course, regardless of what item is on it (note, this is the key to the Easter egg!)
+- Small ball, press `4` key to create. The ball appears as `o`. If the player wants to move to a small ball, the small ball will be pushed back one space. Of course, the little ball behind it will also be pushed.
 
-## version
+If you want to clear the items in the forward direction, you can press the `1` key, which is equivalent to creating a floor (not displayed).
+
+### Command line parameters
+
+Here is the default command line (or its equivalent, files considered below for these operations are `main.exe` or `MapReader.exe`):
+
+```
+main.exe
+```
+There are three optional parameter items `save`, `music` and `title`. The method of passing parameter items is `-<key>=<value>`, where `<key>` is the parameter item name, and `<value>` is the parameter item value. Note that the parameter value cannot contain spaces.
+
+-  `save` : Set the archive access and save location to this parameter value.
+
+-  `music` : No music will be played when the parameter value is `off`.
+
+-  `title` : Set the title. Your title will be prefixed with `[My-Map]` or `[MapReader]`.
+
+## Version
 
 ### V2.4
+
+#### V2.4.2
+
+1. Fixed command line issues, see command line parameters for details.
+
+2. This and subsequent releases are available starting from this release.
 
 #### V2.4.1
 
@@ -101,10 +123,10 @@ Slightly revised RENAME.md.
 
 --snip--
 
-## Discussion Channel
+## discussion channel
 
-[github link](https://github.com/c-cpp-a/My-Map/discussions) (github.com)
+[github链接](https://github.com/c-cpp-a/My-Map/discussions) (github.com)
 
-[luogu link](https://www.luogu.com.cn/blog/somebody66xyyd/my-map) (luogu.com.cn）
+[洛谷链接](https://www.luogu.com.cn/blog/somebody66xyyd/my-map) (luogu.com.cn）
 
-[discord link](https://discord.gg/Sm7MktGB4u)
+[discord链接](https://discord.gg/Sm7MktGB4u)

@@ -35,7 +35,7 @@ public:
 		system("CLS");
 	}
 	inline const std::string defaut_title(bool isedit) const{
-		return std::string((isedit?"我的地图(My-Map)":"MapReader[read only]"));
+		return std::string((isedit?"[My-Map]":"[MapReader]"));
 	}
 	void init_lang(int &lang);
 	void import();
@@ -75,24 +75,23 @@ void Screen::import(){
 }
 Screen::Screen(Egg &_egg,Map &_m,People &_p,bool isedit,int argc,char ** argv):egg(_egg),map(_m),people(_p),gametitle(defaut_title(isedit)){
 	handle=GetStdHandle(STD_OUTPUT_HANDLE);
-	for(int args=2;args<argc;args++){
-		string nowcmd=argv[args];
-		if(nowcmd.rfind("-title=")==0){
-			gametitle+=nowcmd.substr(7);
-			alert(("update title="+gametitle).c_str());
-		}
+	Argument arg(argc,argv);
+	if(arg.find("title").size()){
+		gametitle+=arg.find("title");
 	}
 	title(gametitle);
 	set_length_width(COLS,LINES+ADD_LINE);
-	string background_music_name=argv[0];
-	while(background_music_name.back()!='\\'){
-		background_music_name.pop_back();
+	string background_music_name=arg.filename();
+	if(arg.find("music")!="off"){
+		while(background_music_name.back()!='\\'){
+			background_music_name.pop_back();
+		}
+		background_music_name+="defines\\sound\\1st.mp3";
+		//	alert("提示","background_music_name="+background_music_name);
+		system(("cd \""+std::string(_getcwd(NULL,0))+"\"").c_str());
+		system(("start "+background_music_name).c_str());
 	}
-	background_music_name+="defines\\sound\\1st.mp3";
-//	alert("提示","background_music_name="+background_music_name);
-	system(("cd \""+std::string(_getcwd(NULL,0))+"\"").c_str());
-	system(("start "+background_music_name).c_str());
-	if(argc==1){
+	if(arg.other_argument().empty() && arg.find("save").empty()){
 		data.savefile_name=SAVE_NAME;
 		init_lang(data.lang);
 		clear();
@@ -114,8 +113,9 @@ Screen::Screen(Egg &_egg,Map &_m,People &_p,bool isedit,int argc,char ** argv):e
 			}
 		}
 		
-	} else if(argc==2){
-		data.savefile_name=argv[1];
+	} else{
+		if(arg.other_argument().size())	data.savefile_name=const_cast<char *>(arg.other_argument()[0].c_str());
+		if(arg.find("save").size())	data.savefile_name=const_cast<char *>(arg.find("save").c_str());
 		import();
 	}
 	

@@ -6,6 +6,8 @@
 #include<windows.h>
 #include<conio.h>
 #include<iostream>
+#include<vector>
+#include<map>
 #include "def"
 class Screen;
 namespace{
@@ -18,6 +20,48 @@ namespace{
 	void screen_helper(const int &lang);
 	void print_helper(Screen &screen);
 	void create_door_helper(const int &lang);
+	class Argument{
+	private:
+		map<string,string> mapp;//键-值对，即-a=b的形式
+		vector<string> other;
+		string openfile;//第一个参数，参数名
+	public:
+		Argument(int argc,char ** argv){
+			openfile=string(argv[0]);
+			for(int i=1;i<argc;i++){
+				if(argv[i][0]=='-'){
+					string key,value;
+					int j=1,siz=strlen(argv[i]);
+					for(;j<siz;j++){
+						if(argv[i][j]=='='){
+							j++;
+							break;
+						}
+						key.push_back(argv[i][j]);
+					}
+					if(j>=siz){
+						throw runtime_error("invaild argument: on argument "+to_string(i+1));
+					}
+					for(;j<siz;j++){
+						value.push_back(argv[i][j]);
+					}
+					mapp[key]=value;
+				} else{
+					other.push_back(string(argv[i]));
+				}
+			}
+		}
+		string find(const string &s) const{
+			auto tmp=mapp.find(s);
+			return tmp==mapp.end()?string():tmp->second;
+		}
+		const vector<string> &other_argument() const{
+			return other;
+		}
+		const string &filename() const{
+			return openfile;
+		}
+	};
 }
 #include "Screen.h"
 namespace{
