@@ -12,7 +12,7 @@
 class Screen;
 namespace{
 	using namespace std;
-	void print(const string s);
+	void print(const string &s);
 	void gotoxy(short x,short y);
 	int ach_print(const string s,short starty);
 	void map_print(const char &ch,Screen &screen);
@@ -65,7 +65,7 @@ namespace{
 }
 #include "Screen.h"
 namespace{
-	void print(const string s){
+	void print(const string &s){
 		for(size_t len=s.length(),i=0U;i<len;i++){
 			putchar(s[i]);
 			Sleep(30);

@@ -7,6 +7,7 @@
 #include<fstream>
 #include<direct.h>
 #include "def"
+#include "settings.h"
 class Egg;
 class Map;
 class People;
@@ -15,6 +16,7 @@ private:
 	Egg &egg;
 	Map &map;
 	People &people;
+	Settings sett;
 	HANDLE handle;
 	std::string gametitle;
 public:
@@ -75,6 +77,14 @@ void Screen::import(){
 }
 Screen::Screen(Egg &_egg,Map &_m,People &_p,bool isedit,int argc,char ** argv):egg(_egg),map(_m),people(_p),gametitle(defaut_title(isedit)){
 	handle=GetStdHandle(STD_OUTPUT_HANDLE);
+	sett=Settings(std::vector<Settings::setting>({
+		Settings::setting({"","模式","mode"},&data.mode,vector<Settings::setting::option>({
+			Settings::setting::option({"","正常的模式","normal"}),
+			Settings::setting::option({"","开发者模式","debugger"}),
+			Settings::setting::option({"","地狱的模式","infernal"}),
+			Settings::setting::option({"","清一色模式","all in one color"})
+		}))
+	}));
 	Argument arg(argc,argv);
 	if(arg.find("title").size()){
 		gametitle+=arg.find("title");
@@ -125,41 +135,42 @@ Screen::~Screen(){
 	save();
 }
 void Screen::setting(){
-	int choose;
-	do{
-		clear();
-		if(data.lang==Chinese){
-			//language:Chinese
-			//语言：中文
-			std::cout << "模式：";
-		} else if(data.lang==English){
-			//language:English
-			//语言：英文
-			std::cout << "pattern:";
-		}
-		std::cout << mode_content[data.lang][data.mode];
-		if(data.lang==Chinese){
-			//language:Chinese
-			//语言：中文
-			std::cout << "\n按左右键选择，按q键退出。";
-		} else if(data.lang==English){
-			//language:English
-			//语言：英文
-			std::cout << "\nPress the left and right keys to select, and press the q key to exit.";
-		}
-		choose=getch();
-		if(choose==224){
-			choose=getch();
-		}
-		switch(choose){
-			case 77://右键
-			data.mode=(data.mode+1)%MODE_COUNT; 
-			break;
-			case 75://左键 
-			data.mode=(data.mode-1+MODE_COUNT)%MODE_COUNT;
-			break;
-		}
-	} while(choose!='q' && choose!='Q');
+//	int choose;
+//	do{
+//		clear();
+//		if(data.lang==Chinese){
+//			//language:Chinese
+//			//语言：中文
+//			std::cout << "模式：";
+//		} else if(data.lang==English){
+//			//language:English
+//			//语言：英文
+//			std::cout << "pattern:";
+//		}
+//		std::cout << mode_content[data.lang][data.mode];
+//		if(data.lang==Chinese){
+//			//language:Chinese
+//			//语言：中文
+//			std::cout << "\n按左右键选择，按q键退出。";
+//		} else if(data.lang==English){
+//			//language:English
+//			//语言：英文
+//			std::cout << "\nPress the left and right keys to select, and press the q key to exit.";
+//		}
+//		choose=getch();
+//		if(choose==224){
+//			choose=getch();
+//		}
+//		switch(choose){
+//			case 77://右键
+//			data.mode=(data.mode+1)%MODE_COUNT; 
+//			break;
+//			case 75://左键 
+//			data.mode=(data.mode-1+MODE_COUNT)%MODE_COUNT;
+//			break;
+//		}
+//	} while(choose!='q' && choose!='Q');
+	sett.show(data.lang);
 }
 void Screen::alert(const std::string &title,const std::string &content){
 	MessageBox(NULL,content.c_str(),title.c_str(),MB_OK);

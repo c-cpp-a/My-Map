@@ -1,6 +1,6 @@
 /*
  *	作者：C-cpp-a(Github) 
- *	最近更新：2023/5/9
+ *	最近更新：2023/2/3
  *	功能简述：这是游戏的基本定义部分。负责常量、enum。当然为了游戏的编写方便，这里的显示字符映射使用了std::unordered_map。 
  */ 
 //For some reasons, the English version notes will not be displayed here. 
@@ -51,12 +51,14 @@ enum{//键盘操作
 	DIRECT_ASCII=224,
 	DIRECT_RIGHT_ASCII=77,
 	DIRECT_LEFT_ASCII=75,
+	DIRECT_DOWN_ASCII=80,
+	DIRECT_UP_ASCII=72,
 	KEY_UP='W',
 	KEY_DOWN='A',
 	KEY_LEFT='S',
 	KEY_RIGHT='D'
 };
-std::unordered_map<std::size_t,char> print_c={//对应元素显示成什么样 
+std::unordered_map<int,char> print_c={//对应元素显示成什么样 
 	{floors,' '},
 	{rock,'-'},
 	{door,'@'},

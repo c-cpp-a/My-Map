@@ -45,6 +45,10 @@ There are three optional parameter items `save`, `music` and `title`. The method
 
 ### V2.4
 
+#### V2.4.3
+
+1. Added a new file `settings.h`, which extracts the problem of option settings separately, and has some minor optimizations and updates to the display interface.
+
 #### V2.4.2
 
 1. Fixed command line issues, see command line parameters for details.
@@ -57,13 +61,13 @@ There are three optional parameter items `save`, `music` and `title`. The method
 
 2. Fixed the issue of read-only corruption in `MapReader`.
 
-3. Add a command line parameter that allows you to modify the title by specifying '-title=' on the command line (provided an archive file is passed in first), such as `main.exe data.mymap -title=FirstMap`. When displaying the title, your title will be attached, in the form of `我的地图(My-Map)FirstMap'. Please note that the title cannot have spaces. (Not actually installed)
+3. Add a command line parameter that allows you to modify the title by specifying `-title=` on the command line (provided an archive file is passed in first), such as `main.exe data.mymap -title=FirstMap`. When displaying the title, your title will be attached, in the form of `我的地图(My-Map)FirstMap`. Please note that the title cannot have spaces. (Not actually installed)
 
 #### V2.4.0
 
-1. A new folder 'example' has been added, where you can view examples of the 'mymap' file. We strongly recommend trying to pass the 'maze. mymap' level. This file utilizes some bugs, but I will make it a setting in future technical adjustments. You can wait for it!
+1. A new folder `example` has been added, where you can view examples of the `mymap` file. We strongly recommend trying to pass the `maze. mymap` level. This file utilizes some bugs, but I will make it a setting in future technical adjustments. You can wait for it!
 
-2. 'init. h' has been deprecated and its functionality has been decomposed into 'Screen. h' and 'help'_ func.h`。 If there are no issues in the future, I will remove them.
+2. `init. h` has been deprecated and its functionality has been decomposed into `Screen. h` and `help_func.h`。 If there are no issues in the future, I will remove them.
 
 ### V2.3
 
@@ -81,11 +85,11 @@ You can play the music now.
 
 1. Add two new achievements (extremely difficult to obtain)!
 
-2. Added a directory for 'README.md'.
+2. Added a directory for `README.md`.
 
 #### V2.3.5
 
-Archive updated again! Added language options. In addition, if you do not want to use the default archive location, you can also open the archive file with using 'main.exe'.
+Archive updated again! Added language options. In addition, if you do not want to use the default archive location, you can also open the archive file with using `main.exe`.
 
 #### V2.3.4
 

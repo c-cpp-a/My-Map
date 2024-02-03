@@ -7,6 +7,7 @@ class Map;
 class People;
 class Egg;
 #include "defines/def"
+#include "defines/settings.h"
 #include "defines/help_func.h"
 #include "defines/Map.h"
 #include "defines/People.h"
